@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import finance.drive.com.publicfinance.base.BaseFragment
-import android.widget.ImageView.ScaleType
 import com.jude.rollviewpager.RollPagerView
 import com.jude.rollviewpager.adapter.LoopPagerAdapter
 
@@ -35,8 +34,8 @@ internal class TestLoopAdapter(viewPager: RollPagerView) : LoopPagerAdapter(view
     override fun getView(container: ViewGroup, position: Int): View {
         val view = ImageView(container.context)
         view.setImageResource(imgs[position])
-        view.setScaleType(ImageView.ScaleType.CENTER_CROP)
-        view.setLayoutParams(ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+        view.scaleType = ImageView.ScaleType.CENTER_CROP
+        view.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         return view
     }
 
