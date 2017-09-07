@@ -1,7 +1,7 @@
-package com.drive.finance.tab
+package com.drive.finance.ui.drawer
 
-import android.support.design.widget.TabLayout
 import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
@@ -12,10 +12,10 @@ import android.view.ViewGroup
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 
-class FinanceFragment : BaseFragment() {
+class TeamFragment : BaseFragment() {
 
-    val financeTabLayout by lazy {
-        view?.findViewById(R.id.financeTabLayout) as TabLayout
+    val teamTabLayout by lazy {
+        view?.findViewById(R.id.teamTabLayout) as TabLayout
     }
     val viewPager by lazy {
         view?.findViewById(R.id.viewPager) as ViewPager
@@ -23,27 +23,34 @@ class FinanceFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_finance, container, false)
+        return inflater!!.inflate(R.layout.fragment_team, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        financeTabLayout.setupWithViewPager(viewPager)
-        viewPager.adapter = FinancePageAdapter(childFragmentManager)
+        teamTabLayout.setupWithViewPager(viewPager)
+        viewPager.adapter = TeamPageAdapter(childFragmentManager)
     }
+
 }
 
-class FinancePageAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
+class TeamPageAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
 
-    val titles = arrayOf("定期理财产品", "活期理财产品")
+    val titles = arrayOf("推荐列表", "推荐图谱")
 
     override fun getCount(): Int = 2
 
-    override fun getItem(position: Int): Fragment = createFinanceListFragment(titles[position])
+    override fun getItem(position: Int): Fragment {
+        if (position == 0) {
+            return createTeamRecommendFragment()
+        } else {
+            return createTeamAtlasFragment()
+        }
+    }
 
     override fun getPageTitle(position: Int): CharSequence = titles[position]
 }
 
-fun createFinanceFragment(): FinanceFragment {
-    return FinanceFragment()
+fun createTeamFragment() : TeamFragment {
+    return TeamFragment()
 }

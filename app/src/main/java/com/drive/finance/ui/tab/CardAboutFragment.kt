@@ -1,21 +1,22 @@
-package com.drive.finance
+package com.drive.finance.ui.tab
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 
-class TeamAtlasFragment : BaseFragment() {
+
+class CardAboutFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_team_atlas, container, false)
+        return inflater!!.inflate(R.layout.fragment_card_about, container, false)
     }
 
 }
 
-fun createTeamAtlasFragment() : TeamAtlasFragment {
-    return TeamAtlasFragment()
+fun createCardAboutFragment() : CardAboutFragment {
+    return CardAboutFragment()
 }

@@ -1,4 +1,4 @@
-package com.drive.finance.tab
+package com.drive.finance.ui.tab
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -10,7 +10,7 @@ import android.widget.LinearLayout
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 
-class FinanceListFragment : BaseFragment() {
+class MineFragment : BaseFragment() {
 
     val recyclerView by lazy {
         view?.findViewById(R.id.recyclerView) as RecyclerView
@@ -18,21 +18,21 @@ class FinanceListFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_finance_list, container, false)
+        return inflater!!.inflate(R.layout.fragment_mine, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = FinanceListAdapter()
+        recyclerView.adapter = MineListAdapter()
     }
 }
 
-class FinanceListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MineListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
-        val rootView = LayoutInflater.from(parent!!.context).inflate(R.layout.fragment_finance_item, null, false)
+        val rootView = LayoutInflater.from(parent!!.context).inflate(R.layout.fragment_mine_item, null, false)
         rootView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-        return FinanceListViewHolder(rootView)
+        return MineListViewHolder(rootView)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
@@ -43,8 +43,8 @@ class FinanceListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 }
 
-class FinanceListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+class MineListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
-fun createFinanceListFragment(title: String): FinanceListFragment {
-    return FinanceListFragment()
+fun createMineFragment(): MineFragment {
+    return MineFragment()
 }

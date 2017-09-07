@@ -1,4 +1,4 @@
-package com.drive.finance.tab
+package com.drive.finance.ui.tab
 
 import android.os.Bundle
 import android.view.LayoutInflater

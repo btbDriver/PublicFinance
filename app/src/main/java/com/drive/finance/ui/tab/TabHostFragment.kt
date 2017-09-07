@@ -1,4 +1,4 @@
-package com.drive.finance.tab
+package com.drive.finance.ui.tab
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
-import com.drive.finance.tab.*
 import org.jetbrains.anko.onClick
 
 

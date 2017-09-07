@@ -1,7 +1,7 @@
-package com.drive.finance.tab
+package com.drive.finance.ui.tab
 
-import android.os.Bundle
 import android.support.design.widget.TabLayout
+import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
@@ -12,10 +12,10 @@ import android.view.ViewGroup
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 
-class CardFragment : BaseFragment() {
+class FinanceFragment : BaseFragment() {
 
-    val cardTabLayout by lazy {
-        view?.findViewById(R.id.cardTabLayout) as TabLayout
+    val financeTabLayout by lazy {
+        view?.findViewById(R.id.financeTabLayout) as TabLayout
     }
     val viewPager by lazy {
         view?.findViewById(R.id.viewPager) as ViewPager
@@ -23,33 +23,27 @@ class CardFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_card, container, false)
+        return inflater!!.inflate(R.layout.fragment_finance, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cardTabLayout.setupWithViewPager(viewPager)
-        viewPager.adapter = CardPageAdapter(childFragmentManager)
+        financeTabLayout.setupWithViewPager(viewPager)
+        viewPager.adapter = FinancePageAdapter(childFragmentManager)
     }
 }
 
-class CardPageAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
+class FinancePageAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
 
-    val titles = arrayOf("关于众卡贷", "我的众卡贷")
+    val titles = arrayOf("定期理财产品", "活期理财产品")
 
     override fun getCount(): Int = 2
 
-    override fun getItem(position: Int): Fragment {
-        if (position == 0) {
-            return createCardAboutFragment()
-        } else {
-            return createCardListFragment()
-        }
-    }
+    override fun getItem(position: Int): Fragment = createFinanceListFragment(titles[position])
 
     override fun getPageTitle(position: Int): CharSequence = titles[position]
 }
 
-fun createCardFragment() : CardFragment {
-    return CardFragment()
+fun createFinanceFragment(): FinanceFragment {
+    return FinanceFragment()
 }

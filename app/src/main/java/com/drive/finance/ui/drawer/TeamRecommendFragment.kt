@@ -1,9 +1,10 @@
-package com.drive.finance
+package com.drive.finance.ui.drawer
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 
 class TeamRecommendFragment : BaseFragment() {
