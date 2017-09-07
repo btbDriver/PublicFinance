@@ -11,6 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
+import com.drive.finance.widget.SimpleTitleBar
+import org.jetbrains.anko.onClick
 
 class TeamFragment : BaseFragment() {
 
@@ -19,6 +21,9 @@ class TeamFragment : BaseFragment() {
     }
     val viewPager by lazy {
         view?.findViewById(R.id.viewPager) as ViewPager
+    }
+    val simpleTitleBar by lazy {
+        view?.findViewById(R.id.simpleTitleBar) as SimpleTitleBar
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -30,6 +35,10 @@ class TeamFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         teamTabLayout.setupWithViewPager(viewPager)
         viewPager.adapter = TeamPageAdapter(childFragmentManager)
+
+        simpleTitleBar.backLayout!!.onClick {
+            pop()
+        }
     }
 
 }
