@@ -57,7 +57,7 @@ class MainActivity : BaseActivity() {
             }
             // 团队管理
             else if (position == 1) {
-
+                loadRootFragment(R.id.drawerFragmentContainer, createTeamFragment())
             }
             // 财务中心
             else if (position == 2) {
