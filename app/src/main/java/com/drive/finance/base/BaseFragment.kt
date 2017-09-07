@@ -1,4 +1,4 @@
-package finance.drive.com.publicfinance.base
+package com.drive.finance.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,10 +1,11 @@
-package finance.drive.com.publicfinance
+package com.drive.finance.tab
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import finance.drive.com.publicfinance.base.BaseFragment
+import com.drive.finance.R
+import com.drive.finance.base.BaseFragment
 
 
 class CardAboutFragment : BaseFragment() {

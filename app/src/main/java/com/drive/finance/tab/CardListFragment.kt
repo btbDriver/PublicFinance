@@ -1,16 +1,17 @@
-package finance.drive.com.publicfinance
+package com.drive.finance.tab
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import com.drive.finance.R
+import com.drive.finance.base.BaseFragment
 
 
-class CardListFragment : Fragment() {
+class CardListFragment : BaseFragment() {
 
     val recyclerView by lazy {
         view?.findViewById(R.id.recyclerView) as RecyclerView

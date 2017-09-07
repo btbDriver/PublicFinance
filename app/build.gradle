@@ -5,7 +5,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "finance.drive.com.publicfinance"
+        applicationId "com.driver.finance"
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
@@ -39,6 +39,7 @@ dependencies {
     compile 'com.hwangjr.rxbus:rxbus:1.0.5'
     compile "com.github.bumptech.glide:glide:3.7.0"
     compile 'com.jude:rollviewpager:1.4.6'
+
 }
 repositories {
     mavenCentral()

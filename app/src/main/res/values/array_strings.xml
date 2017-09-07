@@ -5,11 +5,8 @@
         <item>团队管理</item>
         <item>财务中心</item>
         <item>大众财富</item>
-        <item>公司咨询</item>
-        <item>系统公告</item>
-        <item>理财政策</item>
-        <item>公司简介</item>
-        <item>联系客服</item>
+        <item>公司资讯</item>
+        <item>联系我们</item>
         <item>安全退出</item>
     </string-array>
 </resources>

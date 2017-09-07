@@ -1,13 +1,15 @@
-package finance.drive.com.publicfinance
+package com.drive.finance
 
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import finance.drive.com.publicfinance.base.BaseActivity
+import com.drive.finance.base.BaseActivity
+import com.drive.finance.tab.createTabHostFragment
 
 class MainActivity : BaseActivity() {
 
@@ -47,5 +49,36 @@ class MainActivity : BaseActivity() {
         mListView.adapter = arrayAdapter
 
         loadRootFragment(R.id.contentContainerLayout, createTabHostFragment())
+
+        mListView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            // 个人信息
+            if (position == 0) {
+                loadRootFragment(R.id.drawerFragmentContainer, createUserInfoFragment())
+            }
+            // 团队管理
+            else if (position == 1) {
+
+            }
+            // 财务中心
+            else if (position == 2) {
+
+            }
+            // 大众财富
+            else if (position == 3) {
+
+            }
+            // 公司资讯
+            else if (position == 4) {
+
+            }
+            // 联系我们
+            else if (position == 5) {
+
+            }
+            // 安全退出
+            else if (position == 6) {
+
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="finance.drive.com.publicfinance">
+    package="com.drive.finance">
 
     <application
         android:allowBackup="true"

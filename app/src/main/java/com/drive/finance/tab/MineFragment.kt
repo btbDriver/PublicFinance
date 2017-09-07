@@ -1,4 +1,4 @@
-package finance.drive.com.publicfinance
+package com.drive.finance.tab
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -7,7 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import finance.drive.com.publicfinance.base.BaseFragment
+import com.drive.finance.R
+import com.drive.finance.base.BaseFragment
 
 class MineFragment : BaseFragment() {
 
