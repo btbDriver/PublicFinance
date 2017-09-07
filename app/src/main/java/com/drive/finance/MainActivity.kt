@@ -70,7 +70,7 @@ class MainActivity : BaseActivity() {
             }
             // 公司资讯
             else if (position == 4) {
-
+                loadRootFragment(R.id.drawerFragmentContainer, createConsultFragment())
             }
             // 联系我们
             else if (position == 5) {
