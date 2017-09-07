@@ -36,7 +36,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initView() {
-        toolbar.title = "大众理财"
+        toolbar.title = resources.getString(R.string.app_name)
         toolbar.setTitleTextColor(Color.WHITE)
         setSupportActionBar(toolbar)
         supportActionBar!!.setHomeButtonEnabled(true) //设置返回键可用
