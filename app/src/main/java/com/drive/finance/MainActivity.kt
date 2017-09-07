@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.drive.finance.base.BaseActivity
+import com.drive.finance.ui.createLoginFragment
 import com.drive.finance.ui.drawer.*
 import com.drive.finance.ui.tab.createTabHostFragment
 
@@ -74,11 +75,11 @@ class MainActivity : BaseActivity() {
             }
             // 联系我们
             else if (position == 5) {
-
+                loadRootFragment(R.id.drawerFragmentContainer, createContactFragment())
             }
             // 安全退出
             else if (position == 6) {
-
+                loadRootFragment(R.id.drawerFragmentContainer, createLoginFragment())
             }
         }
     }

@@ -18,4 +18,8 @@ open class BaseFragment : SupportFragment() {
         super.onDestroyView()
         RxBus.get().unregister(this)
     }
+
+    fun onBack() {
+        pop()
+    }
 }
