@@ -9,6 +9,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.drive.finance.base.BaseActivity
+import com.drive.finance.ui.drawer.FinanceCenterFragment
+import com.drive.finance.ui.drawer.createFinanceCenterFragment
 import com.drive.finance.ui.drawer.createTeamFragment
 import com.drive.finance.ui.drawer.createUserInfoFragment
 import com.drive.finance.ui.tab.createTabHostFragment
@@ -63,7 +65,7 @@ class MainActivity : BaseActivity() {
             }
             // 财务中心
             else if (position == 2) {
-
+                loadRootFragment(R.id.drawerFragmentContainer, createFinanceCenterFragment())
             }
             // 大众财富
             else if (position == 3) {
