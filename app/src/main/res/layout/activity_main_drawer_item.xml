@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_below="@id/drawerHeaderLayout"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    >
+
+    <RelativeLayout
+        android:id="@+id/drawerHomeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        >
+
+        <ImageView
+            android:id="@+id/drawerHomeImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/drawer_home"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            android:textSize="15sp"
+            android:textColor="@color/f3"
+            android:layout_toRightOf="@id/drawerHomeImage"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/drawer_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/drawerUserLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        >
+
+        <ImageView
+            android:id="@+id/drawerUserImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/drawer_user"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="个人信息"
+            android:textSize="15sp"
+            android:textColor="@color/f3"
+            android:layout_toRightOf="@id/drawerUserImage"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/drawer_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/drawerTeamLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        >
+
+        <ImageView
+            android:id="@+id/drawerTeamImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/drawer_team"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="团队管理"
+            android:textSize="15sp"
+            android:textColor="@color/f3"
+            android:layout_toRightOf="@id/drawerTeamImage"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/drawer_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/drawerCenterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        >
+
+        <ImageView
+            android:id="@+id/drawerCenterImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/drawer_finance"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="财务中心"
+            android:textSize="15sp"
+            android:textColor="@color/f3"
+            android:layout_toRightOf="@id/drawerCenterImage"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/drawer_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/drawerPublicLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        >
+
+        <ImageView
+            android:id="@+id/drawerPublicImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/drawer_public"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="大众财富"
+            android:textSize="15sp"
+            android:textColor="@color/f3"
+            android:layout_toRightOf="@id/drawerPublicImage"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/drawer_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/drawerConsultLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        >
+
+        <ImageView
+            android:id="@+id/drawerConsultImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/drawer_consult"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公司资讯"
+            android:textSize="15sp"
+            android:textColor="@color/f3"
+            android:layout_toRightOf="@id/drawerConsultImage"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/drawer_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/drawerContactLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        >
+
+        <ImageView
+            android:id="@+id/drawerContactImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/drawer_user"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联系我们"
+            android:textSize="15sp"
+            android:textColor="@color/f3"
+            android:layout_toRightOf="@id/drawerContactImage"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/drawer_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

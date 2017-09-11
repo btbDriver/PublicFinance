@@ -1,30 +1,45 @@
 package com.drive.finance
 
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.ListView
+import android.widget.RelativeLayout
 import com.drive.finance.base.BaseActivity
-import com.drive.finance.ui.createLoginFragment
 import com.drive.finance.ui.drawer.*
 import com.drive.finance.ui.tab.createTabHostFragment
+import org.jetbrains.anko.onClick
 
 class MainActivity : BaseActivity() {
 
-    val toolbar by lazy {
-        findViewById(R.id.toolBar) as Toolbar
-    }
     val mDrawerLayout by lazy {
         findViewById(R.id.drawerLayout) as DrawerLayout
     }
-    val mListView by lazy {
-        findViewById(R.id.listView) as ListView
+    val toolbar by lazy{
+        findViewById(R.id.toolbar) as Toolbar
     }
-    lateinit var mDrawerToggle: ActionBarDrawerToggle
+    val drawerHomeLayout by lazy {
+        findViewById(R.id.drawerHomeLayout) as RelativeLayout
+    }
+    val drawerUserLayout by lazy {
+        findViewById(R.id.drawerUserLayout) as RelativeLayout
+    }
+    val drawerTeamLayout by lazy {
+        findViewById(R.id.drawerTeamLayout) as RelativeLayout
+    }
+    val drawerCenterLayout by lazy {
+        findViewById(R.id.drawerCenterLayout) as RelativeLayout
+    }
+    val drawerPublicLayout by lazy {
+        findViewById(R.id.drawerPublicLayout) as RelativeLayout
+    }
+    val drawerConsultLayout by lazy {
+        findViewById(R.id.drawerConsultLayout) as RelativeLayout
+    }
+    val drawerContactLayout by lazy {
+        findViewById(R.id.drawerContactLayout) as RelativeLayout
+    }
     lateinit var menuTitles: Array<String>
     lateinit var arrayAdapter: ArrayAdapter<*>
 
@@ -36,51 +51,43 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initView() {
-        toolbar.title = resources.getString(R.string.app_name)
-        toolbar.setTitleTextColor(Color.WHITE)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setHomeButtonEnabled(true) //设置返回键可用
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        //创建返回键，并实现打开关/闭监听
-        mDrawerToggle = object : ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open, R.string.close) {}
-        mDrawerToggle.syncState()
-        mDrawerLayout.addDrawerListener(mDrawerToggle)
+        val toggle = ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open, R.string.close)
+        mDrawerLayout.setDrawerListener(toggle)
+        toggle.syncState()
+
         //设置菜单列表
         menuTitles = resources.getStringArray(R.array.menuList)
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, menuTitles)
-        mListView.adapter = arrayAdapter
 
         loadRootFragment(R.id.contentContainerLayout, createTabHostFragment())
 
-        mListView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-            // 个人信息
-            if (position == 0) {
-                loadRootFragment(R.id.drawerFragmentContainer, createUserInfoFragment())
-            }
-            // 团队管理
-            else if (position == 1) {
-                loadRootFragment(R.id.drawerFragmentContainer, createTeamFragment())
-            }
-            // 财务中心
-            else if (position == 2) {
-                loadRootFragment(R.id.drawerFragmentContainer, createFinanceCenterFragment())
-            }
-            // 大众财富
-            else if (position == 3) {
-                loadRootFragment(R.id.drawerFragmentContainer, createPublicFinanceFragment())
-            }
-            // 公司资讯
-            else if (position == 4) {
-                loadRootFragment(R.id.drawerFragmentContainer, createConsultFragment())
-            }
-            // 联系我们
-            else if (position == 5) {
-                loadRootFragment(R.id.drawerFragmentContainer, createContactFragment())
-            }
-            // 安全退出
-            else if (position == 6) {
-                loadRootFragment(R.id.drawerFragmentContainer, createLoginFragment())
-            }
+        drawerHomeLayout.onClick {
+            loadRootFragment(R.id.drawerFragmentContainer, createUserInfoFragment())
+        }
+
+        drawerUserLayout.onClick {
+            loadRootFragment(R.id.drawerFragmentContainer, createUserInfoFragment())
+        }
+
+        drawerTeamLayout.onClick {
+            loadRootFragment(R.id.drawerFragmentContainer, createTeamFragment())
+        }
+
+        drawerCenterLayout.onClick {
+            loadRootFragment(R.id.drawerFragmentContainer, createTeamFragment())
+        }
+
+        drawerPublicLayout.onClick {
+            loadRootFragment(R.id.drawerFragmentContainer, createPublicFinanceFragment())
+        }
+
+        drawerConsultLayout.onClick {
+            loadRootFragment(R.id.drawerFragmentContainer, createConsultFragment())
+        }
+
+        drawerContactLayout.onClick {
+            loadRootFragment(R.id.drawerFragmentContainer, createContactFragment())
         }
     }
 }
