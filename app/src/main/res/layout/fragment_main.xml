@@ -1,20 +1,30 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:layout_height="match_parent">
 
-    <com.jude.rollviewpager.RollPagerView
-        android:id="@+id/rollPagerView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        app:rollviewpager_play_delay="3000"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
+        <com.jude.rollviewpager.RollPagerView
+            android:id="@+id/rollPagerView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:rollviewpager_play_delay="3000"
+            android:background="@android:color/white"
+            />
 
-    <include
-        layout="@layout/fragment_main_optimize"
-        />
+        <include
+            layout="@layout/fragment_main_optimize" />
 
-</LinearLayout>
+        <include
+            layout="@layout/fragment_main_info"
+            />
+    </LinearLayout>
+
+</ScrollView>
+
