@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
-import com.drive.finance.ui.tab.createFinanceListFragment
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 
@@ -50,7 +49,7 @@ class FinanceCenterPageAdapter(fragmentManager: FragmentManager) : FragmentState
     override fun getCount(): Int = 4
 
     override fun getItem(position: Int): Fragment {
-        return createFinanceListFragment(titles[position])
+        return createConsultFragment()
     }
 
     override fun getPageTitle(position: Int): CharSequence = titles[position]

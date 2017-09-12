@@ -94,7 +94,7 @@ class MainActivity : BaseActivity() {
     }
 
     @Subscribe
-    fun onCreateBounsListFragmentEvent(event: CreateBounsListFragmentEvent) {
+    fun onCreateBonusListFragmentEvent(event: CreateBonusListFragmentEvent) {
         loadRootFragment(R.id.drawerFragmentContainer, createBonusListFragment())
     }
 }

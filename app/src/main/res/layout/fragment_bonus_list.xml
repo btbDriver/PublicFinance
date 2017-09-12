@@ -7,6 +7,7 @@
     >
 
     <com.drive.finance.widget.SimpleTitleBar
+        android:id="@+id/simpleTitleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:titleBar_content="奖金列表"

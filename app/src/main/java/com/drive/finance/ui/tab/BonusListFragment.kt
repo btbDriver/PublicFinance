@@ -10,9 +10,14 @@ import android.widget.LinearLayout
 
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
+import com.drive.finance.widget.SimpleTitleBar
+import org.jetbrains.anko.onClick
 
 class BonusListFragment : BaseFragment() {
 
+    val simpleTitleBar by lazy {
+        view?.findViewById(R.id.simpleTitleBar) as SimpleTitleBar
+    }
     val recyclerView by lazy {
         view?.findViewById(R.id.recyclerView) as RecyclerView
     }
@@ -26,6 +31,10 @@ class BonusListFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = BonusListAdapter()
+
+        simpleTitleBar.backLayout!!.onClick {
+            pop()
+        }
     }
 }
 

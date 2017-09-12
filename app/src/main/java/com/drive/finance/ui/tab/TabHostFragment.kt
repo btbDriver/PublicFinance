@@ -135,6 +135,11 @@ class TabHostFragment : BaseFragment() {
             cardText.textColor = resources.getColor(R.color.f1)
         }
     }
+
+    fun showFinanceListFragmentEvent() {
+        showHideFragment(financeFragment)
+        showPosition(1)
+    }
 }
 
 fun createTabHostFragment() : TabHostFragment {

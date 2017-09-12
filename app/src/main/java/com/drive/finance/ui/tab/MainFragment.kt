@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import com.drive.finance.CreateBounsListFragmentEvent
+import com.drive.finance.CreateBonusListFragmentEvent
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.hwangjr.rxbus.RxBus
@@ -23,6 +23,9 @@ class MainFragment : BaseFragment() {
     val bonusListLayout by lazy {
         view?.findViewById(R.id.bonusListLayout) as LinearLayout
     }
+    val financeListLayout by lazy {
+        view?.findViewById(R.id.financeListLayout) as LinearLayout
+    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -34,7 +37,13 @@ class MainFragment : BaseFragment() {
         rollPagerView.setAdapter(TestLoopAdapter(rollPagerView))
 
         bonusListLayout.onClick {
-            RxBus.get().post(CreateBounsListFragmentEvent(""))
+            RxBus.get().post(CreateBonusListFragmentEvent(""))
+        }
+
+        financeListLayout.onClick {
+            if (parentFragment is TabHostFragment) {
+                (parentFragment as TabHostFragment).showFinanceListFragmentEvent()
+            }
         }
     }
 }

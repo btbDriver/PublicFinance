@@ -1,24 +1,19 @@
 package com.drive.finance.ui.tab
 
-import android.support.design.widget.TabLayout
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
-import android.support.v4.view.ViewPager
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 
 class FinanceFragment : BaseFragment() {
 
-    val financeTabLayout by lazy {
-        view?.findViewById(R.id.financeTabLayout) as TabLayout
-    }
-    val viewPager by lazy {
-        view?.findViewById(R.id.viewPager) as ViewPager
+    val recyclerView by lazy {
+        view?.findViewById(R.id.recyclerView) as RecyclerView
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -28,21 +23,51 @@ class FinanceFragment : BaseFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        financeTabLayout.setupWithViewPager(viewPager)
-        viewPager.adapter = FinancePageAdapter(childFragmentManager)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = FinanceAdapter()
     }
 }
 
-class FinancePageAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
+class FinanceAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val titles = arrayOf("定期理财产品", "活期理财产品")
+    override fun getItemViewType(position: Int): Int {
+        if (position == 0) {
+            return 1
+        } else if (position < 5) {
+            return 2
+        } else if (position == 5) {
+            return 3
+        } else if (position > 5) {
+            return 4
+        }
+        return super.getItemViewType(position)
+    }
 
-    override fun getCount(): Int = 2
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+        val rootView: View
+        if (viewType == 1) {
+            rootView = LayoutInflater.from(parent!!.context).inflate(R.layout.fragment_finance_item1, null, false)
+        } else if (viewType == 2) {
+            rootView = LayoutInflater.from(parent!!.context).inflate(R.layout.fragment_finance_item2, null, false)
+        } else if (viewType == 3) {
+            rootView = LayoutInflater.from(parent!!.context).inflate(R.layout.fragment_finance_item3, null, false)
+        } else {
+            rootView = LayoutInflater.from(parent!!.context).inflate(R.layout.fragment_finance_item2, null, false)
+        }
+        rootView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        return BonusListViewHolder(rootView)
+    }
 
-    override fun getItem(position: Int): Fragment = createFinanceListFragment(titles[position])
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    }
 
-    override fun getPageTitle(position: Int): CharSequence = titles[position]
+    override fun getItemCount(): Int {
+        return 10
+    }
 }
+
+class FinanceViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+
 
 fun createFinanceFragment(): FinanceFragment {
     return FinanceFragment()
