@@ -8,5 +8,7 @@
     <color name="f2">#383838</color>
     <color name="f3">#666666</color>
     <color name="f4">#ff0000</color>
+
     <color name="lineColor">#80929599</color>
+    <color name="backColor">#efefef</color>
 </resources>

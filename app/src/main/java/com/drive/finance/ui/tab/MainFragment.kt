@@ -5,16 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
+import com.drive.finance.CreateBounsListFragmentEvent
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
+import com.hwangjr.rxbus.RxBus
 import com.jude.rollviewpager.RollPagerView
 import com.jude.rollviewpager.adapter.LoopPagerAdapter
+import org.jetbrains.anko.onClick
 
 
 class MainFragment : BaseFragment() {
 
     val rollPagerView by lazy {
         view?.findViewById(R.id.rollPagerView) as RollPagerView
+    }
+    val bonusListLayout by lazy {
+        view?.findViewById(R.id.bonusListLayout) as LinearLayout
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -25,6 +32,10 @@ class MainFragment : BaseFragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         rollPagerView.setAdapter(TestLoopAdapter(rollPagerView))
+
+        bonusListLayout.onClick {
+            RxBus.get().post(CreateBounsListFragmentEvent(""))
+        }
     }
 }
 

@@ -8,7 +8,9 @@ import android.widget.ArrayAdapter
 import android.widget.RelativeLayout
 import com.drive.finance.base.BaseActivity
 import com.drive.finance.ui.drawer.*
+import com.drive.finance.ui.tab.createBonusListFragment
 import com.drive.finance.ui.tab.createTabHostFragment
+import com.hwangjr.rxbus.annotation.Subscribe
 import org.jetbrains.anko.onClick
 
 class MainActivity : BaseActivity() {
@@ -89,5 +91,10 @@ class MainActivity : BaseActivity() {
         drawerContactLayout.onClick {
             loadRootFragment(R.id.drawerFragmentContainer, createContactFragment())
         }
+    }
+
+    @Subscribe
+    fun onCreateBounsListFragmentEvent(event: CreateBounsListFragmentEvent) {
+        loadRootFragment(R.id.drawerFragmentContainer, createBonusListFragment())
     }
 }
