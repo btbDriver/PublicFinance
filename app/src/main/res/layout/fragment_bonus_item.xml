@@ -9,8 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2017-09-16"
-        android:textSize="16sp"
-        android:layout_marginLeft="12dp"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         />
 
@@ -26,56 +27,224 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:orientation="vertical"
         >
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             >
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="20.3$"
-                android:textColor="@color/f1"
-                android:textSize="13sp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="客户佣金"
+                android:layout_weight="1"
+                android:text="客户佣金:"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
-                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:gravity="center"
                 />
-
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="20.23$"
+                android:textColor="@color/f1"
+                android:textSize="13sp"
+                android:padding="8dp"
+                android:gravity="center"
+                />
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             >
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="日收益:"
+                android:textSize="13sp"
+                android:textColor="@color/f3"
+                android:padding="8dp"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="18.2$"
                 android:textColor="@color/f1"
                 android:textSize="13sp"
+                android:padding="8dp"
+                android:gravity="center"
                 />
+        </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="经理佣金:"
+                android:textSize="13sp"
+                android:textColor="@color/f3"
+                android:padding="8dp"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2001.1$"
+                android:textColor="@color/f1"
+                android:textSize="13sp"
+                android:padding="8dp"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="合计:"
+                android:textSize="13sp"
+                android:textColor="@color/f3"
+                android:padding="8dp"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2002.23$"
+                android:textColor="@color/f1"
+                android:textSize="13sp"
+                android:padding="8dp"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="收益账户:"
+                android:textSize="13sp"
+                android:textColor="@color/f3"
+                android:padding="8dp"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="100000"
+                android:textColor="@color/f1"
+                android:textSize="13sp"
+                android:padding="8dp"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="众卡贷:"
+                android:textSize="13sp"
+                android:textColor="@color/f3"
+                android:padding="8dp"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="20.23$"
+                android:textColor="@color/f1"
+                android:textSize="13sp"
+                android:padding="8dp"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right"
+            android:padding="8dp"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="日收益"
+                android:layout_marginRight="20dp"
+                android:text="客户佣金:"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
-                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:gravity="center"
+                android:background="@color/f1"
                 />
 
         </LinearLayout>

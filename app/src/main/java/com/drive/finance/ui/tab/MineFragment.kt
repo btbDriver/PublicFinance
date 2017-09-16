@@ -39,7 +39,7 @@ class MineListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return 10
+        return 5
     }
 }
 
