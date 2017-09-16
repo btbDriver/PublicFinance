@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.drive.finance.CreateBonusListFragmentEvent
+import com.drive.finance.CreatePickFragmentEvent
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.hwangjr.rxbus.RxBus
@@ -26,6 +27,9 @@ class MainFragment : BaseFragment() {
     val financeListLayout by lazy {
         view?.findViewById(R.id.financeListLayout) as LinearLayout
     }
+    val pickLayout by lazy {
+        view?.findViewById(R.id.pickLayout) as LinearLayout
+    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -44,6 +48,10 @@ class MainFragment : BaseFragment() {
             if (parentFragment is TabHostFragment) {
                 (parentFragment as TabHostFragment).showFinanceListFragmentEvent()
             }
+        }
+
+        pickLayout.onClick {
+            RxBus.get().post(CreatePickFragmentEvent(""))
         }
     }
 }

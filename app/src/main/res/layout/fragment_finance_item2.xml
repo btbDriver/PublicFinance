@@ -86,9 +86,10 @@
             >
 
             <TextView
+                android:id="@+id/partText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OPEN"
+                android:text="立即参与"
                 android:textColor="@android:color/white"
                 android:textSize="15sp"
                 android:background="@android:color/holo_red_dark"

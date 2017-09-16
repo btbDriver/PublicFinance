@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar
 import android.widget.ArrayAdapter
 import android.widget.RelativeLayout
 import com.drive.finance.base.BaseActivity
+import com.drive.finance.ui.createPickFragment
 import com.drive.finance.ui.drawer.*
 import com.drive.finance.ui.tab.createBonusListFragment
 import com.drive.finance.ui.tab.createTabHostFragment
@@ -96,5 +97,10 @@ class MainActivity : BaseActivity() {
     @Subscribe
     fun onCreateBonusListFragmentEvent(event: CreateBonusListFragmentEvent) {
         loadRootFragment(R.id.drawerFragmentContainer, createBonusListFragment())
+    }
+
+    @Subscribe
+    fun onCreatePickFragmentEvent(event: CreatePickFragmentEvent) {
+        loadRootFragment(R.id.drawerFragmentContainer, createPickFragment())
     }
 }
