@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     >
 
     <com.drive.finance.widget.SimpleTitleBar
@@ -19,24 +20,308 @@
         android:background="@color/lineColor"
         />
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/publicFinanceTabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:background="@android:color/white"
-        app:tabBackground="?attr/selectableItemBackgroundBorderless"
-        app:tabIndicatorHeight="0dp"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="#ff028bf3"
-        app:tabTextColor="@android:color/black"
-        app:tabTextAppearance = "@style/tabLayoutTextSize"
-        />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
-        />
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        >
+
+        <RelativeLayout
+            android:id="@+id/publicCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            >
+            <ImageView
+                android:id="@+id/publicCardImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/public_card"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/publicCardImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="众卡贷"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="根据您的众卡贷积分享受无息贷款~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <RelativeLayout
+            android:id="@+id/publicCreditLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            >
+            <ImageView
+                android:id="@+id/publicCreditImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/public_credit"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/publicCreditImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的贷款"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="查看您的贷款请戳这里~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <RelativeLayout
+            android:id="@+id/publicFinanceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            >
+            <ImageView
+                android:id="@+id/publicFinanceImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/public_finance"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/publicFinanceImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的投资"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="此处查看您的投资项目~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <RelativeLayout
+            android:id="@+id/publicRepayLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            >
+            <ImageView
+                android:id="@+id/publicRepayImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/public_repay"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/publicRepayImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我要还款"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="若要还款请戳这里~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <RelativeLayout
+            android:id="@+id/publicTreadLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            >
+            <ImageView
+                android:id="@+id/publicTreadImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/public_tread"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/publicTreadImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="数字积分交易"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="交易您的数据积分项目~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>
