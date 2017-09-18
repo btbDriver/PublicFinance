@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
+import com.drive.finance.ui.drawer.consult.createConsultFragment
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 

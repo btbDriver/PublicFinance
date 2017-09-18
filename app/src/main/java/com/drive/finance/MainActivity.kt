@@ -9,6 +9,7 @@ import android.widget.RelativeLayout
 import com.drive.finance.base.BaseActivity
 import com.drive.finance.ui.createPickFragment
 import com.drive.finance.ui.drawer.*
+import com.drive.finance.ui.drawer.consult.createConsultFragment
 import com.drive.finance.ui.tab.createBonusListFragment
 import com.drive.finance.ui.tab.createTabHostFragment
 import com.hwangjr.rxbus.annotation.Subscribe

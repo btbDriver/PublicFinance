@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backColor"
+    android:orientation="vertical"
+    >
+
+    <com.drive.finance.widget.SimpleTitleBar
+        android:id="@+id/simpleTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleBar_content="公司简介"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="马来西亚大众财富理财政策"
+            android:textSize="20sp"
+            android:textColor="@color/f2"
+            android:gravity="center"
+            android:padding="4dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:textColor="@color/f3"
+            android:textSize="13sp"
+            android:text="是否收到访客数房价老实放假啦啥地方啥地方就啥地方就是领导放假了十几分是否"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
