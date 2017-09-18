@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.widget.SimpleTitleBar
@@ -13,6 +14,9 @@ class ContactFragment : BaseFragment() {
 
     val simpleTitleBar by lazy {
         view?.findViewById(R.id.simpleTitleBar) as SimpleTitleBar
+    }
+    val contactSeverLayout by lazy {
+        view?.findViewById(R.id.contactSeverLayout) as RelativeLayout
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
