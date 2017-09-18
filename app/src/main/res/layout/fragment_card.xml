@@ -1,29 +1,134 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     >
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/cardTabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:background="@android:color/white"
-        app:tabBackground="?attr/selectableItemBackgroundBorderless"
-        app:tabIndicatorHeight="0dp"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="#ff028bf3"
-        app:tabTextColor="@android:color/black"
-        app:tabTextAppearance = "@style/tabLayoutTextSize"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="众卡贷的作用：
+        \n1:根据您的众卡积分分享有公司的股权，并等值公司的股本，可持有至公司上市并成为股东，同时可以在大盘流通后随时交易买卖。
+        \n2:您的众卡积分总数达到20000个，可申请贷款，贷款额度5000至15000美金。
+        \n3:贷款期限：6至12个月无息贷款。
+        \n4:还款方式：每月18日为还款日，以奖金划扣为主。"
+        android:textSize="13sp"
+        android:textColor="@color/f3"
+        android:padding="5dp"
+        android:lineSpacingExtra="5dp"
         />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="当前条件:"
+            android:gravity="left"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="众卡积分123"
+            android:gravity="left"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="可贷款额度:"
+            android:gravity="left"
+            android:padding="5dp"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"
+            android:gravity="left"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="贷款期限:"
+            android:gravity="left"
+            android:padding="5dp"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:gravity="left"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="交易密码:"
+            android:gravity="left"
+            android:padding="5dp"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:gravity="left"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提交"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:background="@color/f1"
+        android:layout_marginLeft="8dp"
         />
 
 </LinearLayout>

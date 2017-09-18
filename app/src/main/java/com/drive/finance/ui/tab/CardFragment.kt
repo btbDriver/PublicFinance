@@ -14,13 +14,6 @@ import com.drive.finance.base.BaseFragment
 
 class CardFragment : BaseFragment() {
 
-    val cardTabLayout by lazy {
-        view?.findViewById(R.id.cardTabLayout) as TabLayout
-    }
-    val viewPager by lazy {
-        view?.findViewById(R.id.viewPager) as ViewPager
-    }
-
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.fragment_card, container, false)
@@ -28,26 +21,7 @@ class CardFragment : BaseFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cardTabLayout.setupWithViewPager(viewPager)
-        viewPager.adapter = CardPageAdapter(childFragmentManager)
     }
-}
-
-class CardPageAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
-
-    val titles = arrayOf("关于众卡贷", "我的众卡贷")
-
-    override fun getCount(): Int = 2
-
-    override fun getItem(position: Int): Fragment {
-        if (position == 0) {
-            return createCardAboutFragment()
-        } else {
-            return createCardListFragment()
-        }
-    }
-
-    override fun getPageTitle(position: Int): CharSequence = titles[position]
 }
 
 fun createCardFragment() : CardFragment {
