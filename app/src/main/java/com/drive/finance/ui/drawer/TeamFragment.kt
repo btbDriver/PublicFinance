@@ -16,12 +16,6 @@ import org.jetbrains.anko.onClick
 
 class TeamFragment : BaseFragment() {
 
-    val teamTabLayout by lazy {
-        view?.findViewById(R.id.teamTabLayout) as TabLayout
-    }
-    val viewPager by lazy {
-        view?.findViewById(R.id.viewPager) as ViewPager
-    }
     val simpleTitleBar by lazy {
         view?.findViewById(R.id.simpleTitleBar) as SimpleTitleBar
     }
@@ -33,31 +27,12 @@ class TeamFragment : BaseFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        teamTabLayout.setupWithViewPager(viewPager)
-        viewPager.adapter = TeamPageAdapter(childFragmentManager)
 
         simpleTitleBar.backLayout!!.onClick {
             pop()
         }
     }
 
-}
-
-class TeamPageAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
-
-    val titles = arrayOf("推荐列表", "推荐图谱")
-
-    override fun getCount(): Int = 2
-
-    override fun getItem(position: Int): Fragment {
-        if (position == 0) {
-            return createTeamRecommendFragment()
-        } else {
-            return createTeamAtlasFragment()
-        }
-    }
-
-    override fun getPageTitle(position: Int): CharSequence = titles[position]
 }
 
 fun createTeamFragment() : TeamFragment {
