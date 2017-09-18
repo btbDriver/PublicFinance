@@ -78,7 +78,7 @@ class MainActivity : BaseActivity() {
         }
 
         drawerCenterLayout.onClick {
-            loadRootFragment(R.id.drawerFragmentContainer, createTeamFragment())
+            loadRootFragment(R.id.drawerFragmentContainer, createFinanceCenterFragment())
         }
 
         drawerPublicLayout.onClick {

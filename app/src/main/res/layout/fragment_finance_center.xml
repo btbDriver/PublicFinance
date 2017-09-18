@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/backColor"
     >
 
     <com.drive.finance.widget.SimpleTitleBar
@@ -18,24 +19,189 @@
         android:background="@color/lineColor"
         />
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/financeTabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:background="@android:color/white"
-        app:tabBackground="?attr/selectableItemBackgroundBorderless"
-        app:tabIndicatorHeight="0dp"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="#ff028bf3"
-        app:tabTextColor="@android:color/black"
-        app:tabTextAppearance = "@style/tabLayoutTextSize"
-        />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:overScrollMode="never"
-        />
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        >
+
+        <RelativeLayout
+            android:id="@+id/financeCenterLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            >
+            <ImageView
+                android:id="@+id/financeCenterImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/finance_center"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/financeCenterImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:text="奖金列表"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="您的奖金相关内容查看清戳这里~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <RelativeLayout
+            android:id="@+id/financeIncomeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            >
+            <ImageView
+                android:id="@+id/financeIncomeImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/finance_income"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/financeIncomeImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="提取收益"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="此处您将提取您的收益~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <RelativeLayout
+            android:id="@+id/financeAwardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            >
+            <ImageView
+                android:id="@+id/financeAwardImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/finance_award"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/financeAwardImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="投资理财"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="此处查看更多投资理财项目~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+    </LinearLayout>
 
 </LinearLayout>
