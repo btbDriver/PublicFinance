@@ -1,4 +1,4 @@
-package com.drive.finance.ui.drawer
+package com.drive.finance.ui.drawer.user
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import com.drive.finance.base.BaseFragment
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 
-class PassUpdateFragment : BaseFragment() {
+class UpdateLoginFragment : BaseFragment() {
 
     val simpleTitleBar by lazy {
         view?.findViewById(R.id.simpleTitleBar) as SimpleTitleBar
@@ -17,8 +17,7 @@ class PassUpdateFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_pass_update, container, false)
+        return inflater!!.inflate(R.layout.fragment_update_login, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -30,6 +29,6 @@ class PassUpdateFragment : BaseFragment() {
     }
 }
 
-fun createPassUpdateFragment(): PassUpdateFragment {
-    return PassUpdateFragment()
+fun createUpdateLoginFragment(): UpdateLoginFragment {
+    return UpdateLoginFragment()
 }
