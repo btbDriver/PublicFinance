@@ -19,333 +19,308 @@
         android:background="@color/lineColor"
         />
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp"
+        android:background="@android:color/white"
         >
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/ic_launcher"
-            />
-
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/userInfoLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="刘超"
-                android:layout_weight="1"
-                android:gravity="center"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="001"
-                android:gravity="center_horizontal"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="开户银行"
-                android:layout_weight="1"
-                android:gravity="center"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="中国工商银行"
-                android:gravity="center_horizontal"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="开户行地址"
-                android:layout_weight="1"
-                android:gravity="center"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="北京市海淀区"
-                android:gravity="center_horizontal"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="银行卡号"
-                android:layout_weight="1"
-                android:gravity="center"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="600000000000000"
-                android:gravity="center_horizontal"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="手机号"
-                android:layout_weight="1"
-                android:gravity="center"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="18888888888"
-                android:gravity="center_horizontal"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="邮箱"
-                android:layout_weight="1"
-                android:gravity="center"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="186234234234@163.com"
-                android:gravity="center_horizontal"
-                />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/lineColor"
-            android:layout_marginTop="20dp"
-            />
-        <LinearLayout
-            android:id="@+id/updateUserLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="更新我的资料"
+            <ImageView
+                android:id="@+id/userInfoImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/user_info_icon"
                 />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/userInfoImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
                 >
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_arrow"
+                    android:text="个人信息"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="查看更新个人信息~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
                     />
 
             </LinearLayout>
-        </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/lineColor"
             />
-        <LinearLayout
-            android:id="@+id/updatePassLayout"
+
+        <RelativeLayout
+            android:id="@+id/updateLoginLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="修改登录密码"
+            <ImageView
+                android:id="@+id/updateLoginImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/update_login_icon"
                 />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/updateLoginImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
                 >
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_arrow"
+                    android:text="修改登录密码"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="修改登录密码请戳这里~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
                     />
 
             </LinearLayout>
-        </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/lineColor"
             />
-        <LinearLayout
-            android:id="@+id/pass2UpdateLayout"
+
+        <RelativeLayout
+            android:id="@+id/updateTreadLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="修改交易密码"
+            <ImageView
+                android:id="@+id/updateTreadImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/update_tread_icon"
                 />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/updateTreadImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
                 >
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_arrow"
+                    android:text="修改支付密码"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="修改支付密码请戳这里~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
                     />
 
             </LinearLayout>
-        </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/lineColor"
             />
-        <LinearLayout
+
+        <RelativeLayout
+            android:id="@+id/passProtectLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="密码保护"
+            <ImageView
+                android:id="@+id/passProtectImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/pass_protect_icon"
                 />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/passProtectImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
                 >
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_arrow"
+                    android:text="密码保护"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="密码保护请戳这里~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
                     />
 
             </LinearLayout>
-        </LinearLayout>
 
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/lineColor"
             />
-        <LinearLayout
+
+        <RelativeLayout
+            android:id="@+id/inviteLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="邀请链接"
+            <ImageView
+                android:id="@+id/inviteImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/suggest_atlas"
                 />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@id/inviteImage"
+                android:layout_marginLeft="8dp"
+                android:padding="4dp"
                 >
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/left_arrow"
+                    android:text="邀请链接"
+                    android:textSize="18sp"
+                    android:textColor="@color/f2"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="查看邀请链接请戳这里~"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:layout_marginTop="6dp"
                     />
 
             </LinearLayout>
-        </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/lineColor"
             />
+
     </LinearLayout>
 </LinearLayout>
