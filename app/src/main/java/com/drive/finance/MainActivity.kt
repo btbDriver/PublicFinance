@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar
 import android.widget.ArrayAdapter
 import android.widget.RelativeLayout
 import com.drive.finance.base.BaseActivity
+import com.drive.finance.ui.createLoginFragment
 import com.drive.finance.ui.createPickFragment
 import com.drive.finance.ui.drawer.*
 import com.drive.finance.ui.drawer.consult.createConsultFragment
@@ -69,7 +70,7 @@ class MainActivity : BaseActivity() {
         loadRootFragment(R.id.contentContainerLayout, createTabHostFragment())
 
         drawerHomeLayout.onClick {
-            loadRootFragment(R.id.drawerFragmentContainer, createUserInfoFragment())
+            loadRootFragment(R.id.drawerFragmentContainer, createLoginFragment())
         }
 
         drawerUserLayout.onClick {
