@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
+import com.drive.finance.ui.drawer.team.createPointTreadFragment
+import com.drive.finance.ui.tab.createCardFragment
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 
@@ -44,7 +46,7 @@ class PublicFinanceFragment : BaseFragment() {
         }
 
         publicCardLayout.onClick {
-
+            start(createCardFragment(true))
         }
 
         publicCreditLayout.onClick {
@@ -52,15 +54,15 @@ class PublicFinanceFragment : BaseFragment() {
         }
 
         publicFinanceLayout.onClick {
-
+            start(createInvestFragment())
         }
 
         publicRepayLayout.onClick {
-
+            start(createPepayFragment())
         }
 
         publicTreadLayout.onClick {
-
+            start(createPointTreadFragment())
         }
     }
 }

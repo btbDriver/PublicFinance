@@ -17,6 +17,12 @@
         android:padding="8dp"
         />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,8 +98,11 @@
                 android:text="立即参与"
                 android:textColor="@android:color/white"
                 android:textSize="15sp"
-                android:background="@android:color/holo_red_dark"
-                android:padding="8dp"
+                android:background="@drawable/view_back_red"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 />
 
         </LinearLayout>

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
+import com.drive.finance.ui.tab.createInviteFragment
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 
@@ -27,6 +28,9 @@ class UserInfoFragment : BaseFragment() {
     }
     val passProtectLayout by lazy {
         view?.findViewById(R.id.passProtectLayout) as RelativeLayout
+    }
+    val inviteLayout by lazy {
+        view?.findViewById(R.id.inviteLayout) as RelativeLayout
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -55,6 +59,10 @@ class UserInfoFragment : BaseFragment() {
 
         passProtectLayout.onClick {
             start(createPassProtectFragment())
+        }
+
+        inviteLayout.onClick {
+            start(createInviteFragment())
         }
     }
 }

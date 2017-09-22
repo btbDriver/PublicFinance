@@ -9,7 +9,7 @@
         android:id="@+id/simpleTitleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleBar_content="忘记密码"
+        app:titleBar_content="验证问题"
         />
 
     <View
@@ -27,18 +27,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="6dp"
             android:text="找回密码-验证问题"
             android:textSize="20sp"
-            android:textColor="@color/f1"
+            android:textColor="#ff1900"
             android:layout_gravity="center_horizontal"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:background="@drawable/view_border_back_red"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="问题1：我妈妈的名字叫什么？"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:textColor="@color/f3"
             android:textSize="13sp"
             android:padding="6dp"
@@ -50,6 +54,15 @@
             android:text="答案1"
             android:textSize="13sp"
             android:textColor="@color/f3"
+            android:layout_marginTop="12dp"
+            android:padding="6dp"
+            android:background="@drawable/edit_back_gray"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
             android:layout_marginTop="12dp"
             />
 
@@ -70,6 +83,15 @@
             android:textSize="13sp"
             android:textColor="@color/f3"
             android:layout_marginTop="12dp"
+            android:padding="6dp"
+            android:background="@drawable/edit_back_gray"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            android:layout_marginTop="12dp"
             />
 
         <TextView
@@ -89,6 +111,15 @@
             android:textSize="13sp"
             android:textColor="@color/f3"
             android:layout_marginTop="12dp"
+            android:padding="6dp"
+            android:background="@drawable/edit_back_gray"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            android:layout_marginTop="12dp"
             />
 
         <TextView
@@ -98,8 +129,8 @@
             android:layout_marginTop="20dp"
             android:text="提交"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:background="@color/f1"
+            android:textSize="16dp"
+            android:background="@drawable/view_back_blue"
             android:layout_gravity="center_horizontal"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"

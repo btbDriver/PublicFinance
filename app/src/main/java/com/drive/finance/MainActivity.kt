@@ -7,11 +7,15 @@ import android.support.v7.widget.Toolbar
 import android.widget.ArrayAdapter
 import android.widget.RelativeLayout
 import com.drive.finance.base.BaseActivity
-import com.drive.finance.ui.createLoginFragment
-import com.drive.finance.ui.createPickFragment
+import com.drive.finance.ui.tab.createInviteFragment
+import com.drive.finance.ui.login.createLoginFragment
+import com.drive.finance.ui.tab.createPickFragment
+import com.drive.finance.ui.tab.createSuggestFragment
 import com.drive.finance.ui.drawer.*
 import com.drive.finance.ui.drawer.consult.createConsultFragment
+import com.drive.finance.ui.drawer.contact.createContactFragment
 import com.drive.finance.ui.drawer.public.createPublicFinanceFragment
+import com.drive.finance.ui.drawer.team.createTeamFragment
 import com.drive.finance.ui.drawer.user.createUserInfoFragment
 import com.drive.finance.ui.tab.createBonusListFragment
 import com.drive.finance.ui.tab.createTabHostFragment
@@ -106,5 +110,20 @@ class MainActivity : BaseActivity() {
     @Subscribe
     fun onCreatePickFragmentEvent(event: CreatePickFragmentEvent) {
         loadRootFragment(R.id.drawerFragmentContainer, createPickFragment())
+    }
+
+    @Subscribe
+    fun onCreateUserInfoFragmentEvent(event: CreateUserInfoFragmentEvent) {
+        loadRootFragment(R.id.drawerFragmentContainer, createUserInfoFragment())
+    }
+
+    @Subscribe
+    fun onCreateInviteFragmentEvent(event: CreateInviteFragmentEvent) {
+        loadRootFragment(R.id.drawerFragmentContainer, createInviteFragment())
+    }
+
+    @Subscribe
+    fun onCreateSuggestFragmentEvent(event: CreateSuggestFragmentEvent) {
+        loadRootFragment(R.id.drawerFragmentContainer, createSuggestFragment())
     }
 }

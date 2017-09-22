@@ -1,15 +1,16 @@
-package com.drive.finance.ui.drawer.public
+package com.drive.finance.ui.tab
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 
-class PublicCreditFragment : BaseFragment() {
+class PickFragment : BaseFragment() {
 
     val simpleTitleBar by lazy {
         view?.findViewById(R.id.simpleTitleBar) as SimpleTitleBar
@@ -17,7 +18,7 @@ class PublicCreditFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_credit_finance, container, false)
+        return inflater!!.inflate(R.layout.fragment_pick, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -29,6 +30,6 @@ class PublicCreditFragment : BaseFragment() {
     }
 }
 
-fun createPublicCreditFragment(): PublicCreditFragment {
-    return PublicCreditFragment()
+fun createPickFragment(): PickFragment {
+    return PickFragment()
 }

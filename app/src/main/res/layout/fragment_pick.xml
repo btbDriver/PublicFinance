@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             >
 
             <TextView
@@ -98,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             >
 
             <TextView
@@ -120,9 +120,10 @@
                 android:text="中国银行"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
-                android:padding="2dp"
+                android:padding="5dp"
                 android:gravity="left"
                 android:layout_gravity="center"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -131,7 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             >
 
             <TextView
@@ -153,9 +154,10 @@
                 android:text="青岛支行"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
-                android:padding="2dp"
+                android:padding="5dp"
                 android:gravity="left"
                 android:layout_gravity="center"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -164,7 +166,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             >
 
             <TextView
@@ -186,9 +188,10 @@
                 android:text="6214 8301 0071 7777"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
-                android:padding="2dp"
+                android:padding="5dp"
                 android:gravity="left"
                 android:layout_gravity="center"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -197,7 +200,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             >
 
             <TextView
@@ -219,9 +222,10 @@
                 android:text="本金账户"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
-                android:padding="2dp"
+                android:padding="5dp"
                 android:gravity="left"
                 android:layout_gravity="center"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -230,7 +234,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             >
 
             <TextView
@@ -245,25 +249,45 @@
                 android:layout_gravity="center"
                 />
 
-            <EditText
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="0$"
-                android:textSize="13sp"
-                android:textColor="@color/f3"
-                android:padding="2dp"
-                android:gravity="left"
-                android:layout_gravity="center"
-                />
+                android:orientation="horizontal"
+                >
 
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="0"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:padding="5dp"
+                    android:gravity="left"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edit_back_gray"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/view_back_red"
+                    android:text="$"
+                    android:textSize="13sp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    />
+                    />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             >
 
             <TextView
@@ -278,17 +302,36 @@
                 android:layout_gravity="center"
                 />
 
-            <EditText
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="1520087195"
-                android:textSize="13sp"
-                android:textColor="@color/f3"
-                android:padding="2dp"
-                android:gravity="left"
-                android:layout_gravity="center"
-                />
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="1520087195"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:padding="5dp"
+                    android:gravity="left"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edit_back_gray"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="验证码"
+                    android:textSize="13sp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:background="@drawable/view_back_red"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -296,7 +339,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             >
 
             <TextView
@@ -318,9 +361,10 @@
                 android:text="1234"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
-                android:padding="2dp"
+                android:padding="5dp"
                 android:gravity="left"
                 android:layout_gravity="center"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -329,7 +373,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             >
 
             <TextView
@@ -351,9 +395,10 @@
                 android:text="123456"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
-                android:padding="2dp"
+                android:padding="5dp"
                 android:gravity="left"
                 android:layout_gravity="center"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -361,15 +406,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="提交"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
-            android:textColor="@color/f3"
-            android:background="@color/f1"
-            android:textSize="13sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/view_back_blue"
+            android:textSize="15sp"
             />
 
     </LinearLayout>

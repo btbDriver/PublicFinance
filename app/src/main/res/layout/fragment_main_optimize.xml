@@ -14,6 +14,7 @@
         android:orientation="horizontal"
         >
         <LinearLayout
+            android:id="@+id/inviteLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -22,8 +23,8 @@
             android:gravity="center"
             >
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:src="@drawable/main_invite"
                 />
 
@@ -48,8 +49,8 @@
             android:gravity="center"
             >
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:src="@drawable/main_award"
                 />
 
@@ -65,6 +66,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/suggestLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -73,8 +75,8 @@
             android:gravity="center"
             >
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:src="@drawable/main_suggest"
                 />
 
@@ -106,8 +108,8 @@
             android:gravity="center"
             >
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:src="@drawable/main_finance"
                 />
 
@@ -132,8 +134,8 @@
             android:gravity="center"
             >
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:src="@drawable/main_income"
                 />
 
@@ -149,6 +151,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/userInfoLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -157,8 +160,8 @@
             android:gravity="center"
             >
             <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:src="@drawable/main_user"
                 />
 

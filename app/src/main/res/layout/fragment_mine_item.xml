@@ -252,9 +252,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="提取本金"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
                 android:layout_marginRight="20dp"
-                android:padding="6dp"
-                android:background="@color/f4"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/view_back_blue"
                 />
 
 

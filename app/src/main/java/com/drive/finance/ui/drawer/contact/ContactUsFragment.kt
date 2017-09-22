@@ -1,27 +1,23 @@
-package com.drive.finance.ui.drawer
+package com.drive.finance.ui.drawer.contact
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 
-class ContactFragment : BaseFragment() {
+class ContactUsFragment : BaseFragment() {
 
     val simpleTitleBar by lazy {
         view?.findViewById(R.id.simpleTitleBar) as SimpleTitleBar
     }
-    val contactSeverLayout by lazy {
-        view?.findViewById(R.id.contactSeverLayout) as RelativeLayout
-    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_contact, container, false)
+        return inflater!!.inflate(R.layout.fragment_contact_us, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
@@ -33,6 +29,6 @@ class ContactFragment : BaseFragment() {
     }
 }
 
-fun createContactFragment(): ContactFragment {
-    return ContactFragment()
+fun createContactUsFragment(): ContactUsFragment {
+    return ContactUsFragment()
 }

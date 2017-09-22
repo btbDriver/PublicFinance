@@ -1,37 +1,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
+    android:background="@android:color/white"
     >
+
+    <com.drive.finance.widget.SimpleTitleBar
+        android:id="@+id/simpleTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleBar_content="我的贷款"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:text="众卡贷的作用：
         \n1:根据您的众卡积分分享有公司的股权，并等值公司的股本，可持有至公司上市并成为股东，同时可以在大盘流通后随时交易买卖。
         \n2:您的众卡积分总数达到20000个，可申请贷款，贷款额度5000至15000美金。
         \n3:贷款期限：6至12个月无息贷款。
         \n4:还款方式：每月18日为还款日，以奖金划扣为主。"
         android:textSize="13sp"
-        android:textColor="@color/f3"
-        android:padding="5dp"
+        android:textColor="@color/f2"
+        android:padding="10dp"
         android:lineSpacingExtra="5dp"
+        android:background="@drawable/view_back_gray"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         >
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="当前条件:"
+            android:textColor="@color/f2"
+            android:textSize="13sp"
             android:gravity="left"
             android:padding="5dp"
             />
@@ -39,7 +59,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="众卡积分123"
             android:gravity="left"
             android:padding="5dp"
@@ -50,13 +70,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         >
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="可贷款额度:"
+            android:textSize="13sp"
+            android:textColor="@color/f2"
             android:gravity="left"
             android:padding="5dp"
             />
@@ -64,10 +88,13 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="0"
+            android:textSize="13sp"
+            android:textColor="@color/f3"
             android:gravity="left"
             android:padding="5dp"
+            android:background="@drawable/edit_back_gray"
             />
     </LinearLayout>
 
@@ -75,13 +102,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         >
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="贷款期限:"
+            android:textSize="13sp"
+            android:textColor="@color/f2"
             android:gravity="left"
             android:padding="5dp"
             />
@@ -89,10 +120,13 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=""
+            android:layout_weight="2"
+            android:text="10000"
+            android:textColor="@color/f3"
+            android:textSize="13sp"
             android:gravity="left"
             android:padding="5dp"
+            android:background="@drawable/edit_back_gray"
             />
     </LinearLayout>
 
@@ -100,13 +134,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         >
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="交易密码:"
+            android:textSize="13sp"
+            android:textColor="@color/f2"
             android:gravity="left"
             android:padding="5dp"
             />
@@ -114,10 +152,13 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text=""
+            android:layout_weight="2"
+            android:text="......"
+            android:textSize="13sp"
+            android:textColor="@color/f3"
             android:gravity="left"
             android:padding="5dp"
+            android:background="@drawable/edit_back_gray"
             />
     </LinearLayout>
 
@@ -125,10 +166,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="提交"
-        android:layout_marginTop="10dp"
-        android:padding="5dp"
-        android:background="@color/f1"
-        android:layout_marginLeft="8dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="20dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/view_back_blue"
+        android:layout_marginLeft="20dp"
         />
 
 </LinearLayout>

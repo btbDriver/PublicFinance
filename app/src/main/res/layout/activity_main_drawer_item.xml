@@ -13,14 +13,14 @@
         android:id="@+id/drawerHomeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:visibility="visible"
+        android:padding="12dp"
         >
 
         <ImageView
             android:id="@+id/drawerHomeImage"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:src="@drawable/drawer_home"
             android:layout_centerVertical="true"
             />
@@ -29,11 +29,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="首页"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@color/f3"
             android:layout_toRightOf="@id/drawerHomeImage"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="12dp"
             />
 
         <ImageView
@@ -46,17 +46,23 @@
 
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
+
     <RelativeLayout
         android:id="@+id/drawerUserLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:padding="12dp"
         >
 
         <ImageView
             android:id="@+id/drawerUserImage"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:src="@drawable/drawer_user"
             android:layout_centerVertical="true"
             />
@@ -65,11 +71,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="个人信息"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@color/f3"
             android:layout_toRightOf="@id/drawerUserImage"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="12dp"
             />
 
         <ImageView
@@ -82,17 +88,23 @@
 
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
+
     <RelativeLayout
         android:id="@+id/drawerTeamLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:padding="12dp"
         >
 
         <ImageView
             android:id="@+id/drawerTeamImage"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:src="@drawable/drawer_team"
             android:layout_centerVertical="true"
             />
@@ -101,11 +113,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="团队管理"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@color/f3"
             android:layout_toRightOf="@id/drawerTeamImage"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="12dp"
             />
 
         <ImageView
@@ -118,17 +130,23 @@
 
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
+
     <RelativeLayout
         android:id="@+id/drawerCenterLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:padding="12dp"
         >
 
         <ImageView
             android:id="@+id/drawerCenterImage"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:src="@drawable/drawer_finance"
             android:layout_centerVertical="true"
             />
@@ -137,11 +155,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="财务中心"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@color/f3"
             android:layout_toRightOf="@id/drawerCenterImage"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="12dp"
             />
 
         <ImageView
@@ -154,17 +172,23 @@
 
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
+
     <RelativeLayout
         android:id="@+id/drawerPublicLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:padding="12dp"
         >
 
         <ImageView
             android:id="@+id/drawerPublicImage"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:src="@drawable/drawer_public"
             android:layout_centerVertical="true"
             />
@@ -173,11 +197,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="大众财富"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@color/f3"
             android:layout_toRightOf="@id/drawerPublicImage"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="12dp"
             />
 
         <ImageView
@@ -190,17 +214,23 @@
 
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
+
     <RelativeLayout
         android:id="@+id/drawerConsultLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:padding="12dp"
         >
 
         <ImageView
             android:id="@+id/drawerConsultImage"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:src="@drawable/drawer_consult"
             android:layout_centerVertical="true"
             />
@@ -209,11 +239,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="公司资讯"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@color/f3"
             android:layout_toRightOf="@id/drawerConsultImage"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="12dp"
             />
 
         <ImageView
@@ -226,17 +256,23 @@
 
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
+
     <RelativeLayout
         android:id="@+id/drawerContactLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:padding="12dp"
         >
 
         <ImageView
             android:id="@+id/drawerContactImage"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:src="@drawable/drawer_user"
             android:layout_centerVertical="true"
             />
@@ -245,11 +281,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="联系我们"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="@color/f3"
             android:layout_toRightOf="@id/drawerContactImage"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="12dp"
             />
 
         <ImageView
@@ -261,5 +297,11 @@
             />
 
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
 
 </LinearLayout>

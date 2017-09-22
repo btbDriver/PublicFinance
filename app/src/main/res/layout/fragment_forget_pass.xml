@@ -27,18 +27,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="找回密码-验证用户名"
+            android:textSize="18sp"
+            android:textColor="#ff1900"
             android:layout_gravity="center_horizontal"
-            android:padding="6dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:background="@drawable/view_border_back_red"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             >
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/user_number"
                 />
 
@@ -49,6 +55,9 @@
                 android:text="客户编号"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
+                android:padding="8dp"
+                android:background="@drawable/edit_back_gray"
+                android:layout_gravity="center_vertical"
                 />
 
         </LinearLayout>
@@ -56,23 +65,43 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             >
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/user_pass"
                 />
 
-            <EditText
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:text="请输入验证码"
-                android:textSize="13sp"
-                android:textColor="@color/f3"
-                />
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginLeft="12dp"
+                    android:text="请输入验证码"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:padding="8dp"
+                    android:background="@drawable/edit_back_gray"
+                    android:layout_gravity="center_vertical"
+                    />
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="sdfg"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@color/f3"
+                    />
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -82,8 +111,8 @@
             android:layout_marginTop="20dp"
             android:text="下一步"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:background="@color/f1"
+            android:textSize="16dp"
+            android:background="@drawable/view_back_blue"
             android:layout_gravity="center_horizontal"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
@@ -91,6 +120,4 @@
             android:paddingBottom="10dp"
             />
     </LinearLayout>
-
-
 </LinearLayout>

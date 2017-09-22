@@ -19,8 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="活期理财产品"
-        android:textColor="@color/f4"
-        android:textSize="15sp"
+        android:textColor="#43dc94"
+        android:textSize="16sp"
         android:layout_marginLeft="5dp"
         android:layout_gravity="center_vertical"
         />

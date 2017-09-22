@@ -11,10 +11,14 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
+import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 
 class FinanceFragment : BaseFragment() {
 
+    val simpleTitleBar by lazy {
+        view?.findViewById(R.id.simpleTitleBar) as SimpleTitleBar
+    }
     val recyclerView by lazy {
         view?.findViewById(R.id.recyclerView) as RecyclerView
     }
@@ -28,6 +32,16 @@ class FinanceFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = FinanceAdapter()
+
+        if (arguments.getBoolean("isTitleBarVisible")) {
+            simpleTitleBar.visibility = View.VISIBLE
+
+            simpleTitleBar.backLayout!!.onClick {
+                pop()
+            }
+        } else {
+            simpleTitleBar.visibility = View.GONE
+        }
     }
 }
 
@@ -107,6 +121,9 @@ class FinanceViewHolder2(itemView: View): RecyclerView.ViewHolder(itemView) {
 class FinanceViewHolder3(itemView: View): RecyclerView.ViewHolder(itemView)
 
 
-fun createFinanceFragment(): FinanceFragment {
-    return FinanceFragment()
+fun createFinanceFragment(isTitleBarVisible: Boolean): FinanceFragment {
+    val financeFragment = FinanceFragment()
+    financeFragment.arguments = Bundle()
+    financeFragment.arguments.putBoolean("isTitleBarVisible", isTitleBarVisible)
+    return financeFragment
 }

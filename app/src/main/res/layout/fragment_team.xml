@@ -86,7 +86,7 @@
             />
 
         <RelativeLayout
-            android:id="@+id/teamAtlasLayout"
+            android:id="@+id/teamChartLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="12dp"
@@ -95,7 +95,7 @@
             android:paddingBottom="8dp"
             >
             <ImageView
-                android:id="@+id/teamAtlasImage"
+                android:id="@+id/teamChartImage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/suggest_atlas"
@@ -105,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_toRightOf="@id/teamAtlasImage"
+                android:layout_toRightOf="@id/teamChartImage"
                 android:layout_marginLeft="8dp"
                 android:padding="4dp"
                 >
@@ -113,7 +113,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="提取收益"
+                    android:text="推荐图谱"
                     android:textSize="18sp"
                     android:textColor="@color/f2"
                     />
@@ -121,7 +121,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="此处您将提取您的收益~"
+                    android:text="查看推荐图谱请戳这里~"
                     android:textSize="13sp"
                     android:textColor="@color/f3"
                     android:layout_marginTop="6dp"

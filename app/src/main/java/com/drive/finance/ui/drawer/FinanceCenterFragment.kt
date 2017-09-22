@@ -1,17 +1,15 @@
 package com.drive.finance.ui.drawer
 
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
-import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
+import com.drive.finance.ui.tab.createPickFragment
+import com.drive.finance.ui.tab.createBonusListFragment
+import com.drive.finance.ui.tab.createFinanceFragment
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 
@@ -43,15 +41,15 @@ class FinanceCenterFragment : BaseFragment() {
         }
 
         financeCenterLayout.onClick {
-
+            start(createBonusListFragment())
         }
 
         financeIncomeLayout.onClick {
-
+            start(createPickFragment())
         }
 
         financeAwardLayout.onClick {
-
+            start(createFinanceFragment(true))
         }
     }
 }

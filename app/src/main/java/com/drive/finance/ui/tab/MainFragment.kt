@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import com.drive.finance.CreateBonusListFragmentEvent
-import com.drive.finance.CreatePickFragmentEvent
-import com.drive.finance.R
+import com.drive.finance.*
 import com.drive.finance.base.BaseFragment
 import com.hwangjr.rxbus.RxBus
 import com.jude.rollviewpager.RollPagerView
@@ -21,6 +19,9 @@ class MainFragment : BaseFragment() {
     val rollPagerView by lazy {
         view?.findViewById(R.id.rollPagerView) as RollPagerView
     }
+    val inviteLayout by lazy {
+        view?.findViewById(R.id.inviteLayout) as LinearLayout
+    }
     val bonusListLayout by lazy {
         view?.findViewById(R.id.bonusListLayout) as LinearLayout
     }
@@ -29,6 +30,12 @@ class MainFragment : BaseFragment() {
     }
     val pickLayout by lazy {
         view?.findViewById(R.id.pickLayout) as LinearLayout
+    }
+    val userInfoLayout by lazy {
+        view?.findViewById(R.id.userInfoLayout) as LinearLayout
+    }
+    val suggestLayout by lazy {
+        view?.findViewById(R.id.suggestLayout) as LinearLayout
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -52,6 +59,18 @@ class MainFragment : BaseFragment() {
 
         pickLayout.onClick {
             RxBus.get().post(CreatePickFragmentEvent(""))
+        }
+
+        userInfoLayout.onClick {
+            RxBus.get().post(CreateUserInfoFragmentEvent(""))
+        }
+
+        inviteLayout.onClick {
+            RxBus.get().post(CreateInviteFragmentEvent(""))
+        }
+
+        suggestLayout.onClick {
+            RxBus.get().post(CreateSuggestFragmentEvent(""))
         }
     }
 }

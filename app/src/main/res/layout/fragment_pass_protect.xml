@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="问题1：我妈妈的名字叫什么？"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textColor="@color/f2"
             android:padding="4dp"
             />
@@ -44,13 +44,22 @@
             android:textColor="@color/f3"
             android:textSize="13sp"
             android:layout_marginTop="12dp"
+            android:padding="5dp"
+            android:background="@drawable/edit_back_gray"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            android:layout_marginTop="12dp"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="问题2：我外公的名字叫什么？"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textColor="@color/f2"
             android:layout_marginTop="12dp"
             android:padding="4dp"
@@ -63,13 +72,22 @@
             android:textColor="@color/f3"
             android:textSize="13sp"
             android:layout_marginTop="12dp"
+            android:padding="5dp"
+            android:background="@drawable/edit_back_gray"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            android:layout_marginTop="12dp"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="问题3：我爸爸的名字叫什么？"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textColor="@color/f2"
             android:layout_marginTop="12dp"
             android:padding="4dp"
@@ -82,16 +100,28 @@
             android:textColor="@color/f3"
             android:textSize="13sp"
             android:layout_marginTop="12dp"
+            android:padding="5dp"
+            android:background="@drawable/edit_back_gray"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            android:layout_marginTop="12dp"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="提交"
-            android:textSize="20sp"
-            android:padding="6dp"
+            android:textSize="16sp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textColor="@android:color/white"
-            android:background="@color/f1"
+            android:background="@drawable/view_back_blue"
             android:layout_marginTop="20dp"
             />
     </LinearLayout>

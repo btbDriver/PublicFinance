@@ -52,6 +52,8 @@
                 android:text="10000"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
+                android:background="@drawable/edit_back_gray"
+                android:padding="5dp"
                 />
         </LinearLayout>
 
@@ -77,6 +79,8 @@
                 android:text="10000"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
+                android:background="@drawable/edit_back_gray"
+                android:padding="5dp"
                 />
         </LinearLayout>
 
@@ -102,6 +106,8 @@
                 android:text="10000"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
+                android:background="@drawable/edit_back_gray"
+                android:padding="5dp"
                 />
         </LinearLayout>
 
@@ -110,10 +116,14 @@
             android:layout_height="wrap_content"
             android:text="提交"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:padding="6dp"
-            android:background="@color/f1"
-            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/view_back_blue"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="5dp"
             />
 
     </LinearLayout>

@@ -10,7 +10,7 @@
         android:id="@+id/simpleTitleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleBar_content="投资理财"
+        app:titleBar_content="推荐图谱"
         />
 
     <View
@@ -19,10 +19,13 @@
         android:background="@color/lineColor"
         />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="推荐图谱..."
+        android:textColor="@color/f3"
+        android:textSize="15sp"
+        />
 
 </LinearLayout>

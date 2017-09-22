@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             android:padding="6dp"
             android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             >
             <TextView
                 android:layout_width="0dp"
@@ -48,10 +49,12 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:text="10000"
                 android:textColor="@color/f3"
                 android:textSize="13sp"
+                android:padding="5dp"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -74,10 +77,12 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:text="李守满"
                 android:textColor="@color/f3"
                 android:textSize="13sp"
+                android:padding="5dp"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -100,10 +105,12 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:text="已提交"
                 android:textColor="@color/f3"
                 android:textSize="13sp"
+                android:padding="5dp"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -126,10 +133,12 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:text="中国工商银行"
                 android:textColor="@color/f3"
                 android:textSize="13sp"
+                android:padding="5dp"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -152,10 +161,12 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:text="青岛市李沧区重庆路支行"
                 android:textColor="@color/f3"
                 android:textSize="13sp"
+                android:padding="5dp"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -178,10 +189,12 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:text="6214640100717321"
                 android:textColor="@color/f3"
                 android:textSize="13sp"
+                android:padding="5dp"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -205,26 +218,28 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 >
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="3"
                     android:text="10000"
                     android:textColor="@color/f3"
                     android:textSize="13sp"
+                    android:padding="5dp"
+                    android:background="@drawable/edit_back_gray"
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:text="验证码"
                     android:textSize="13sp"
                     android:textColor="@android:color/white"
-                    android:background="@color/f1"
+                    android:background="@drawable/view_back_red"
                     android:padding="4dp"
-                    android:layout_marginLeft="5dp"
                     />
             </LinearLayout>
 
@@ -248,10 +263,12 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:text="0000"
                 android:textColor="@color/f3"
                 android:textSize="13sp"
+                android:padding="5dp"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -274,10 +291,12 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:text="13123@163.com"
                 android:textColor="@color/f3"
                 android:textSize="13sp"
+                android:padding="5dp"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -300,10 +319,12 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:text="10000"
                 android:textColor="@color/f3"
                 android:textSize="13sp"
+                android:padding="5dp"
+                android:background="@drawable/edit_back_gray"
                 />
 
         </LinearLayout>
@@ -312,14 +333,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="提交"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textColor="@android:color/white"
-            android:background="@color/f1"
-            android:padding="6dp"
-            android:layout_marginTop="10dp"
+            android:background="@drawable/view_back_blue"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="8dp"
             />
 
     </LinearLayout>
-
 
 </LinearLayout>
