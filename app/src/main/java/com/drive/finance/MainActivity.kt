@@ -128,6 +128,9 @@ class MainActivity : BaseActivity() {
             mDrawerLayout.closeDrawers()
             loadRootFragment(R.id.drawerFragmentContainer, createContactFragment(), true, true)
         }
+
+        // 判断当前是否需要登录
+
     }
 
 

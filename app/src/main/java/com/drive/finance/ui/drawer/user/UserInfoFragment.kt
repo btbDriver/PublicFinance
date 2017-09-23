@@ -45,22 +45,37 @@ class UserInfoFragment : BaseFragment() {
             pop()
         }
 
+        /**
+         * 个人信息
+         */
         userInfoLayout.onClick {
             start(createUserFragment())
         }
 
+        /**
+         * 更新登录密码
+         */
         updateLoginLayout.onClick {
             start(createUpdateLoginFragment())
         }
 
+        /**
+         * 更新交易密码
+         */
         updateTreadLayout.onClick {
             start(createUpdateTreadFragment())
         }
 
+        /**
+         * 密码保护
+         */
         passProtectLayout.onClick {
             start(createPassProtectFragment())
         }
 
+        /**
+         * 邀请链接
+         */
         inviteLayout.onClick {
             start(createInviteFragment())
         }

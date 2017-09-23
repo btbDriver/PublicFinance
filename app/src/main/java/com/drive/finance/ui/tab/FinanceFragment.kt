@@ -11,8 +11,13 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
+import com.drive.finance.network.APIClient
+import com.drive.finance.network.model.Finance
+import com.drive.finance.network.model.FinanceModel
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
 
 class FinanceFragment : BaseFragment() {
 
@@ -47,16 +52,40 @@ class FinanceFragment : BaseFragment() {
 
 class FinanceAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    val apiClient by lazy {
+        APIClient()
+    }
+    var financeModel: FinanceModel ?= null
+
+    init {
+        apiClient.requestCenterFinanceData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ financemodel ->
+                    financeModel = financemodel
+                    notifyDataSetChanged()
+                }, {})
+    }
+
     override fun getItemViewType(position: Int): Int {
-        if (position == 0) {
-            return 1
-        } else if (position < 5) {
-            return 2
-        } else if (position == 5) {
-            return 3
-        } else if (position > 5) {
-            return 4
+        if (financeModel == null) {
+            if (position == 0) {
+                return 1
+            } else if (position == 1) {
+                return 3
+            }
+        } else {
+            if (position == 0) {
+                return 1
+            } else if (position <= financeModel!!.fin.size) {
+                return 2
+            } else if (position == financeModel!!.fin.size + 1) {
+                return 3
+            } else if (position > financeModel!!.fin.size + 1) {
+                return 4
+            }
         }
+
         return super.getItemViewType(position)
     }
 
@@ -73,7 +102,7 @@ class FinanceAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         } else if (viewType == 3) {
             rootView = LayoutInflater.from(parent!!.context).inflate(R.layout.fragment_finance_item3, null, false)
             rootView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-            return FinanceViewHolder3(rootView)
+            return FinanceViewHolder1(rootView)
         } else {
             rootView = LayoutInflater.from(parent!!.context).inflate(R.layout.fragment_finance_item2, null, false)
             rootView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -83,12 +112,20 @@ class FinanceAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         if (holder is FinanceViewHolder2) {
-            (holder as FinanceViewHolder2).setItems()
+            if (position <= financeModel!!.fin.size) {
+                (holder as FinanceViewHolder2).setItems(financeModel!!.fin[position - 1])
+            } else if (position > financeModel!!.fin.size + 1) {
+                (holder as FinanceViewHolder2).setItems(financeModel!!.fin[position - financeModel!!.fin.size - 2])
+            }
         }
     }
 
     override fun getItemCount(): Int {
-        return 10
+        if (financeModel == null) {
+            return 2
+        } else {
+            return 2 + financeModel!!.fin.size + financeModel!!.fin1.size
+        }
     }
 }
 
@@ -98,10 +135,27 @@ class FinanceViewHolder2(itemView: View): RecyclerView.ViewHolder(itemView) {
     val partText by lazy {
         itemView.findViewById(R.id.partText) as TextView
     }
+    val titleText by lazy {
+        itemView.findViewById(R.id.titleText) as TextView
+    }
+    val statusText by lazy {
+        itemView.findViewById(R.id.statusText) as TextView
+    }
+    val dayIncomeText by lazy {
+        itemView.findViewById(R.id.dayIncomeText) as TextView
+    }
 
-    fun setItems() {
+    fun setItems(finance: Finance) {
 
-        partText?.onClick {
+        titleText.text = finance.title
+        if (finance.status == "0") {
+            statusText.text = "OPEN"
+        } else {
+            statusText.text = "CLOSE"
+        }
+        dayIncomeText.text = finance.interest
+
+        partText.onClick {
             val builder = AlertDialog.Builder(itemView.context)
             val rootView = LayoutInflater.from(itemView.context).inflate(R.layout.finance_part_layout, null, false)
             var dialog: AlertDialog ?= null
@@ -117,8 +171,6 @@ class FinanceViewHolder2(itemView: View): RecyclerView.ViewHolder(itemView) {
         }
     }
 }
-
-class FinanceViewHolder3(itemView: View): RecyclerView.ViewHolder(itemView)
 
 
 fun createFinanceFragment(isTitleBarVisible: Boolean): FinanceFragment {

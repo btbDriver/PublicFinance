@@ -1,5 +1,6 @@
 package com.drive.finance.network
 
+import android.util.Log
 import okhttp3.*
 import org.json.JSONArray
 import org.json.JSONObject
@@ -77,6 +78,7 @@ class NetClient {
             sb.append("&").append(entry.key).append("=").append(entry.value)
         }
 
+        Log.i("########", sb.toString())
         return Request.Builder().get().url(sb.toString()).build()
     }
 }

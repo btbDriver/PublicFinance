@@ -8,10 +8,10 @@
     >
 
     <TextView
+        android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:text="定期财富宝12月期"
         android:textSize="14sp"
         android:textColor="@color/f2"
         android:padding="8dp"
@@ -39,9 +39,9 @@
             >
 
             <TextView
+                android:id="@+id/statusText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OPEN"
                 android:textColor="@color/f1"
                 android:textSize="18sp"
                 />
@@ -65,9 +65,9 @@
             >
 
             <TextView
+                android:id="@+id/dayIncomeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2%"
                 android:textColor="@color/f1"
                 android:textSize="18sp"
                 />

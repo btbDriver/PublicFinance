@@ -40,14 +40,23 @@ class FinanceCenterFragment : BaseFragment() {
             pop()
         }
 
+        /**
+         * 奖金列表
+         */
         financeCenterLayout.onClick {
             start(createBonusListFragment())
         }
 
+        /**
+         * 提取收益
+         */
         financeIncomeLayout.onClick {
             start(createPickFragment())
         }
 
+        /**
+         * 投资理财
+         */
         financeAwardLayout.onClick {
             start(createFinanceFragment(true))
         }

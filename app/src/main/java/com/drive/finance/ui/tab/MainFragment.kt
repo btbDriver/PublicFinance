@@ -119,7 +119,11 @@ class MainFragment : BaseFragment() {
 
     fun updateUI(homeModel: HomeModel) {
         userNumText.text = homeModel.username
-        userStatusText.text = homeModel.status
+        if (homeModel.status == "1") {
+            userStatusText.text = "已激活"
+        } else {
+            userStatusText.text = "未激活"
+        }
         inviteCount.text = homeModel.renum
         moneyText.text = homeModel.money
         gpText.text = homeModel.gp

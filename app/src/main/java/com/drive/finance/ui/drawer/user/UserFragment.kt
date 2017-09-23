@@ -1,23 +1,21 @@
 package com.drive.finance.ui.drawer.user
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.network.APIClient
+import com.drive.finance.network.model.MyInfo
 import com.drive.finance.network.model.UserModel
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
-import android.widget.ArrayAdapter
-
 
 
 class UserFragment : BaseFragment() {
@@ -40,8 +38,8 @@ class UserFragment : BaseFragment() {
     val backAddressEdit by lazy {
         view?.findViewById(R.id.backAddressEdit) as EditText
     }
-    val mobelEdit by lazy {
-        view?.findViewById(R.id.mobelEdit) as EditText
+    val telEdit by lazy {
+        view?.findViewById(R.id.telEdit) as EditText
     }
     val emailEdit by lazy {
         view?.findViewById(R.id.emailEdit) as EditText
@@ -49,6 +47,19 @@ class UserFragment : BaseFragment() {
     val backSpinner by lazy {
         view?.findViewById(R.id.backSpinner) as Spinner
     }
+    val sendCodeText by lazy {
+        view?.findViewById(R.id.sendCodeText) as TextView
+    }
+    val submitText by lazy {
+        view?.findViewById(R.id.submitText) as TextView
+    }
+    val pEdit by lazy {
+        view?.findViewById(R.id.pEdit) as EditText
+    }
+    val smsCodeEdit by lazy {
+        view?.findViewById(R.id.smsCodeEdit) as EditText
+    }
+    val backArray = ArrayList<String>()
 
     val apiClient by lazy {
         APIClient()
@@ -63,6 +74,51 @@ class UserFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         simpleTitleBar.backLayout!!.onClick {
             pop()
+        }
+
+        /**
+         * 发送短信验证码
+         */
+        sendCodeText.onClick {
+            apiClient.sendMobileCode(telEdit.text.toString())
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ mobileCodeModel ->
+                        if (mobileCodeModel.success == 0) {
+                            Toast.makeText(activity, "发送短信验证码成功", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(activity, mobileCodeModel.info, Toast.LENGTH_SHORT).show()
+                        }
+                    }, {})
+        }
+
+        /**
+         * 更新个人信息
+         */
+        submitText.onClick {
+            val userModel = UserModel()
+            userModel.myinfo = MyInfo()
+            if (backArray[backSpinner.selectedItemPosition] != "请选择") {
+                userModel.myinfo.bank = backArray[backSpinner.selectedItemPosition]
+            }
+            userModel.myinfo.bankaddress = backAddressEdit.text.toString()
+            userModel.myinfo.bankcard = backCardEdit.text.toString()
+            userModel.myinfo.email = emailEdit.text.toString()
+            userModel.myinfo.p = pEdit.text.toString()
+            userModel.myinfo.smscode = smsCodeEdit.text.toString()
+            userModel.myinfo.tel = telEdit.text.toString()
+
+            apiClient.sendUpdateUser(userModel)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ resultModel ->
+                        if (resultModel.success == 0) {
+                            Toast.makeText(activity, "更新个人信息成功", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(activity, resultModel.info, Toast.LENGTH_SHORT).show()
+                        }
+                    }, {})
+
         }
 
         apiClient.requestUserData()
@@ -84,15 +140,16 @@ class UserFragment : BaseFragment() {
 
         backAddressEdit.setText(userModel.myinfo.bankaddress)
         backCardEdit.setText(userModel.myinfo.bankcard)
-        mobelEdit.setText(userModel.myinfo.tel)
+        telEdit.setText(userModel.myinfo.tel)
         emailEdit.setText(userModel.myinfo.email)
 
         if (userModel.banklist != null && userModel.banklist.size > 0) {
-            val array = ArrayList<String>()
+            backArray.clear()
+            backArray.add("请选择")
             for (i in 0..userModel.banklist.size - 1) {
-                array.add(userModel.banklist[i].bank)
+                backArray.add(userModel.banklist[i].bank)
             }
-            val adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, array)
+            val adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, backArray)
             backSpinner.adapter = adapter
         }
     }
