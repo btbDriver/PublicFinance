@@ -34,10 +34,16 @@ class ConsultFragment : BaseFragment() {
             pop()
         }
 
+        /**
+         * 公司简介
+         */
         consultInfoLayout.onClick {
             start(createConsultInfoFragment())
         }
 
+        /**
+         * 理财政策
+         */
         consultFinanceLayout.onClick {
             start(createConsultFinanceFragment())
         }

@@ -1,9 +1,6 @@
 package com.drive.finance.network
 
-import com.drive.finance.network.model.HomeModel
-import com.drive.finance.network.model.RecommendModel
-import com.drive.finance.network.model.UserModel
-import com.drive.finance.network.model.YJModel
+import com.drive.finance.network.model.*
 import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONObject
@@ -71,5 +68,34 @@ class APIClient {
         val paramsMap = HashMap<String, String>()
         paramsMap.put("uid", "1")
         return netClient.doGetRequestArray(BaseUrl.CENTER_BONUS_API, paramsMap)
+    }
+
+
+    /**
+     * 公司简介
+     */
+    fun requestConsultInfoData(): Observable<ConsultModel> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        paramsMap.put("id", "68")
+        return netClient.doGetRequest(BaseUrl.CONSULT_INFO_API, paramsMap)
+                .map { jsonObject ->
+                    Gson().fromJson(jsonObject.toString(), ConsultModel::class.java)
+                }
+
+    }
+
+    /**
+     * 公司简介
+     */
+    fun requestConsultFinanceData(): Observable<ConsultModel> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        paramsMap.put("id", "67")
+        return netClient.doGetRequest(BaseUrl.CONSULT_INFO_API, paramsMap)
+                .map { jsonObject ->
+                    Gson().fromJson(jsonObject.toString(), ConsultModel::class.java)
+                }
+
     }
 }

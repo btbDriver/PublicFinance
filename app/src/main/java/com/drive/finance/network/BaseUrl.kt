@@ -26,5 +26,10 @@ class BaseUrl {
          */
         // 奖金列表
         val CENTER_BONUS_API = BASE_URL + "money/indexApp?action=API"
+
+        /**
+         * 公司资讯
+         */
+        val CONSULT_INFO_API = BASE_URL + "news/viewApp?action=API"
     }
 }
