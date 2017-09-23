@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import org.jetbrains.anko.*
@@ -72,6 +73,18 @@ class TabHostFragment : BaseFragment() {
         loadMultipleRootFragment(R.id.fragmentTabContent, 0, mainFragment, financeFragment, mineFragment, cardFragment)
         showPosition(0)
         initView()
+    }
+
+    var lastBackTime: Long = 0
+
+    override fun onBackPressedSupport(): Boolean {
+        if (lastBackTime == 0.toLong() || System.currentTimeMillis() - lastBackTime >= 3000) {
+            Toast.makeText(activity, "在按一次退出程序", Toast.LENGTH_SHORT).show()
+            lastBackTime = System.currentTimeMillis()
+        } else {
+            activity.finish()
+        }
+        return true
     }
 
     private fun initView() {

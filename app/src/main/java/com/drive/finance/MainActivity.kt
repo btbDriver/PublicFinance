@@ -73,57 +73,101 @@ class MainActivity : BaseActivity() {
 
         loadRootFragment(R.id.contentContainerLayout, createTabHostFragment())
 
+        /**
+         * 登录
+         */
         drawerHomeLayout.onClick {
-            loadRootFragment(R.id.drawerFragmentContainer, createLoginFragment())
+            mDrawerLayout.closeDrawers()
+            loadRootFragment(R.id.drawerFragmentContainer, createLoginFragment(), true, true)
         }
 
+        /**
+         * 个人信息
+         */
         drawerUserLayout.onClick {
-            loadRootFragment(R.id.drawerFragmentContainer, createUserInfoFragment())
+            mDrawerLayout.closeDrawers()
+            loadRootFragment(R.id.drawerFragmentContainer, createUserInfoFragment(), true, true)
         }
 
+        /**
+         * 团队管理
+         */
         drawerTeamLayout.onClick {
-            loadRootFragment(R.id.drawerFragmentContainer, createTeamFragment())
+            mDrawerLayout.closeDrawers()
+            loadRootFragment(R.id.drawerFragmentContainer, createTeamFragment(), true, true)
         }
 
+        /**
+         * 财务中心
+         */
         drawerCenterLayout.onClick {
-            loadRootFragment(R.id.drawerFragmentContainer, createFinanceCenterFragment())
+            mDrawerLayout.closeDrawers()
+            loadRootFragment(R.id.drawerFragmentContainer, createFinanceCenterFragment(), true, true)
         }
 
+        /**
+         * 大众财富
+         */
         drawerPublicLayout.onClick {
-            loadRootFragment(R.id.drawerFragmentContainer, createPublicFinanceFragment())
+            mDrawerLayout.closeDrawers()
+            loadRootFragment(R.id.drawerFragmentContainer, createPublicFinanceFragment(), true, true)
         }
 
+        /**
+         * 公司咨询
+         */
         drawerConsultLayout.onClick {
-            loadRootFragment(R.id.drawerFragmentContainer, createConsultFragment())
+            mDrawerLayout.closeDrawers()
+            loadRootFragment(R.id.drawerFragmentContainer, createConsultFragment(), true, true)
         }
 
+        /**
+         * 联系我们
+         */
         drawerContactLayout.onClick {
-            loadRootFragment(R.id.drawerFragmentContainer, createContactFragment())
+            mDrawerLayout.closeDrawers()
+            loadRootFragment(R.id.drawerFragmentContainer, createContactFragment(), true, true)
         }
     }
 
+
+    /**
+     * 奖金列表
+     */
     @Subscribe
     fun onCreateBonusListFragmentEvent(event: CreateBonusListFragmentEvent) {
-        loadRootFragment(R.id.drawerFragmentContainer, createBonusListFragment())
+        loadRootFragment(R.id.drawerFragmentContainer, createBonusListFragment(), true, true)
     }
 
+    /**
+     * 提取收益
+     */
     @Subscribe
     fun onCreatePickFragmentEvent(event: CreatePickFragmentEvent) {
-        loadRootFragment(R.id.drawerFragmentContainer, createPickFragment())
+        loadRootFragment(R.id.drawerFragmentContainer, createPickFragment(), true, true)
     }
 
+    /**
+     * 个人信息
+     */
     @Subscribe
     fun onCreateUserInfoFragmentEvent(event: CreateUserInfoFragmentEvent) {
-        loadRootFragment(R.id.drawerFragmentContainer, createUserInfoFragment())
+        loadRootFragment(R.id.drawerFragmentContainer, createUserInfoFragment(), true, true)
     }
 
+    /**
+     * 邀请链接
+     */
     @Subscribe
     fun onCreateInviteFragmentEvent(event: CreateInviteFragmentEvent) {
-        loadRootFragment(R.id.drawerFragmentContainer, createInviteFragment())
+        loadRootFragment(R.id.drawerFragmentContainer, createInviteFragment(), true, true)
     }
 
+    /**
+     * 我要留言
+     */
     @Subscribe
     fun onCreateSuggestFragmentEvent(event: CreateSuggestFragmentEvent) {
-        loadRootFragment(R.id.drawerFragmentContainer, createSuggestFragment())
+        loadRootFragment(R.id.drawerFragmentContainer, createSuggestFragment(), true, true)
     }
 }
