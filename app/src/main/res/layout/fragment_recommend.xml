@@ -19,13 +19,12 @@
         android:background="@color/lineColor"
         />
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="推荐列表..."
-        android:textSize="15sp"
-        android:textColor="@color/f3"
-        />
+        android:fitsSystemWindows="true"
+        android:overScrollMode="never"
+        ></android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

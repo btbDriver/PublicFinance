@@ -89,7 +89,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="0"
             android:textSize="13sp"
             android:textColor="@color/f3"
             android:gravity="left"
@@ -121,7 +120,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="10000"
             android:textColor="@color/f3"
             android:textSize="13sp"
             android:gravity="left"
@@ -153,7 +151,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="......"
             android:textSize="13sp"
             android:textColor="@color/f3"
             android:gravity="left"
@@ -163,6 +160,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/submitText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="提交"

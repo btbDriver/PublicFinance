@@ -3,6 +3,7 @@ package com.drive.finance.network
 import com.drive.finance.network.model.*
 import com.google.gson.Gson
 import org.json.JSONArray
+import org.json.JSONObject
 import rx.Observable
 
 /**
@@ -98,16 +99,17 @@ class APIClient {
                 }
     }
 
+
+
+
+    // ######################################################################
     /**
      * 团队管理-推荐列表请求接口
      */
-    fun requestTeamRecommendData() : Observable<RecommendModel> {
+    fun requestTeamRecommendData() : Observable<JSONArray> {
         val paramsMap = HashMap<String, String>()
         paramsMap.put("uid", "1")
-        return netClient.doGetRequest(BaseUrl.TEAM_RECOMMEND_API, paramsMap)
-                .map { jsonObject ->
-                    Gson().fromJson(jsonObject.toString(), RecommendModel::class.java)
-                }
+        return netClient.doGetRequestArray(BaseUrl.TEAM_RECOMMEND_API, paramsMap)
     }
 
     /**
@@ -122,6 +124,8 @@ class APIClient {
                 }
     }
 
+
+    // ###############################################################
     /**
      * 财务中心-奖金列表接口
      */
@@ -143,7 +147,60 @@ class APIClient {
                 }
     }
 
+    /**
+     * 获取银行卡列表
+     */
+    fun requestBankData() : Observable<JSONArray>{
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        return netClient.doGetRequestArray(BaseUrl.CENTER_BANK_API, paramsMap)
+    }
 
+    /**
+     * 获取选择银行卡列表
+     */
+    fun requestSelectBankData(): Observable<JSONArray> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        return netClient.doGetRequestArray(BaseUrl.CENTER_SELECT_BANK_API, paramsMap)
+    }
+
+    /**
+     * 添加银行卡信息
+     */
+    fun sendAddBank(bankModel: BankModel): Observable<ResultModel> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        paramsMap.put("bank", bankModel.bank)
+        paramsMap.put("bankuser", bankModel.bankuser)
+        paramsMap.put("prvo", bankModel.prvo)
+        paramsMap.put("city", bankModel.city)
+        paramsMap.put("bankaddress", bankModel.bankaddress)
+        paramsMap.put("tel", bankModel.tel)
+        paramsMap.put("bankcard", bankModel.bankcard)
+        return netClient.doGetRequest(BaseUrl.CENTER_ADD_BANK_API, paramsMap)
+                .map { jsonObject ->
+                    Gson().fromJson(jsonObject.toString(), ResultModel::class.java)
+                }
+    }
+
+    /**
+     * 提现接口
+     */
+    fun sendPickmoney(bankId: String, treadPass: String, money: String, wallet: String): Observable<ResultModel> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        paramsMap.put("bankid", bankId)
+        paramsMap.put("p", treadPass)
+        paramsMap.put("money", money)
+        paramsMap.put("wallet", wallet)
+        return netClient.doGetRequest(BaseUrl.CENTER_PICK_API, paramsMap)
+                .map { jsonObject ->
+                    Gson().fromJson(jsonObject.toString(), ResultModel::class.java)
+                }
+    }
+
+    // ###########################################################
     /**
      * 公司简介
      */
@@ -170,5 +227,29 @@ class APIClient {
                     Gson().fromJson(jsonObject.toString(), ConsultModel::class.java)
                 }
 
+    }
+
+
+    // ######################################################
+
+    /**
+     * 我的投资
+     */
+    fun requestFinanceMineData(): Observable<JSONArray> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        return netClient.doGetRequestArray(BaseUrl.FINANCE_MINE_API, paramsMap)
+    }
+
+
+    // #######################################################
+
+    /**
+     * 获取邀请链接
+     */
+    fun requestShareData(): Observable<JSONObject> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        return netClient.doGetRequest(BaseUrl.SHARE_URL_API, paramsMap)
     }
 }

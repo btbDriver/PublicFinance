@@ -1,4 +1,4 @@
-package com.drive.finance.ui.drawer
+package com.drive.finance.ui.drawer.center
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -30,6 +30,7 @@ class FinanceCenterFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         return inflater!!.inflate(R.layout.fragment_finance_center, container, false)
     }
 
@@ -51,7 +52,7 @@ class FinanceCenterFragment : BaseFragment() {
          * 提取收益
          */
         financeIncomeLayout.onClick {
-            start(createPickFragment())
+            start(createPickFragment("1"))
         }
 
         /**

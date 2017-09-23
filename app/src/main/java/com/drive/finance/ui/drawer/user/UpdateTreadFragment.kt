@@ -38,6 +38,7 @@ class UpdateTreadFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         return inflater!!.inflate(R.layout.fragment_update_tread, container, false)
     }
 

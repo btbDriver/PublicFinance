@@ -1,7 +1,6 @@
 package com.drive.finance.ui.drawer.user
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,7 +58,7 @@ class UserFragment : BaseFragment() {
     val smsCodeEdit by lazy {
         view?.findViewById(R.id.smsCodeEdit) as EditText
     }
-    val backArray = ArrayList<String>()
+    val bankArray = ArrayList<String>()
 
     val apiClient by lazy {
         APIClient()
@@ -67,6 +66,7 @@ class UserFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         return inflater!!.inflate(R.layout.fragment_user, container, false)
     }
 
@@ -98,8 +98,8 @@ class UserFragment : BaseFragment() {
         submitText.onClick {
             val userModel = UserModel()
             userModel.myinfo = MyInfo()
-            if (backArray[backSpinner.selectedItemPosition] != "请选择") {
-                userModel.myinfo.bank = backArray[backSpinner.selectedItemPosition]
+            if (bankArray[backSpinner.selectedItemPosition] != "请选择") {
+                userModel.myinfo.bank = bankArray[backSpinner.selectedItemPosition]
             }
             userModel.myinfo.bankaddress = backAddressEdit.text.toString()
             userModel.myinfo.bankcard = backCardEdit.text.toString()
@@ -144,12 +144,12 @@ class UserFragment : BaseFragment() {
         emailEdit.setText(userModel.myinfo.email)
 
         if (userModel.banklist != null && userModel.banklist.size > 0) {
-            backArray.clear()
-            backArray.add("请选择")
+            bankArray.clear()
+            bankArray.add("请选择")
             for (i in 0..userModel.banklist.size - 1) {
-                backArray.add(userModel.banklist[i].bank)
+                bankArray.add(userModel.banklist[i].bank)
             }
-            val adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, backArray)
+            val adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, bankArray)
             backSpinner.adapter = adapter
         }
     }

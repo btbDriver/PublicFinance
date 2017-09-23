@@ -76,6 +76,7 @@ class MainFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         return inflater!!.inflate(R.layout.fragment_main, container, false)
     }
 
@@ -94,7 +95,7 @@ class MainFragment : BaseFragment() {
         }
 
         pickLayout.onClick {
-            RxBus.get().post(CreatePickFragmentEvent(""))
+            RxBus.get().post(CreatePickFragmentEvent("1"))
         }
 
         userInfoLayout.onClick {

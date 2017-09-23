@@ -3,63 +3,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/backColor"
         android:padding="10dp"
         >
 
         <TextView
-            android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="活期增值宝"
+            android:text="客户编号："
             android:textSize="18sp"
             android:textColor="@color/f2"
             android:layout_marginLeft="10dp"
             />
 
         <TextView
-            android:id="@+id/typeText"
+            android:id="@+id/userNumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="活期"
-            android:textColor="@color/f1"
-            android:textSize="13sp"
-            android:padding="2dp"
-            android:layout_marginLeft="12dp"
-            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:textColor="@color/f2"
+            android:layout_marginLeft="10dp"
             />
-
-        <TextView
-            android:id="@+id/fbText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="封闭期"
-            android:textColor="@color/f1"
-            android:textSize="13sp"
-            android:padding="2dp"
-            android:layout_marginLeft="6dp"
-            android:layout_gravity="center_vertical"
-            />
-
-        <TextView
-            android:id="@+id/openText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="已支付"
-            android:textColor="@color/f1"
-            android:textSize="13sp"
-            android:padding="2dp"
-            android:layout_marginLeft="6dp"
-            android:layout_gravity="center_vertical"
-            />
-
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/lineColor"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,7 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="购买金额:"
+                android:text="真实姓名:"
                 android:textColor="@color/f2"
                 android:textSize="13sp"
                 android:gravity="center"
@@ -86,7 +63,7 @@
                 />
 
             <TextView
-                android:id="@+id/moneyText"
+                android:id="@+id/realNameText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -113,7 +90,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="日收益:"
+                android:text="手机号:"
                 android:textColor="@color/f2"
                 android:textSize="13sp"
                 android:gravity="center"
@@ -121,7 +98,7 @@
                 />
 
             <TextView
-                android:id="@+id/dayIncomeText"
+                android:id="@+id/telText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -148,7 +125,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="可收益天数:"
+                android:text="客户投资:"
                 android:textColor="@color/f2"
                 android:textSize="13sp"
                 android:gravity="center"
@@ -156,7 +133,7 @@
                 />
 
             <TextView
-                android:id="@+id/daysText"
+                android:id="@+id/yjText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -183,7 +160,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="以收益天数:"
+                android:text="邀请人数:"
                 android:textColor="@color/f2"
                 android:textSize="13sp"
                 android:gravity="center"
@@ -191,7 +168,7 @@
                 />
 
             <TextView
-                android:id="@+id/incomeDaysText"
+                android:id="@+id/renumText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -218,7 +195,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="总收益:"
+                android:text="注册时间:"
                 android:textColor="@color/f2"
                 android:textSize="13sp"
                 android:gravity="center"
@@ -226,7 +203,7 @@
                 />
 
             <TextView
-                android:id="@+id/totalIncomeText"
+                android:id="@+id/registerTimeText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -247,28 +224,71 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:gravity="right"
             >
 
             <TextView
-                android:id="@+id/submitText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="提取本金"
-                android:textColor="@android:color/white"
-                android:textSize="15sp"
-                android:layout_marginRight="20dp"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:background="@drawable/view_back_blue"
+                android:layout_weight="1"
+                android:text="最后登录时间:"
+                android:textColor="@color/f2"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:padding="8dp"
                 />
 
-
+            <TextView
+                android:id="@+id/loginTimeText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/f1"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:padding="8dp"
+                />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/lineColor"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="是否激活:"
+                android:textColor="@color/f2"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:padding="8dp"
+                />
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/f1"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:padding="8dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@color/backColor"
+            />
 
     </LinearLayout>
 

@@ -11,7 +11,7 @@ import com.drive.finance.ui.tab.createInviteFragment
 import com.drive.finance.ui.login.createLoginFragment
 import com.drive.finance.ui.tab.createPickFragment
 import com.drive.finance.ui.tab.createSuggestFragment
-import com.drive.finance.ui.drawer.*
+import com.drive.finance.ui.drawer.center.createFinanceCenterFragment
 import com.drive.finance.ui.drawer.consult.createConsultFragment
 import com.drive.finance.ui.drawer.contact.createContactFragment
 import com.drive.finance.ui.drawer.public.createPublicFinanceFragment
@@ -147,7 +147,7 @@ class MainActivity : BaseActivity() {
      */
     @Subscribe
     fun onCreatePickFragmentEvent(event: CreatePickFragmentEvent) {
-        loadRootFragment(R.id.drawerFragmentContainer, createPickFragment(), true, true)
+        loadRootFragment(R.id.drawerFragmentContainer, createPickFragment(event.sender), true, true)
     }
 
     /**

@@ -37,6 +37,14 @@ class BaseUrl {
         val CENTER_BONUS_API = BASE_URL + "money/indexApp?action=API"
         // 投资理财
         val CENTER_FINANCE_API = BASE_URL + "financial/indexApp?action=API"
+        // 银行卡列表
+        val CENTER_BANK_API = BASE_URL + "User/bankApp?action=API"
+        // 选择银行卡
+        val CENTER_SELECT_BANK_API = BASE_URL + "User/getBankList?action=API"
+        // 添加银行卡
+        val CENTER_ADD_BANK_API = BASE_URL + "User/addBankApp?action=API"
+        // 提现接口
+        val CENTER_PICK_API = BASE_URL + "Money/CashAppNew?action=API"
 
         /**
          * 公司资讯
@@ -47,5 +55,11 @@ class BaseUrl {
          * 邀请链接url
          */
         val SHARE_URL_API = BASE_URL + "User/promoteApp?action=API"
+
+        /**
+         * 大众理财
+         */
+        // 我的投资
+        val FINANCE_MINE_API = BASE_URL + "Financial/myfinApp?action=API"
     }
 }
