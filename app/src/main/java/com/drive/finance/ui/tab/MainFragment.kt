@@ -6,12 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import com.drive.finance.*
 import com.drive.finance.base.BaseFragment
+import com.drive.finance.network.APIClient
+import com.drive.finance.network.model.HomeModel
 import com.hwangjr.rxbus.RxBus
 import com.jude.rollviewpager.RollPagerView
 import com.jude.rollviewpager.adapter.LoopPagerAdapter
 import org.jetbrains.anko.onClick
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
 
 
 class MainFragment : BaseFragment() {
@@ -36,6 +41,37 @@ class MainFragment : BaseFragment() {
     }
     val suggestLayout by lazy {
         view?.findViewById(R.id.suggestLayout) as LinearLayout
+    }
+    val userNumText by lazy {
+        view?.findViewById(R.id.userNumText) as TextView
+    }
+    val userStatusText by lazy {
+        view?.findViewById(R.id.userStatusText) as TextView
+    }
+    val inviteCount by lazy {
+        view?.findViewById(R.id.inviteCount) as TextView
+    }
+    val moneyText by lazy {
+        view?.findViewById(R.id.moneyText) as TextView
+    }
+    val gpText by lazy {
+        view?.findViewById(R.id.gpText) as TextView
+    }
+    val kreditText by lazy {
+        view?.findViewById(R.id.kreditText) as TextView
+    }
+    val teamCount by lazy {
+        view?.findViewById(R.id.teamCount) as TextView
+    }
+    val allyjText by lazy {
+        view?.findViewById(R.id.allyjText) as TextView
+    }
+    val rebuy by lazy {
+        view?.findViewById(R.id.rebuy) as TextView
+    }
+
+    val apiClient by lazy {
+        APIClient()
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -72,6 +108,25 @@ class MainFragment : BaseFragment() {
         suggestLayout.onClick {
             RxBus.get().post(CreateSuggestFragmentEvent(""))
         }
+
+        apiClient.requestHomeData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ homeModel ->
+                    updateUI(homeModel)
+                }, {})
+    }
+
+    fun updateUI(homeModel: HomeModel) {
+        userNumText.text = homeModel.username
+        userStatusText.text = homeModel.status
+        inviteCount.text = homeModel.renum
+        moneyText.text = homeModel.money
+        gpText.text = homeModel.gp
+        kreditText.text = homeModel.kredit
+        teamCount.text = homeModel.teamcount
+        allyjText.text = homeModel.allyj
+        rebuy.text = homeModel.rebuy
     }
 }
 

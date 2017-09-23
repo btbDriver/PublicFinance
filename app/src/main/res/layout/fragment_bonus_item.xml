@@ -6,9 +6,10 @@
     >
 
     <TextView
+        android:id="@+id/bonusData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2017-09-16"
+        android:text="@string/default_text"
         android:textSize="20sp"
         android:padding="8dp"
         android:layout_marginLeft="20dp"
@@ -44,10 +45,11 @@
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/userBonusText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="20.23$"
+                android:text="@string/default_text"
                 android:textColor="@color/f1"
                 android:textSize="13sp"
                 android:padding="8dp"
@@ -77,10 +79,11 @@
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/dayIncomeText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="18.2$"
+                android:text="@string/default_text"
                 android:textColor="@color/f1"
                 android:textSize="13sp"
                 android:padding="8dp"
@@ -110,10 +113,11 @@
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/managerBonusText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2001.1$"
+                android:text="@string/default_text"
                 android:textColor="@color/f1"
                 android:textSize="13sp"
                 android:padding="8dp"
@@ -143,10 +147,11 @@
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/allinText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2002.23$"
+                android:text="@string/default_text"
                 android:textColor="@color/f1"
                 android:textSize="13sp"
                 android:padding="8dp"
@@ -176,10 +181,11 @@
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/gpText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="100000"
+                android:text="@string/default_text"
                 android:textColor="@color/f1"
                 android:textSize="13sp"
                 android:padding="8dp"
@@ -202,17 +208,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="众卡贷:"
+                android:text="认购众卡贷积分:"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
                 android:padding="8dp"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/rebuyText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="20.23$"
+                android:text="@string/default_text"
                 android:textColor="@color/f1"
                 android:textSize="13sp"
                 android:padding="8dp"

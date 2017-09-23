@@ -48,9 +48,10 @@
                     />
 
                 <TextView
+                    android:id="@+id/userNumText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100000"
+                    android:text="@string/default_text"
                     android:textSize="13sp"
                     android:textColor="@color/f1"
                     />
@@ -72,9 +73,10 @@
                     />
 
                 <TextView
+                    android:id="@+id/userStatusText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="已激活"
+                    android:text="@string/default_text"
                     android:textSize="13sp"
                     android:textColor="@color/f1"
                     />
@@ -104,9 +106,10 @@
                     />
 
                 <TextView
+                    android:id="@+id/inviteCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3"
+                    android:text="@string/default_text"
                     android:textSize="13sp"
                     android:textColor="@color/f1"
                     />
@@ -128,9 +131,10 @@
                     />
 
                 <TextView
+                    android:id="@+id/moneyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0 【封闭期】"
+                    android:text="@string/default_text"
                     android:textSize="13sp"
                     android:textColor="@color/f1"
                     />
@@ -182,9 +186,10 @@
                     />
 
                 <TextView
+                    android:id="@+id/gpText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100000"
+                    android:text="@string/default_text"
                     android:textSize="13sp"
                     android:textColor="@color/f1"
                     />
@@ -206,9 +211,10 @@
                     />
 
                 <TextView
+                    android:id="@+id/kreditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0.00"
+                    android:text="@string/default_text"
                     android:textSize="13sp"
                     android:textColor="@color/f1"
                     />
@@ -232,15 +238,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="邀请人数："
+                    android:text="团队人数："
                     android:textSize="13sp"
                     android:textColor="@color/f3"
                     />
 
                 <TextView
+                    android:id="@+id/teamCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="11"
+                    android:text="@string/default_text"
                     android:textSize="13sp"
                     android:textColor="@color/f1"
                     />
@@ -261,12 +268,52 @@
                     />
 
                 <TextView
+                    android:id="@+id/allyjText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3000"
+                    android:text="@string/default_text"
                     android:textSize="13sp"
                     android:textColor="@color/f1"
                     />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="众卡贷积分："
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    />
+
+                <TextView
+                    android:id="@+id/rebuy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default_text"
+                    android:textSize="13sp"
+                    android:textColor="@color/f1"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                >
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
