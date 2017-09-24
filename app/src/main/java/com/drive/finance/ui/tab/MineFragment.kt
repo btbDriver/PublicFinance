@@ -12,6 +12,7 @@ import com.drive.finance.CreatePickFragmentEvent
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.network.APIClient
+import com.drive.finance.widget.SimpleTitleBar
 import com.hwangjr.rxbus.RxBus
 import org.jetbrains.anko.onClick
 import org.json.JSONArray
@@ -21,9 +22,14 @@ import rx.schedulers.Schedulers
 
 class MineFragment : BaseFragment() {
 
+    val simpleTitleBar by lazy {
+        view?.findViewById(R.id.simpleTitleBar) as SimpleTitleBar
+    }
     val recyclerView by lazy {
         view?.findViewById(R.id.recyclerView) as RecyclerView
     }
+
+    var isTitleBarVisible: Boolean = false
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -33,6 +39,15 @@ class MineFragment : BaseFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (isTitleBarVisible) {
+            simpleTitleBar.visibility = View.VISIBLE
+            simpleTitleBar.backLayout!!.onClick {
+                pop()
+            }
+        } else {
+            simpleTitleBar.visibility = View.GONE
+        }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = MineListAdapter()
     }
@@ -132,6 +147,8 @@ class MineListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     }
 }
 
-fun createMineFragment(): MineFragment {
-    return MineFragment()
+fun createMineFragment(isTitleBarVisible: Boolean): MineFragment {
+    val mineFragment = MineFragment()
+    mineFragment.isTitleBarVisible = isTitleBarVisible
+    return mineFragment
 }

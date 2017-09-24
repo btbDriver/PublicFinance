@@ -9,6 +9,7 @@ import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.ui.drawer.team.createPointTreadFragment
 import com.drive.finance.ui.tab.createCardFragment
+import com.drive.finance.ui.tab.createMineFragment
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
 
@@ -46,22 +47,37 @@ class PublicFinanceFragment : BaseFragment() {
             pop()
         }
 
+        /**
+         * 众卡贷
+         */
         publicCardLayout.onClick {
             start(createCardFragment(true))
         }
 
+        /**
+         * 我的贷款
+         */
         publicCreditLayout.onClick {
             start(createPublicCreditFragment())
         }
 
+        /**
+         * 我的投资
+         */
         publicFinanceLayout.onClick {
-            start(createInvestFragment())
+            start(createMineFragment(true))
         }
 
+        /**
+         * 我要还款
+         */
         publicRepayLayout.onClick {
             start(createPepayFragment())
         }
 
+        /**
+         * 数字积分交易
+         */
         publicTreadLayout.onClick {
             start(createPointTreadFragment())
         }

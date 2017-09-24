@@ -8,11 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.drive.finance.CreateBonusInfoFragmentEvent
 
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.network.APIClient
+import com.drive.finance.ui.drawer.center.createBonusInfoFragment
 import com.drive.finance.widget.SimpleTitleBar
+import com.hwangjr.rxbus.RxBus
+import com.hwangjr.rxbus.annotation.Subscribe
 import org.jetbrains.anko.onClick
 import org.json.JSONArray
 import org.json.JSONObject
@@ -42,6 +46,11 @@ class BonusListFragment : BaseFragment() {
         simpleTitleBar.backLayout!!.onClick {
             pop()
         }
+    }
+
+    @Subscribe
+    fun onCreateBonusInfoFragmentEvent(event: CreateBonusInfoFragmentEvent) {
+        start(createBonusInfoFragment(event.date))
     }
 }
 
@@ -98,6 +107,9 @@ class BonusListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     val rebuyText by lazy {
         itemView.findViewById(R.id.rebuyText) as TextView
     }
+    val detailText by lazy {
+        itemView.findViewById(R.id.detailText) as TextView
+    }
 
     fun setItem(dataObject: JSONObject) {
         bonusData.text = dataObject.getString("date")
@@ -107,6 +119,10 @@ class BonusListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         allinText.text = dataObject.getDouble("allin").toString() + "$"
         gpText.text = dataObject.getDouble("gp").toString() + "$"
         rebuyText.text = dataObject.getDouble("rebuy").toString()
+
+        detailText.onClick {
+            RxBus.get().post(CreateBonusInfoFragmentEvent(dataObject.getString("date")))
+        }
     }
 }
 

@@ -50,6 +50,26 @@ class NetClient {
         }
     }
 
+    fun doGetRequestHtml(url: String, paramsMap: Map<String, String>): Observable<String> {
+        return Observable.create<String> { subscribe ->
+            okHttpClient.newCall(parserGetParams(url, paramsMap))
+                    .enqueue(object : Callback {
+                        override fun onFailure(call: Call?, e: IOException?) {
+                            subscribe.onError(e)
+                        }
+
+                        override fun onResponse(call: Call?, response: Response?) {
+                            if (response != null) {
+                                subscribe.onNext(response.body().string())
+                                subscribe.onCompleted()
+                            } else {
+                                subscribe.onError(NullPointerException())
+                            }
+                        }
+                    })
+        }
+    }
+
     fun doGetRequestArray(url: String, paramsMap: Map<String, String>): Observable<JSONArray> {
         return Observable.create<JSONArray> { subscribe ->
             okHttpClient.newCall(parserGetParams(url, paramsMap))

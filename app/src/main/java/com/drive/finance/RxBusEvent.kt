@@ -1,5 +1,6 @@
 package com.drive.finance
 
+import com.drive.finance.network.model.PayModel
 import org.json.JSONObject
 
 /**
@@ -18,3 +19,7 @@ data class CreateSuggestFragmentEvent(val sender: String)
 data class CreateFinanceBankFragmentEvent(val sender: String)
 
 data class CreateFinancePickFragmentEvent(val jsonObject: JSONObject)
+
+data class CreateBonusInfoFragmentEvent(val date: String)
+
+data class CreatePayFragmentEvent(val payModel: PayModel)

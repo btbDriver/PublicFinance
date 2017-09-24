@@ -6,6 +6,7 @@ package com.drive.finance.network
 class BaseUrl {
     companion object {
         val BASE_URL = "http://www.dazhongcf.com/Home/"
+
         // HOME页面请求API
         val Home_API = BASE_URL + "Index/indexApp?action=API"
 
@@ -35,8 +36,14 @@ class BaseUrl {
          */
         // 奖金列表
         val CENTER_BONUS_API = BASE_URL + "money/indexApp?action=API"
+        // 奖金详情
+        val CENTER_BONUS_INFO_API = BASE_URL + "money/dtailApp?action=API"
         // 投资理财
         val CENTER_FINANCE_API = BASE_URL + "financial/indexApp?action=API"
+        // 支付页面
+        val CENTER_PAY_INFO_API = BASE_URL + "Financial/zlpayApp?action=API"
+        // 支付
+        val CENTER_PAY_API = BASE_URL + "Financial/payApp?action=API"
         // 银行卡列表
         val CENTER_BANK_API = BASE_URL + "User/bankApp?action=API"
         // 选择银行卡

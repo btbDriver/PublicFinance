@@ -4,17 +4,23 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import com.drive.finance.CreatePayFragmentEvent
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.network.APIClient
 import com.drive.finance.network.model.Finance
 import com.drive.finance.network.model.FinanceModel
 import com.drive.finance.widget.SimpleTitleBar
+import com.hwangjr.rxbus.RxBus
+import com.hwangjr.rxbus.annotation.Subscribe
 import org.jetbrains.anko.onClick
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -146,6 +152,10 @@ class FinanceViewHolder2(itemView: View): RecyclerView.ViewHolder(itemView) {
         itemView.findViewById(R.id.dayIncomeText) as TextView
     }
 
+    val apiClient by lazy {
+        APIClient()
+    }
+
     fun setItems(finance: Finance) {
 
         titleText.text = finance.title
@@ -159,12 +169,25 @@ class FinanceViewHolder2(itemView: View): RecyclerView.ViewHolder(itemView) {
         partText.onClick {
             val builder = AlertDialog.Builder(itemView.context)
             val rootView = LayoutInflater.from(itemView.context).inflate(R.layout.finance_part_layout, null, false)
+            (rootView.findViewById(R.id.nameText) as TextView).text = finance.title
             var dialog: AlertDialog ?= null
             rootView.findViewById(R.id.closeDialog).onClick {
                 dialog?.dismiss()
             }
             rootView.findViewById(R.id.submitDialog).onClick {
-                dialog?.dismiss()
+                val money = (rootView.findViewById(R.id.moneyEdit) as EditText).text.toString()
+                if (TextUtils.isEmpty(money)) {
+                    Toast.makeText(partText.context, "请输入金额", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
+                apiClient.requestPayInfoData(finance.id, money)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ payModel ->
+                            dialog?.dismiss()
+                            payModel.goodsId = finance.id
+                            RxBus.get().post(CreatePayFragmentEvent(payModel))
+                        }, {})
             }
             builder.setView(rootView)
 

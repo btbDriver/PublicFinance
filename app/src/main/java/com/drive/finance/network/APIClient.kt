@@ -136,6 +136,16 @@ class APIClient {
     }
 
     /**
+     * 财务中心-奖金详情
+     */
+    fun requestBonusInfoData(date: String) : Observable<JSONArray> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        paramsMap.put("date", date)
+        return netClient.doGetRequestArray(BaseUrl.CENTER_BONUS_INFO_API, paramsMap)
+    }
+
+    /**
      * 投资理财
      */
     fun requestCenterFinanceData(): Observable<FinanceModel> {
@@ -145,6 +155,33 @@ class APIClient {
                 .map { jsonObject ->
                     Gson().fromJson(jsonObject.toString(), FinanceModel::class.java)
                 }
+    }
+
+    /**
+     * 获取订单信息
+     */
+    fun requestPayInfoData(fid: String, number: String): Observable<PayModel> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        paramsMap.put("id", fid)
+        paramsMap.put("number", number)
+        return netClient.doGetRequest(BaseUrl.CENTER_PAY_INFO_API, paramsMap)
+                .map { jsonObject ->
+                    Gson().fromJson(jsonObject.toString(), PayModel::class.java)
+                }
+    }
+
+    /**
+     * 支付页面
+     */
+    fun requestPayData(payModel: PayModel) : Observable<JSONObject> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", "1")
+        paramsMap.put("goodsid", payModel.goodsId)
+        paramsMap.put("order", payModel.id)
+        paramsMap.put("paymoney", payModel.price.toString())
+        paramsMap.put("attach", "大众财富")
+        return netClient.doGetRequest(BaseUrl.CENTER_PAY_API, paramsMap)
     }
 
     /**

@@ -7,18 +7,14 @@ import android.support.v7.widget.Toolbar
 import android.widget.ArrayAdapter
 import android.widget.RelativeLayout
 import com.drive.finance.base.BaseActivity
-import com.drive.finance.ui.tab.createInviteFragment
 import com.drive.finance.ui.login.createLoginFragment
-import com.drive.finance.ui.tab.createPickFragment
-import com.drive.finance.ui.tab.createSuggestFragment
 import com.drive.finance.ui.drawer.center.createFinanceCenterFragment
 import com.drive.finance.ui.drawer.consult.createConsultFragment
 import com.drive.finance.ui.drawer.contact.createContactFragment
 import com.drive.finance.ui.drawer.public.createPublicFinanceFragment
 import com.drive.finance.ui.drawer.team.createTeamFragment
 import com.drive.finance.ui.drawer.user.createUserInfoFragment
-import com.drive.finance.ui.tab.createBonusListFragment
-import com.drive.finance.ui.tab.createTabHostFragment
+import com.drive.finance.ui.tab.*
 import com.hwangjr.rxbus.annotation.Subscribe
 import org.jetbrains.anko.onClick
 
@@ -172,5 +168,13 @@ class MainActivity : BaseActivity() {
     @Subscribe
     fun onCreateSuggestFragmentEvent(event: CreateSuggestFragmentEvent) {
         loadRootFragment(R.id.drawerFragmentContainer, createSuggestFragment(), true, true)
+    }
+
+    /**
+     * 支付页面
+     */
+    @Subscribe
+    fun onCreatePayFragmentEvent(event: CreatePayFragmentEvent) {
+        loadRootFragment(R.id.drawerFragmentContainer, createPayFragment(event.payModel), true, true)
     }
 }

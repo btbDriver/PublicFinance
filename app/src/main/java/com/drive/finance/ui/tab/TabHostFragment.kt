@@ -69,7 +69,7 @@ class TabHostFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         mainFragment = createMainFragment()
         financeFragment = createFinanceFragment(false)
-        mineFragment = createMineFragment()
+        mineFragment = createMineFragment(false)
         cardFragment = createCardFragment(false)
         loadMultipleRootFragment(R.id.fragmentTabContent, 0, mainFragment, financeFragment, mineFragment, cardFragment)
         showPosition(0)
