@@ -10,6 +10,11 @@ import rx.Observable
  * Created by aaron on 2017/9/22.
  */
 class APIClient {
+
+    companion object {
+        var uid = ""
+    }
+
     val netClient: NetClient = NetClient()
 
     /**
@@ -17,7 +22,7 @@ class APIClient {
      */
     fun requestHomeData() : Observable<HomeModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         return netClient.doGetRequest(BaseUrl.Home_API, paramsMap)
                 .map { jsonObject ->
                     Gson().fromJson(jsonObject.toString(), HomeModel::class.java)
@@ -30,7 +35,7 @@ class APIClient {
      */
     fun requestUserData() : Observable<UserModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         return netClient.doGetRequest(BaseUrl.USER_API, paramsMap)
                 .map { jsonObject ->
                     Gson().fromJson(jsonObject.toString(), UserModel::class.java)
@@ -42,8 +47,8 @@ class APIClient {
      */
     fun sendMobileCode(mobile: String): Observable<ResultModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
-        paramsMap.put("mobile", "18614030612")
+        paramsMap.put("uid", uid)
+        paramsMap.put("mobile", mobile)
         return netClient.doGetRequest(BaseUrl.USER_SEND_CODE_API, paramsMap)
                 .map { jsonObject ->
                     Gson().fromJson(jsonObject.toString(), ResultModel::class.java)
@@ -55,7 +60,7 @@ class APIClient {
      */
     fun sendUpdateUser(userModel: UserModel) : Observable<ResultModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         paramsMap.put("tel", userModel.myinfo.tel)
         paramsMap.put("email", userModel.myinfo.email)
         paramsMap.put("bank", userModel.myinfo.bank)
@@ -74,7 +79,7 @@ class APIClient {
      */
     fun sendUpdateLoginPass(oldPass: String, newPass: String, confirmPass: String): Observable<ResultModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         paramsMap.put("op", oldPass)
         paramsMap.put("p", newPass)
         paramsMap.put("rp", confirmPass)
@@ -89,7 +94,7 @@ class APIClient {
      */
     fun sendUpdateTreadPass(oldPass: String, newPass: String, confirmPass: String): Observable<ResultModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         paramsMap.put("op", oldPass)
         paramsMap.put("p", newPass)
         paramsMap.put("rp", confirmPass)
@@ -108,7 +113,7 @@ class APIClient {
      */
     fun requestTeamRecommendData() : Observable<JSONArray> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         return netClient.doGetRequestArray(BaseUrl.TEAM_RECOMMEND_API, paramsMap)
     }
 
@@ -117,7 +122,7 @@ class APIClient {
      */
     fun requestTeamYjData() : Observable<YJModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         return netClient.doGetRequest(BaseUrl.TEAM_YJ_API, paramsMap)
                 .map { jsonObject ->
                     Gson().fromJson(jsonObject.toString(), YJModel::class.java)
@@ -131,7 +136,7 @@ class APIClient {
      */
     fun requestCenterBonusData() : Observable<JSONArray> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         return netClient.doGetRequestArray(BaseUrl.CENTER_BONUS_API, paramsMap)
     }
 
@@ -140,7 +145,7 @@ class APIClient {
      */
     fun requestBonusInfoData(date: String) : Observable<JSONArray> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         paramsMap.put("date", date)
         return netClient.doGetRequestArray(BaseUrl.CENTER_BONUS_INFO_API, paramsMap)
     }
@@ -150,7 +155,7 @@ class APIClient {
      */
     fun requestCenterFinanceData(): Observable<FinanceModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         return netClient.doGetRequest(BaseUrl.CENTER_FINANCE_API, paramsMap)
                 .map { jsonObject ->
                     Gson().fromJson(jsonObject.toString(), FinanceModel::class.java)
@@ -162,7 +167,7 @@ class APIClient {
      */
     fun requestPayInfoData(fid: String, number: String): Observable<PayModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         paramsMap.put("id", fid)
         paramsMap.put("number", number)
         return netClient.doGetRequest(BaseUrl.CENTER_PAY_INFO_API, paramsMap)
@@ -174,14 +179,14 @@ class APIClient {
     /**
      * 支付页面
      */
-    fun requestPayData(payModel: PayModel) : Observable<JSONObject> {
+    fun requestPayData(payModel: PayModel) : Observable<String> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         paramsMap.put("goodsid", payModel.goodsId)
         paramsMap.put("order", payModel.id)
         paramsMap.put("paymoney", payModel.price.toString())
         paramsMap.put("attach", "大众财富")
-        return netClient.doGetRequest(BaseUrl.CENTER_PAY_API, paramsMap)
+        return netClient.doGetRequestHtml(BaseUrl.CENTER_PAY_API, paramsMap)
     }
 
     /**
@@ -189,7 +194,7 @@ class APIClient {
      */
     fun requestBankData() : Observable<JSONArray>{
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         return netClient.doGetRequestArray(BaseUrl.CENTER_BANK_API, paramsMap)
     }
 
@@ -198,7 +203,7 @@ class APIClient {
      */
     fun requestSelectBankData(): Observable<JSONArray> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         return netClient.doGetRequestArray(BaseUrl.CENTER_SELECT_BANK_API, paramsMap)
     }
 
@@ -207,7 +212,7 @@ class APIClient {
      */
     fun sendAddBank(bankModel: BankModel): Observable<ResultModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         paramsMap.put("bank", bankModel.bank)
         paramsMap.put("bankuser", bankModel.bankuser)
         paramsMap.put("prvo", bankModel.prvo)
@@ -222,11 +227,24 @@ class APIClient {
     }
 
     /**
+     * 删除银行卡信息
+     */
+    fun sendDelBank(bankId: String) : Observable<ResultModel> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", uid)
+        paramsMap.put("bankid", bankId)
+        return netClient.doGetRequest(BaseUrl.CENTER_DEL_BANK_API, paramsMap)
+                .map { jsonObject ->
+                    Gson().fromJson(jsonObject.toString(), ResultModel::class.java)
+                }
+    }
+
+    /**
      * 提现接口
      */
     fun sendPickmoney(bankId: String, treadPass: String, money: String, wallet: String): Observable<ResultModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         paramsMap.put("bankid", bankId)
         paramsMap.put("p", treadPass)
         paramsMap.put("money", money)
@@ -243,7 +261,7 @@ class APIClient {
      */
     fun requestConsultInfoData(): Observable<ConsultModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         paramsMap.put("id", "68")
         return netClient.doGetRequest(BaseUrl.CONSULT_INFO_API, paramsMap)
                 .map { jsonObject ->
@@ -257,7 +275,7 @@ class APIClient {
      */
     fun requestConsultFinanceData(): Observable<ConsultModel> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         paramsMap.put("id", "67")
         return netClient.doGetRequest(BaseUrl.CONSULT_INFO_API, paramsMap)
                 .map { jsonObject ->
@@ -274,7 +292,7 @@ class APIClient {
      */
     fun requestFinanceMineData(): Observable<JSONArray> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         return netClient.doGetRequestArray(BaseUrl.FINANCE_MINE_API, paramsMap)
     }
 
@@ -286,7 +304,28 @@ class APIClient {
      */
     fun requestShareData(): Observable<JSONObject> {
         val paramsMap = HashMap<String, String>()
-        paramsMap.put("uid", "1")
+        paramsMap.put("uid", uid)
         return netClient.doGetRequest(BaseUrl.SHARE_URL_API, paramsMap)
+    }
+
+
+    // ########################################################
+
+    /**
+     * 登录
+     */
+    fun requestLogin(userName: String, password: String): Observable<JSONObject> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("username", userName)
+        paramsMap.put("password", password)
+        return netClient.doGetRequest(BaseUrl.LOGIN_API, paramsMap)
+    }
+
+    /**
+     * 登录验证码
+     */
+    fun requestCode() : Observable<JSONObject> {
+        val paramsMap = HashMap<String, String>()
+        return netClient.doGetRequest(BaseUrl.CODE_API, paramsMap)
     }
 }

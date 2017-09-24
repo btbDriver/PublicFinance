@@ -136,7 +136,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="快捷支付"
+                android:text="支持快捷支付方式"
                 android:textSize="15sp"
                 android:textColor="@color/f3"
                 android:layout_marginTop="15dp"
@@ -144,7 +144,7 @@
                 android:paddingRight="15dp"
                 />
 
-            <RadioGroup
+            <!--<RadioGroup
                 android:id="@+id/payRadioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -167,7 +167,31 @@
                     android:drawableRight="@drawable/wx"
                     android:layout_marginTop="10dp"
                     />
-            </RadioGroup>
+            </RadioGroup>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                >
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/zfb"
+                    />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/wx"
+                    />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/submitLayout"
@@ -200,13 +224,29 @@
             </LinearLayout>
         </LinearLayout>
 
-        <WebView
-            android:id="@+id/payResult"
+        <LinearLayout
+            android:id="@+id/webLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:visibility="gone"
-            android:background="@android:color/white"
-            />
+            >
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="3dip"
+                android:progressDrawable="@drawable/webview_pg"
+                android:visibility="gone"
+                />
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                />
+        </LinearLayout>
     </FrameLayout>
 
 </LinearLayout>

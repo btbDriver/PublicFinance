@@ -166,97 +166,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="6dp"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="13sp"
-                    android:text="银行开户行："
-                    android:textColor="@color/f3"
-                    android:layout_gravity="center_vertical"
-                    />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    >
-                    <Spinner
-                        android:id="@+id/backSpinner"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="9"
-                        android:text="@string/default_text"
-                        android:textColor="@color/f3"
-                        android:textSize="13sp"
-                        android:padding="5dp"
-                        />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="13sp"
-                    android:text="开户行地址："
-                    android:textColor="@color/f3"
-                    />
-
-                <EditText
-                    android:id="@+id/backAddressEdit"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="@string/default_text"
-                    android:textColor="@color/f3"
-                    android:textSize="13sp"
-                    android:padding="5dp"
-                    android:background="@drawable/edit_back_gray"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="13sp"
-                    android:text="银行账号："
-                    android:textColor="@color/f3"
-                    />
-
-                <EditText
-                    android:id="@+id/backCardEdit"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="@string/default_text"
-                    android:textColor="@color/f3"
-                    android:textSize="13sp"
-                    android:padding="5dp"
-                    android:background="@drawable/edit_back_gray"
-                    />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -271,6 +180,7 @@
                     android:textSize="13sp"
                     android:text="手机号码："
                     android:textColor="@color/f3"
+                    android:layout_gravity="center_vertical"
                     />
 
                 <LinearLayout
@@ -289,6 +199,7 @@
                         android:textSize="13sp"
                         android:padding="5dp"
                         android:background="@drawable/edit_back_gray"
+                        android:hint="请输入绑定的手机号"
                         />
 
                     <TextView
@@ -332,6 +243,7 @@
                     android:textSize="13sp"
                     android:padding="5dp"
                     android:background="@drawable/edit_back_gray"
+                    android:hint="请输入手机验证码"
                     />
 
             </LinearLayout>
@@ -361,6 +273,7 @@
                     android:textSize="13sp"
                     android:padding="5dp"
                     android:background="@drawable/edit_back_gray"
+                    android:hint="请输入邮箱地址"
                     />
 
             </LinearLayout>
@@ -391,6 +304,7 @@
                     android:textSize="13sp"
                     android:padding="5dp"
                     android:background="@drawable/edit_back_gray"
+                    android:hint="请输入交易密码"
                     />
 
             </LinearLayout>

@@ -31,20 +31,11 @@ class UserFragment : BaseFragment() {
     val cardStatus by lazy {
         view?.findViewById(R.id.cardStatus) as TextView
     }
-    val backCardEdit by lazy {
-        view?.findViewById(R.id.backCardEdit) as EditText
-    }
-    val backAddressEdit by lazy {
-        view?.findViewById(R.id.backAddressEdit) as EditText
-    }
     val telEdit by lazy {
         view?.findViewById(R.id.telEdit) as EditText
     }
     val emailEdit by lazy {
         view?.findViewById(R.id.emailEdit) as EditText
-    }
-    val backSpinner by lazy {
-        view?.findViewById(R.id.backSpinner) as Spinner
     }
     val sendCodeText by lazy {
         view?.findViewById(R.id.sendCodeText) as TextView
@@ -98,11 +89,6 @@ class UserFragment : BaseFragment() {
         submitText.onClick {
             val userModel = UserModel()
             userModel.myinfo = MyInfo()
-            if (bankArray[backSpinner.selectedItemPosition] != "请选择") {
-                userModel.myinfo.bank = bankArray[backSpinner.selectedItemPosition]
-            }
-            userModel.myinfo.bankaddress = backAddressEdit.text.toString()
-            userModel.myinfo.bankcard = backCardEdit.text.toString()
             userModel.myinfo.email = emailEdit.text.toString()
             userModel.myinfo.p = pEdit.text.toString()
             userModel.myinfo.smscode = smsCodeEdit.text.toString()
@@ -137,21 +123,8 @@ class UserFragment : BaseFragment() {
         } else {
             cardStatus.text = "未提交"
         }
-
-        backAddressEdit.setText(userModel.myinfo.bankaddress)
-        backCardEdit.setText(userModel.myinfo.bankcard)
         telEdit.setText(userModel.myinfo.tel)
         emailEdit.setText(userModel.myinfo.email)
-
-        if (userModel.banklist != null && userModel.banklist.size > 0) {
-            bankArray.clear()
-            bankArray.add("请选择")
-            for (i in 0..userModel.banklist.size - 1) {
-                bankArray.add(userModel.banklist[i].bank)
-            }
-            val adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, bankArray)
-            backSpinner.adapter = adapter
-        }
     }
 }
 

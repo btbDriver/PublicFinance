@@ -10,7 +10,7 @@
         android:id="@+id/simpleTitleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleBar_content="财务中心"
+        app:titleBar_content="奖金详情"
         />
 
     <View

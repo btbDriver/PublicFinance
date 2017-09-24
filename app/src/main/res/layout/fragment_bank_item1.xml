@@ -6,61 +6,76 @@
     android:background="@drawable/bank_back_blue"
     >
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:paddingRight="14dp"
-            android:layout_marginTop="12dp"
-            android:background="#005586"
+            android:orientation="vertical"
             >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingRight="14dp"
+                android:layout_marginTop="12dp"
+                android:background="#005586"
+                >
+
+                <TextView
+                    android:id="@+id/bankText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"
+                    />
+
+            </LinearLayout>
+
             <TextView
-                android:id="@+id/bankText"
+                android:id="@+id/bankUserText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textColor="@android:color/white"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="12dp"
                 />
 
+            <TextView
+                android:id="@+id/bankCardText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="@android:color/white"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="0dp"
+                />
+
+            <View
+                android:layout_width="50dp"
+                android:layout_height="6dp"
+                android:background="@android:color/white"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="10dp"
+                />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/bankUserText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="12dp"
+        <ImageView
+            android:id="@+id/delImageView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="right|top"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="3dp"
+            android:src="@drawable/bank_del_icon"
             />
-
-        <TextView
-            android:id="@+id/bankCardText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="11sp"
-            android:textColor="@android:color/white"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="0dp"
-            />
-
-        <View
-            android:layout_width="50dp"
-            android:layout_height="6dp"
-            android:background="@android:color/white"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="10dp"
-            />
-    </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>

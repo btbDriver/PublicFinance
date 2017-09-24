@@ -10,7 +10,7 @@
         android:id="@+id/simpleTitleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleBar_content="我的理财"
+        app:titleBar_content="我的投资"
         />
 
     <View

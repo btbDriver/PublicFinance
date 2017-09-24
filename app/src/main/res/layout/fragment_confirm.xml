@@ -15,7 +15,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:background="@color/lineColor"
+        android:background="@color/backColor"
         />
 
     <LinearLayout
@@ -51,7 +51,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="答案1"
+            android:hint="答案1"
             android:textSize="13sp"
             android:textColor="@color/f3"
             android:layout_marginTop="12dp"
@@ -79,7 +79,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="答案2"
+            android:hint="答案2"
             android:textSize="13sp"
             android:textColor="@color/f3"
             android:layout_marginTop="12dp"
@@ -107,7 +107,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="答案3"
+            android:hint="答案3"
             android:textSize="13sp"
             android:textColor="@color/f3"
             android:layout_marginTop="12dp"

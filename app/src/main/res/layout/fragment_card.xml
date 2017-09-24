@@ -10,7 +10,7 @@
         android:id="@+id/simpleTitleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleBar_content="我的贷款"
+        app:titleBar_content="众卡贷"
         />
 
     <View
@@ -94,6 +94,7 @@
             android:gravity="left"
             android:padding="5dp"
             android:background="@drawable/edit_back_gray"
+            android:hint="请输入贷款额度"
             />
     </LinearLayout>
 
@@ -125,6 +126,7 @@
             android:gravity="left"
             android:padding="5dp"
             android:background="@drawable/edit_back_gray"
+            android:hint="请输入贷款期限"
             />
     </LinearLayout>
 
@@ -156,6 +158,7 @@
             android:gravity="left"
             android:padding="5dp"
             android:background="@drawable/edit_back_gray"
+            android:hint="请输入交易密码"
             />
     </LinearLayout>
 

@@ -41,7 +41,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="55dp"
-                android:text="1231354"
                 android:textSize="20sp"
                 android:textColor="@color/f2"
                 android:layout_gravity="center_horizontal"

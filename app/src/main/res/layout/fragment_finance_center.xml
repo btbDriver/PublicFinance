@@ -37,9 +37,10 @@
             >
             <ImageView
                 android:id="@+id/financeCenterImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/finance_center"
+                android:layout_centerVertical="true"
                 />
 
             <LinearLayout
@@ -55,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" 
                     android:text="奖金列表"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textColor="@color/f2"
                     />
                 
@@ -71,8 +72,8 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/arrow_right"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -96,9 +97,10 @@
             >
             <ImageView
                 android:id="@+id/financeIncomeImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/finance_income"
+                android:layout_centerVertical="true"
                 />
 
             <LinearLayout
@@ -114,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="提取收益"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textColor="@color/f2"
                     />
 
@@ -130,8 +132,8 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/arrow_right"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -155,9 +157,10 @@
             >
             <ImageView
                 android:id="@+id/financeAwardImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/finance_award"
+                android:layout_centerVertical="true"
                 />
 
             <LinearLayout
@@ -173,7 +176,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="投资理财"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textColor="@color/f2"
                     />
 
@@ -189,8 +192,8 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/arrow_right"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"

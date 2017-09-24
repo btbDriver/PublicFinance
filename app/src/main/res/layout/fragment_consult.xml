@@ -37,9 +37,10 @@
             >
             <ImageView
                 android:id="@+id/consultInfoImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/contact_servicer"
+                android:layout_centerVertical="true"
                 />
 
             <LinearLayout
@@ -55,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="公司简介"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textColor="@color/f2"
                     />
 
@@ -71,8 +72,8 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/arrow_right"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -96,9 +97,10 @@
             >
             <ImageView
                 android:id="@+id/consultFinanceImage"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/contact_servicer"
+                android:layout_centerVertical="true"
                 />
 
             <LinearLayout
@@ -114,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="理财政策"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textColor="@color/f2"
                     />
 
@@ -130,8 +132,8 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/arrow_right"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"

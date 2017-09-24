@@ -5,12 +5,12 @@ import okhttp3.*
 import org.json.JSONArray
 import org.json.JSONObject
 import rx.Observable
-import rx.schedulers.Schedulers
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 /**
  * Created by aaron on 2017/9/22.
+ * 网络请求工具类
  */
 class NetClient {
 
@@ -23,13 +23,6 @@ class NetClient {
                 .build()
     }
 
-    val httpClient: Observable<OkHttpClient> = Observable
-            .create<OkHttpClient>({ subscribe ->
-                subscribe.onNext(okHttpClient)
-                subscribe.onCompleted()
-            })
-            .subscribeOn(Schedulers.io())
-
     fun doGetRequest(url: String, paramsMap: Map<String, String>): Observable<JSONObject> {
         return Observable.create<JSONObject> { subscribe ->
             okHttpClient.newCall(parserGetParams(url, paramsMap))
@@ -40,8 +33,12 @@ class NetClient {
 
                         override fun onResponse(call: Call?, response: Response?) {
                             if (response != null) {
-                                subscribe.onNext(JSONObject(response.body().string()))
-                                subscribe.onCompleted()
+                                try {
+                                    subscribe.onNext(JSONObject(response.body().string()))
+                                    subscribe.onCompleted()
+                                } catch(e: Exception) {
+                                    subscribe.onError(NullPointerException())
+                                }
                             } else {
                                 subscribe.onError(NullPointerException())
                             }

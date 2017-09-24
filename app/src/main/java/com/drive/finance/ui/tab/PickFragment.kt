@@ -7,11 +7,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.drive.finance.CreateFinanceBankFragmentEvent
 import com.drive.finance.CreateFinancePickFragmentEvent
 import com.drive.finance.R
+import com.drive.finance.RefreshBankListEvent
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.network.APIClient
 import com.drive.finance.ui.drawer.center.createFinanceBankFragment
@@ -69,6 +71,11 @@ class PickFragment : BaseFragment() {
     @Subscribe
     fun onCreateFinancePickFragmentEvent(event: CreateFinancePickFragmentEvent) {
         startForResult(createFinancePickFragment(event.jsonObject, sender), 101)
+    }
+
+    @Subscribe
+    fun onRefreshBankListEvent(event: RefreshBankListEvent) {
+        (recyclerView.adapter as BankAdapter).refresh()
     }
 }
 
@@ -155,6 +162,12 @@ class BankViewHolder1(itemView: View): RecyclerView.ViewHolder(itemView) {
     val bankCardText by lazy {
         itemView.findViewById(R.id.bankCardText) as TextView
     }
+    val delImageView by lazy {
+        itemView.findViewById(R.id.delImageView) as ImageView
+    }
+    val apiClient by lazy {
+        APIClient()
+    }
 
     fun setItems(bankObject: JSONObject) {
         bankText.text = bankObject.getString("bank")
@@ -163,6 +176,15 @@ class BankViewHolder1(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         itemView.onClick {
             RxBus.get().post(CreateFinancePickFragmentEvent(bankObject))
+        }
+
+        delImageView.onClick {
+            apiClient.sendDelBank(bankObject.getString("id"))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ resultModel ->
+                        RxBus.get().post(RefreshBankListEvent(""))
+                    }, {})
         }
     }
 }

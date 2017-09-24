@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
         android:padding="20dp"
         android:background="@android:color/white"
         >
@@ -44,6 +43,7 @@
             android:layout_marginTop="12dp"
             android:padding="5dp"
             android:background="@drawable/edit_back_gray"
+            android:hint="答案1"
             />
 
         <View
@@ -71,6 +71,7 @@
             android:layout_marginTop="12dp"
             android:padding="5dp"
             android:background="@drawable/edit_back_gray"
+            android:hint="答案2"
             />
 
         <View
@@ -98,6 +99,7 @@
             android:layout_marginTop="12dp"
             android:padding="5dp"
             android:background="@drawable/edit_back_gray"
+            android:hint="答案3"
             />
 
         <View

@@ -16,7 +16,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:background="@color/lineColor"
+        android:background="@color/backColor"
         />
 
     <LinearLayout
@@ -86,6 +86,7 @@
                 android:background="@drawable/edit_back_gray"
                 android:padding="5dp"
                 android:inputType="numberPassword"
+                android:hint="请输入资金密码"
                 />
         </LinearLayout>
 

@@ -4,11 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
+import com.drive.finance.network.APIClient
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
 
 class ForgetPassFragment : BaseFragment() {
 
@@ -17,6 +22,12 @@ class ForgetPassFragment : BaseFragment() {
     }
     val nextPlaceText by lazy {
         view?.findViewById(R.id.nextPlaceText) as TextView
+    }
+    val codeImage by lazy {
+        view?.findViewById(R.id.codeImage) as ImageView
+    }
+    val apiClient by lazy {
+        APIClient()
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -34,6 +45,15 @@ class ForgetPassFragment : BaseFragment() {
         nextPlaceText.onClick {
             start(createConfirmFragment())
         }
+
+        apiClient.requestCode()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ jsonObject ->
+                    Glide.with(context)
+                            .load(jsonObject.getString("url"))
+                            .into(codeImage)
+                }, {})
     }
 }
 

@@ -74,6 +74,7 @@
                     android:textSize="13sp"
                     android:background="@drawable/edit_back_gray"
                     android:padding="5dp"
+                    android:hint="请输入开户人姓名"
                     />
             </LinearLayout>
 
@@ -100,6 +101,7 @@
                     android:textSize="13sp"
                     android:background="@drawable/edit_back_gray"
                     android:padding="5dp"
+                    android:hint="请输入银行卡号"
                     />
             </LinearLayout>
 
@@ -126,6 +128,7 @@
                     android:textSize="13sp"
                     android:background="@drawable/edit_back_gray"
                     android:padding="5dp"
+                    android:hint="请输入银行卡号"
                     />
             </LinearLayout>
 
@@ -190,6 +193,7 @@
                         android:textSize="13sp"
                         android:background="@drawable/edit_back_gray"
                         android:padding="5dp"
+                        android:hint="请输入开户银行省份"
                         />
                 </LinearLayout>
 
@@ -216,6 +220,7 @@
                         android:textSize="13sp"
                         android:background="@drawable/edit_back_gray"
                         android:padding="5dp"
+                        android:hint="请输入开户银行城市"
                         />
                 </LinearLayout>
 
@@ -242,6 +247,7 @@
                         android:textSize="13sp"
                         android:background="@drawable/edit_back_gray"
                         android:padding="5dp"
+                        android:hint="请输入电话"
                         />
                 </LinearLayout>
 
@@ -280,6 +286,7 @@
                     android:textSize="13sp"
                     android:background="@drawable/edit_back_gray"
                     android:padding="5dp"
+                    android:hint="请输入开户地址"
                     />
             </LinearLayout>
 

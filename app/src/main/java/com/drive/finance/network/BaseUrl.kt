@@ -50,6 +50,8 @@ class BaseUrl {
         val CENTER_SELECT_BANK_API = BASE_URL + "User/getBankList?action=API"
         // 添加银行卡
         val CENTER_ADD_BANK_API = BASE_URL + "User/addBankApp?action=API"
+        // 删除银行卡
+        val CENTER_DEL_BANK_API = BASE_URL + "User/delBankApp?action=API"
         // 提现接口
         val CENTER_PICK_API = BASE_URL + "Money/CashAppNew?action=API"
 
@@ -68,5 +70,12 @@ class BaseUrl {
          */
         // 我的投资
         val FINANCE_MINE_API = BASE_URL + "Financial/myfinApp?action=API"
+
+        /**
+         * 登录
+         */
+        val LOGIN_API = BASE_URL + "Login/loginApp?action=AP"
+        // 获取验证码
+        val CODE_API = BASE_URL + "Login/verifyApp?action=API"
     }
 }

@@ -54,6 +54,7 @@
                 android:background="@drawable/edit_back_gray"
                 android:padding="5dp"
                 android:inputType="numberPassword"
+                android:hint="请输入原始密码"
                 />
         </LinearLayout>
 
@@ -82,6 +83,7 @@
                 android:background="@drawable/edit_back_gray"
                 android:padding="5dp"
                 android:inputType="numberPassword"
+                android:hint="请输入新密码"
                 />
         </LinearLayout>
 
@@ -110,6 +112,7 @@
                 android:background="@drawable/edit_back_gray"
                 android:padding="5dp"
                 android:inputType="numberPassword"
+                android:hint="请输入新密码"
                 />
         </LinearLayout>
 

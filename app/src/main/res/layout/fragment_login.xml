@@ -16,132 +16,158 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="8dp"
-        android:background="@color/lineColor"
+        android:background="@color/backColor"
         />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp"
-        >
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo"
-            android:layout_gravity="center_horizontal"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PUBLIC BACK"
-            android:textColor="@color/f1"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="12dp"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            />
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
             >
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/user_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo"
+                android:layout_gravity="center_horizontal"
                 />
 
-            <EditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:text="客户编号"
+                android:text="PUBLIC BACK"
+                android:textColor="@color/f1"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                >
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/user_number"
+                    />
+
+                <EditText
+                    android:id="@+id/userNameEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:hint="客户编号"
+                    android:textSize="13sp"
+                    android:textColor="@color/f3"
+                    android:padding="8dp"
+                    android:background="@drawable/edit_back_gray"
+                    android:layout_gravity="center_vertical"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                >
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/user_pass"
+                    />
+
+                <EditText
+                    android:id="@+id/passwordEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:hint="请输入密码"
+                    android:textColor="@color/f3"
+                    android:textSize="13sp"
+                    android:padding="8dp"
+                    android:inputType="numberPassword"
+                    android:background="@drawable/edit_back_gray"
+                    android:layout_gravity="center_vertical"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                >
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/recredit_code"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:layout_marginLeft="12dp"
+                        android:hint="请输入验证码"
+                        android:textColor="@color/f3"
+                        android:textSize="13sp"
+                        android:padding="8dp"
+                        android:background="@drawable/edit_back_gray"
+                        android:layout_gravity="center_vertical"
+                        />
+
+                    <ImageView
+                        android:id="@+id/codeImage"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="15sp"
+                        android:textColor="@color/f2"
+                        android:gravity="center"
+                        android:scaleType="fitXY"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/forgetPassText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="忘记密码"
                 android:textSize="13sp"
                 android:textColor="@color/f3"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="8dp"
+                />
+
+            <TextView
+                android:id="@+id/loginText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="登录"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/view_back_blue"
+                android:layout_margin="20dp"
                 android:padding="8dp"
-                android:background="@drawable/edit_back_gray"
-                android:layout_gravity="center_vertical"
+                android:gravity="center"
                 />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            >
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/user_pass"
-                />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:text="请输入密码"
-                android:textColor="@color/f3"
-                android:textSize="13sp"
-                android:padding="8dp"
-                android:background="@drawable/edit_back_gray"
-                android:layout_gravity="center_vertical"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            >
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/recredit_code"
-                />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:text="请输入验证码"
-                android:textColor="@color/f3"
-                android:textSize="13sp"
-                android:padding="8dp"
-                android:background="@drawable/edit_back_gray"
-                android:layout_gravity="center_vertical"
-                />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/forgetPassText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="忘记密码"
-            android:textSize="13sp"
-            android:textColor="@color/f3"
-            android:layout_marginRight="12dp"
-            android:layout_marginTop="8dp"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="登录"
-            android:textSize="16sp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/view_back_blue"
-            android:layout_margin="20dp"
-            android:padding="8dp"
-            android:gravity="center"
-            />
-
-    </LinearLayout>
-
+    </ScrollView>
 </LinearLayout>

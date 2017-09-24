@@ -4,17 +4,24 @@ import android.os.Bundle
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
+import android.text.TextUtils
+import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.RelativeLayout
+import android.widget.TextView
 import com.drive.finance.base.BaseActivity
+import com.drive.finance.network.APIClient
 import com.drive.finance.ui.login.createLoginFragment
 import com.drive.finance.ui.drawer.center.createFinanceCenterFragment
 import com.drive.finance.ui.drawer.consult.createConsultFragment
 import com.drive.finance.ui.drawer.contact.createContactFragment
+import com.drive.finance.ui.drawer.contact.createContactUsFragment
 import com.drive.finance.ui.drawer.public.createPublicFinanceFragment
 import com.drive.finance.ui.drawer.team.createTeamFragment
 import com.drive.finance.ui.drawer.user.createUserInfoFragment
 import com.drive.finance.ui.tab.*
+import com.drive.finance.util.LoginUtil
 import com.hwangjr.rxbus.annotation.Subscribe
 import org.jetbrains.anko.onClick
 
@@ -47,6 +54,15 @@ class MainActivity : BaseActivity() {
     val drawerContactLayout by lazy {
         findViewById(R.id.drawerContactLayout) as RelativeLayout
     }
+    val userNumText by lazy {
+        findViewById(R.id.usernameText) as TextView
+    }
+    val logoutImage by lazy {
+        findViewById(R.id.logoutImage) as ImageView
+    }
+    val loginUtil by lazy {
+        LoginUtil(this.applicationContext)
+    }
     lateinit var menuTitles: Array<String>
     lateinit var arrayAdapter: ArrayAdapter<*>
 
@@ -67,11 +83,10 @@ class MainActivity : BaseActivity() {
         menuTitles = resources.getStringArray(R.array.menuList)
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, menuTitles)
 
-        loadRootFragment(R.id.contentContainerLayout, createTabHostFragment())
-
         /**
          * 登录
          */
+        drawerHomeLayout.visibility = View.GONE
         drawerHomeLayout.onClick {
             mDrawerLayout.closeDrawers()
             loadRootFragment(R.id.drawerFragmentContainer, createLoginFragment(), true, true)
@@ -125,10 +140,34 @@ class MainActivity : BaseActivity() {
             loadRootFragment(R.id.drawerFragmentContainer, createContactFragment(), true, true)
         }
 
-        // 判断当前是否需要登录
+        /**
+         * 退出登录
+         */
+        logoutImage.onClick {
+            loginUtil.setUid("")
+            APIClient.uid = ""
+            pop()
+            mDrawerLayout.closeDrawers()
+            loadRootFragment(R.id.drawerFragmentContainer, createLoginFragment(), true, true)
+        }
 
+        // 判断当前是否需要登录
+        val uid = loginUtil.getUid()
+        if (TextUtils.isEmpty(uid)) {
+            loadRootFragment(R.id.drawerFragmentContainer, createLoginFragment(), true, true)
+        } else {
+            APIClient.uid = uid
+            loadRootFragment(R.id.contentContainerLayout, createTabHostFragment())
+        }
     }
 
+    @Subscribe
+    fun onLoginSuccessEvent(event: LoginSuccessEvent) {
+        loginUtil.setUid(event.uid)
+        APIClient.uid = event.uid
+        userNumText.text = event.userNum
+        loadRootFragment(R.id.contentContainerLayout, createTabHostFragment())
+    }
 
     /**
      * 奖金列表
@@ -167,7 +206,7 @@ class MainActivity : BaseActivity() {
      */
     @Subscribe
     fun onCreateSuggestFragmentEvent(event: CreateSuggestFragmentEvent) {
-        loadRootFragment(R.id.drawerFragmentContainer, createSuggestFragment(), true, true)
+        loadRootFragment(R.id.drawerFragmentContainer, createContactUsFragment(), true, true)
     }
 
     /**

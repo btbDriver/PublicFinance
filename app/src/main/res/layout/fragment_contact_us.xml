@@ -19,14 +19,19 @@
         android:background="@color/lineColor"
         />
 
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dip"
+        android:progressDrawable="@drawable/webview_pg"
+        android:visibility="gone"
+        />
 
-    <TextView
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="联系我们..."
-        android:textColor="@color/f3"
-        android:textSize="15sp"
-        android:gravity="center"
         />
 
 </LinearLayout>
