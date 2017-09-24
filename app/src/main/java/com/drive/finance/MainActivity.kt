@@ -157,6 +157,7 @@ class MainActivity : BaseActivity() {
             loadRootFragment(R.id.drawerFragmentContainer, createLoginFragment(), true, true)
         } else {
             APIClient.uid = uid
+            userNumText.text = loginUtil.getUsername()
             loadRootFragment(R.id.contentContainerLayout, createTabHostFragment())
         }
     }
@@ -164,6 +165,7 @@ class MainActivity : BaseActivity() {
     @Subscribe
     fun onLoginSuccessEvent(event: LoginSuccessEvent) {
         loginUtil.setUid(event.uid)
+        loginUtil.setUsername(event.userNum)
         APIClient.uid = event.uid
         userNumText.text = event.userNum
         loadRootFragment(R.id.contentContainerLayout, createTabHostFragment())

@@ -19,4 +19,12 @@ class LoginUtil(context: Context) {
     fun getUid() : String {
         return sharedPreferences.getString("uid", "")
     }
+
+    fun setUsername(username: String) {
+        sharedPreferences.edit().putString("username", username).commit()
+    }
+
+    fun getUsername() : String {
+        return sharedPreferences.getString("username", "")
+    }
 }

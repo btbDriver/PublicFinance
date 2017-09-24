@@ -136,7 +136,7 @@ class MainFragment : BaseFragment() {
 }
 
 internal class TestLoopAdapter(viewPager: RollPagerView) : LoopPagerAdapter(viewPager) {
-    private val imgs = intArrayOf(R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher)
+    private val imgs = intArrayOf(R.drawable.bo1, R.drawable.bo2, R.drawable.bo3)
 
     override fun getView(container: ViewGroup, position: Int): View {
         val view = ImageView(container.context)

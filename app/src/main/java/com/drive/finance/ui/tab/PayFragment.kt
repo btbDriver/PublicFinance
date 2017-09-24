@@ -1,6 +1,7 @@
 package com.drive.finance.ui.tab
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -95,10 +96,11 @@ class PayFragment : BaseFragment() {
             val sb = StringBuffer(BaseUrl.CENTER_PAY_API)
             sb.append("&uid=").append(APIClient.uid)
             sb.append("&goodsid=").append(payModel.goodsId)
-            sb.append("&order=").append(payModel.id)
+            sb.append("&order=").append(payModel.sn)
             sb.append("&paymoney=").append(payModel.price.toString())
             sb.append("&attach=大众财富")
             webLayout.visibility = View.VISIBLE
+            Log.i("##########pay:", sb.toString())
             webView.loadUrl(sb.toString())
         }
     }
