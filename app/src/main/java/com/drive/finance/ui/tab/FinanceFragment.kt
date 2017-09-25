@@ -20,7 +20,6 @@ import com.drive.finance.network.model.Finance
 import com.drive.finance.network.model.FinanceModel
 import com.drive.finance.widget.SimpleTitleBar
 import com.hwangjr.rxbus.RxBus
-import com.hwangjr.rxbus.annotation.Subscribe
 import org.jetbrains.anko.onClick
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -33,6 +32,9 @@ class FinanceFragment : BaseFragment() {
     val recyclerView by lazy {
         view?.findViewById(R.id.recyclerView) as RecyclerView
     }
+    val apiClient by lazy {
+        APIClient()
+    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -43,7 +45,9 @@ class FinanceFragment : BaseFragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = FinanceAdapter()
+
+        val financeAdapter = FinanceAdapter()
+        recyclerView.adapter = financeAdapter
 
         if (arguments.getBoolean("isTitleBarVisible")) {
             simpleTitleBar.visibility = View.VISIBLE
@@ -54,25 +58,20 @@ class FinanceFragment : BaseFragment() {
         } else {
             simpleTitleBar.visibility = View.GONE
         }
+
+        apiClient.requestCenterFinanceData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ financemodel ->
+                    financeAdapter.financeModel = financemodel
+                    financeAdapter.notifyDataSetChanged()
+                }, {})
     }
 }
 
 class FinanceAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val apiClient by lazy {
-        APIClient()
-    }
     var financeModel: FinanceModel ?= null
-
-    init {
-        apiClient.requestCenterFinanceData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ financemodel ->
-                    financeModel = financemodel
-                    notifyDataSetChanged()
-                }, {})
-    }
 
     override fun getItemViewType(position: Int): Int {
         if (financeModel == null) {
@@ -122,7 +121,7 @@ class FinanceAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             if (position <= financeModel!!.fin.size) {
                 (holder as FinanceViewHolder2).setItems(financeModel!!.fin[position - 1])
             } else if (position > financeModel!!.fin.size + 1) {
-                (holder as FinanceViewHolder2).setItems(financeModel!!.fin[position - financeModel!!.fin.size - 2])
+                (holder as FinanceViewHolder2).setItems(financeModel!!.fin1[position - financeModel!!.fin.size - 2])
             }
         }
     }

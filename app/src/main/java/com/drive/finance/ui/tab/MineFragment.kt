@@ -13,6 +13,7 @@ import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.network.APIClient
 import com.drive.finance.widget.SimpleTitleBar
+import com.drive.finance.widget.StatusLayout
 import com.hwangjr.rxbus.RxBus
 import org.jetbrains.anko.onClick
 import org.json.JSONArray
@@ -28,7 +29,13 @@ class MineFragment : BaseFragment() {
     val recyclerView by lazy {
         view?.findViewById(R.id.recyclerView) as RecyclerView
     }
-
+    val containerLayout by lazy {
+        view?.findViewById(R.id.containerLayout) as StatusLayout
+    }
+    val apiClient by lazy {
+        APIClient()
+    }
+    lateinit var mineListAdapter: MineListAdapter
     var isTitleBarVisible: Boolean = false
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -48,27 +55,38 @@ class MineFragment : BaseFragment() {
         } else {
             simpleTitleBar.visibility = View.GONE
         }
+
+        containerLayout.errorLayout.onClick {
+            refresh()
+        }
+
+        mineListAdapter = MineListAdapter()
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = MineListAdapter()
+        recyclerView.adapter = mineListAdapter
+
+        refresh()
+    }
+
+    fun refresh() {
+        apiClient.requestFinanceMineData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ jsonArray ->
+                    mineListAdapter.financeArray = jsonArray
+                    mineListAdapter.notifyDataSetChanged()
+
+                    if (mineListAdapter.financeArray == null || mineListAdapter.financeArray!!.length() == 0) {
+                        containerLayout.showEmpty()
+                    }
+                }, {
+                    containerLayout.showError()
+                })
     }
 }
 
 class MineListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val apiClient by lazy {
-        APIClient()
-    }
     var financeArray: JSONArray ?= null
-
-    init {
-        apiClient.requestFinanceMineData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonArray ->
-                    financeArray = jsonArray
-                    notifyDataSetChanged()
-                }, {})
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
         val rootView = LayoutInflater.from(parent!!.context).inflate(R.layout.fragment_mine_item, null, false)

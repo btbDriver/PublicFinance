@@ -13,6 +13,7 @@ import com.drive.finance.base.BaseFragment
 import com.drive.finance.network.APIClient
 import com.drive.finance.ui.tab.MineListAdapter
 import com.drive.finance.widget.SimpleTitleBar
+import com.drive.finance.widget.StatusLayout
 import org.jetbrains.anko.find
 import org.jetbrains.anko.onClick
 import org.json.JSONArray
@@ -31,6 +32,13 @@ class RecommendFragment : BaseFragment() {
     val recyclerView by lazy {
         view?.findViewById(R.id.recyclerView) as RecyclerView
     }
+    val containerLayout by lazy {
+        view?.findViewById(R.id.containerLayout) as StatusLayout
+    }
+    val apiClient by lazy {
+        APIClient()
+    }
+    lateinit var recommendAdapter: RecommendAdapter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -46,27 +54,31 @@ class RecommendFragment : BaseFragment() {
         }
 
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = RecommendAdapter()
+        recommendAdapter = RecommendAdapter()
+        recyclerView.adapter = recommendAdapter
+
+        refresh()
+    }
+
+    fun refresh() {
+        apiClient.requestTeamRecommendData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ jsonArray ->
+                    recommendAdapter.recommendArray = jsonArray
+                    recommendAdapter.notifyDataSetChanged()
+
+                    if (jsonArray == null || jsonArray.length() == 0) {
+                        containerLayout.showEmpty()
+                    }
+                }, {})
     }
 }
 
 
 class RecommendAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val apiClient by lazy {
-        APIClient()
-    }
     var recommendArray: JSONArray ?= null
-
-    init {
-        apiClient.requestTeamRecommendData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonArray ->
-                    recommendArray = jsonArray
-                    notifyDataSetChanged()
-                }, {})
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
         val rootView = LayoutInflater.from(parent!!.context).inflate(R.layout.fragment_recommend_item, null, false)

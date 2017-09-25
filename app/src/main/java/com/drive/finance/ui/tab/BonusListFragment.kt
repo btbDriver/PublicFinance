@@ -15,6 +15,7 @@ import com.drive.finance.base.BaseFragment
 import com.drive.finance.network.APIClient
 import com.drive.finance.ui.drawer.center.createBonusInfoFragment
 import com.drive.finance.widget.SimpleTitleBar
+import com.drive.finance.widget.StatusLayout
 import com.hwangjr.rxbus.RxBus
 import com.hwangjr.rxbus.annotation.Subscribe
 import org.jetbrains.anko.onClick
@@ -31,6 +32,13 @@ class BonusListFragment : BaseFragment() {
     val recyclerView by lazy {
         view?.findViewById(R.id.recyclerView) as RecyclerView
     }
+    val containerLayout by lazy {
+        view?.findViewById(R.id.containerLayout) as StatusLayout
+    }
+    val apiClient by lazy {
+        APIClient()
+    }
+    lateinit var bonusListAdapter: BonusListAdapter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -41,11 +49,24 @@ class BonusListFragment : BaseFragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView.layoutManager = LinearLayoutManager(context) as RecyclerView.LayoutManager?
-        recyclerView.adapter = BonusListAdapter()
+        bonusListAdapter = BonusListAdapter()
+        recyclerView.adapter = bonusListAdapter
 
         simpleTitleBar.backLayout!!.onClick {
             pop()
         }
+
+        apiClient.requestCenterBonusData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ jsonArray ->
+                    bonusListAdapter.dataArray = jsonArray
+                    bonusListAdapter.notifyDataSetChanged()
+
+                    if (jsonArray == null || jsonArray.length() == 0) {
+                        containerLayout.showEmpty()
+                    }
+                }, {})
     }
 
     @Subscribe
@@ -55,18 +76,10 @@ class BonusListFragment : BaseFragment() {
 }
 
 class BonusListAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    val apiClient by lazy {
-        APIClient()
-    }
+
     var dataArray = JSONArray()
     init {
-        apiClient.requestCenterBonusData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonArray ->
-                    dataArray = jsonArray
-                    notifyDataSetChanged()
-                }, {})
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
