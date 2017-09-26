@@ -11,12 +11,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.drive.finance.LoginSuccessEvent
 import com.drive.finance.R
 
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.network.APIClient
-import com.drive.finance.util.LoginUtil
 import com.drive.finance.widget.SimpleTitleBar
 import com.hwangjr.rxbus.RxBus
 import org.jetbrains.anko.onClick
@@ -83,6 +83,19 @@ class LoginFragment : BaseFragment() {
                         } else {
                             Toast.makeText(context, jsonObject.getString("info"), Toast.LENGTH_SHORT).show()
                         }
+                    }, {})
+        }
+
+        codeImage.onClick {
+            apiClient.requestCode()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ jsonObject ->
+                        Glide.with(context)
+                                .load(jsonObject.getString("url"))
+                                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                                .skipMemoryCache(true)
+                                .into(codeImage)
                     }, {})
         }
 
