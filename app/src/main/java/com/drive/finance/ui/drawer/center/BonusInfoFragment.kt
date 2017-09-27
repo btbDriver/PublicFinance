@@ -53,13 +53,17 @@ class BonusInfoAdapter(date: String): RecyclerView.Adapter<RecyclerView.ViewHold
     var bonusArray: JSONArray?= null
 
     init {
-        apiClient.requestBonusInfoData(date)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonArray ->
-                    bonusArray = jsonArray
-                    notifyDataSetChanged()
-                }, {})
+        try {
+            apiClient.requestBonusInfoData(date)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ jsonArray ->
+                        bonusArray = jsonArray
+                        notifyDataSetChanged()
+                    }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {

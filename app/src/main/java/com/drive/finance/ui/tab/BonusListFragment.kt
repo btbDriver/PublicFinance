@@ -56,17 +56,21 @@ class BonusListFragment : BaseFragment() {
             pop()
         }
 
-        apiClient.requestCenterBonusData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonArray ->
-                    bonusListAdapter.dataArray = jsonArray
-                    bonusListAdapter.notifyDataSetChanged()
+        try {
+            apiClient.requestCenterBonusData()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ jsonArray ->
+                        bonusListAdapter.dataArray = jsonArray
+                        bonusListAdapter.notifyDataSetChanged()
 
-                    if (jsonArray == null || jsonArray.length() == 0) {
-                        containerLayout.showEmpty()
-                    }
-                }, {})
+                        if (jsonArray == null || jsonArray.length() == 0) {
+                            containerLayout.showEmpty()
+                        }
+                    }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     @Subscribe

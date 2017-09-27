@@ -69,13 +69,17 @@ class InviteFragment : BaseFragment() {
             ecodeLayout.visibility = View.GONE
         }
 
-        apiClient.requestShareData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonObject ->
-                    shareObject = jsonObject
-                    userNameText.text = shareObject!!.getString("username")
-                }, {})
+        try {
+            apiClient.requestShareData()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ jsonObject ->
+                        shareObject = jsonObject
+                        userNameText.text = shareObject!!.getString("username")
+                    }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
 

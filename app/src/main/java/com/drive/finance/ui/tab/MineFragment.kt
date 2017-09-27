@@ -68,19 +68,23 @@ class MineFragment : BaseFragment() {
     }
 
     fun refresh() {
-        apiClient.requestFinanceMineData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonArray ->
-                    mineListAdapter.financeArray = jsonArray
-                    mineListAdapter.notifyDataSetChanged()
+        try {
+            apiClient.requestFinanceMineData()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ jsonArray ->
+                        mineListAdapter.financeArray = jsonArray
+                        mineListAdapter.notifyDataSetChanged()
 
-                    if (mineListAdapter.financeArray == null || mineListAdapter.financeArray!!.length() == 0) {
-                        containerLayout.showEmpty()
-                    }
-                }, {
-                    containerLayout.showError()
-                })
+                        if (mineListAdapter.financeArray == null || mineListAdapter.financeArray!!.length() == 0) {
+                            containerLayout.showEmpty()
+                        }
+                    }, {
+                        containerLayout.showError()
+                    })
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
 

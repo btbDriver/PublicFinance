@@ -63,27 +63,31 @@ class LoginFragment : BaseFragment() {
         }
 
         loginText.onClick {
-            if (TextUtils.isEmpty(userNameEdit.text.toString())) {
-                Toast.makeText(context, "请输入客户编号", Toast.LENGTH_SHORT).show()
-                return@onClick
-            }
-            if (TextUtils.isEmpty(passwordEdit.text.toString())) {
-                Toast.makeText(context, "请输入密码", Toast.LENGTH_SHORT).show()
-                return@onClick
-            }
+            try {
+                if (TextUtils.isEmpty(userNameEdit.text.toString())) {
+                    Toast.makeText(context, "请输入客户编号", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
+                if (TextUtils.isEmpty(passwordEdit.text.toString())) {
+                    Toast.makeText(context, "请输入密码", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
 
-            apiClient.requestLogin(userNameEdit.text.toString(), passwordEdit.text.toString())
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ jsonObject ->
-                        if (jsonObject.getInt("success") == 0) {
-                            Toast.makeText(context, "登录成功", Toast.LENGTH_SHORT).show()
-                            pop()
-                            RxBus.get().post(LoginSuccessEvent(jsonObject.getString("uid"), jsonObject.getString("username")))
-                        } else {
-                            Toast.makeText(context, jsonObject.getString("info"), Toast.LENGTH_SHORT).show()
-                        }
-                    }, {})
+                apiClient.requestLogin(userNameEdit.text.toString(), passwordEdit.text.toString())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ jsonObject ->
+                            if (jsonObject.getInt("success") == 0) {
+                                Toast.makeText(context, "登录成功", Toast.LENGTH_SHORT).show()
+                                pop()
+                                RxBus.get().post(LoginSuccessEvent(jsonObject.getString("uid"), jsonObject.getString("username")))
+                            } else {
+                                Toast.makeText(context, jsonObject.getString("info"), Toast.LENGTH_SHORT).show()
+                            }
+                        }, {})
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
 
         codeImage.onClick {

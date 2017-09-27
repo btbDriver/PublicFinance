@@ -110,12 +110,16 @@ class MainFragment : BaseFragment() {
             RxBus.get().post(CreateSuggestFragmentEvent(""))
         }
 
-        apiClient.requestHomeData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ homeModel ->
-                    updateUI(homeModel)
-                }, {})
+        try {
+            apiClient.requestHomeData()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ homeModel ->
+                        updateUI(homeModel)
+                    }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     fun updateUI(homeModel: HomeModel) {

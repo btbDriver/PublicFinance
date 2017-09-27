@@ -71,48 +71,59 @@ class UserFragment : BaseFragment() {
          * 发送短信验证码
          */
         sendCodeText.onClick {
-            apiClient.sendMobileCode(telEdit.text.toString())
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ mobileCodeModel ->
-                        if (mobileCodeModel.success == 0) {
-                            Toast.makeText(activity, "发送短信验证码成功", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(activity, mobileCodeModel.info, Toast.LENGTH_SHORT).show()
-                        }
-                    }, {})
+            try {
+                apiClient.sendMobileCode(telEdit.text.toString())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ mobileCodeModel ->
+                            if (mobileCodeModel.success == 0) {
+                                Toast.makeText(activity, "发送短信验证码成功", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(activity, mobileCodeModel.info, Toast.LENGTH_SHORT).show()
+                            }
+                        }, {})
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
 
         /**
          * 更新个人信息
          */
         submitText.onClick {
-            val userModel = UserModel()
-            userModel.myinfo = MyInfo()
-            userModel.myinfo.email = emailEdit.text.toString()
-            userModel.myinfo.p = pEdit.text.toString()
-            userModel.myinfo.smscode = smsCodeEdit.text.toString()
-            userModel.myinfo.tel = telEdit.text.toString()
+            try {
+                val userModel = UserModel()
+                userModel.myinfo = MyInfo()
+                userModel.myinfo.email = emailEdit.text.toString()
+                userModel.myinfo.p = pEdit.text.toString()
+                userModel.myinfo.smscode = smsCodeEdit.text.toString()
+                userModel.myinfo.tel = telEdit.text.toString()
 
-            apiClient.sendUpdateUser(userModel)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ resultModel ->
-                        if (resultModel.success == 0) {
-                            Toast.makeText(activity, "更新个人信息成功", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(activity, resultModel.info, Toast.LENGTH_SHORT).show()
-                        }
-                    }, {})
-
+                apiClient.sendUpdateUser(userModel)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ resultModel ->
+                            if (resultModel.success == 0) {
+                                Toast.makeText(activity, "更新个人信息成功", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(activity, resultModel.info, Toast.LENGTH_SHORT).show()
+                            }
+                        }, {})
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
 
-        apiClient.requestUserData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ userModel ->
-                    updateUI(userModel)
-                }, {})
+        try {
+            apiClient.requestUserData()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ userModel ->
+                        updateUI(userModel)
+                    }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     fun updateUI(userModel: UserModel) {

@@ -100,13 +100,17 @@ class BankAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     fun refresh() {
-        apiClient.requestBankData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonArray ->
-                    bankArray = jsonArray
-                    notifyDataSetChanged()
-                }, {})
+        try {
+            apiClient.requestBankData()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ jsonArray ->
+                        bankArray = jsonArray
+                        notifyDataSetChanged()
+                    }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -179,12 +183,16 @@ class BankViewHolder1(itemView: View): RecyclerView.ViewHolder(itemView) {
         }
 
         delImageView.onClick {
-            apiClient.sendDelBank(bankObject.getString("id"))
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ resultModel ->
-                        RxBus.get().post(RefreshBankListEvent(""))
-                    }, {})
+            try {
+                apiClient.sendDelBank(bankObject.getString("id"))
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ resultModel ->
+                            RxBus.get().post(RefreshBankListEvent(""))
+                        }, {})
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 }

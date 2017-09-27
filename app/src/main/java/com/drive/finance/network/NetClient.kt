@@ -25,65 +25,85 @@ class NetClient {
 
     fun doGetRequest(url: String, paramsMap: Map<String, String>): Observable<JSONObject> {
         return Observable.create<JSONObject> { subscribe ->
-            okHttpClient.newCall(parserGetParams(url, paramsMap))
-                    .enqueue(object : Callback {
-                        override fun onFailure(call: Call?, e: IOException?) {
-                            subscribe.onError(e)
-                        }
-
-                        override fun onResponse(call: Call?, response: Response?) {
-                            if (response != null) {
-                                try {
-                                    subscribe.onNext(JSONObject(response.body().string()))
-                                    subscribe.onCompleted()
-                                } catch(e: Exception) {
-                                    subscribe.onError(NullPointerException())
-                                }
-                            } else {
-                                subscribe.onError(NullPointerException())
+            try {
+                okHttpClient.newCall(parserGetParams(url, paramsMap))
+                        .enqueue(object : Callback {
+                            override fun onFailure(call: Call?, e: IOException?) {
+                                subscribe.onError(e)
                             }
-                        }
-                    })
+
+                            override fun onResponse(call: Call?, response: Response?) {
+                                try {
+                                    if (response != null) {
+                                        subscribe.onNext(JSONObject(response.body().string()))
+                                        subscribe.onCompleted()
+                                    } else {
+                                        subscribe.onError(NullPointerException())
+                                    }
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }
+                        })
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 
     fun doGetRequestHtml(url: String, paramsMap: Map<String, String>): Observable<String> {
         return Observable.create<String> { subscribe ->
-            okHttpClient.newCall(parserGetParams(url, paramsMap))
-                    .enqueue(object : Callback {
-                        override fun onFailure(call: Call?, e: IOException?) {
-                            subscribe.onError(e)
-                        }
-
-                        override fun onResponse(call: Call?, response: Response?) {
-                            if (response != null) {
-                                subscribe.onNext(response.body().string())
-                                subscribe.onCompleted()
-                            } else {
-                                subscribe.onError(NullPointerException())
+            try {
+                okHttpClient.newCall(parserGetParams(url, paramsMap))
+                        .enqueue(object : Callback {
+                            override fun onFailure(call: Call?, e: IOException?) {
+                                subscribe.onError(e)
                             }
-                        }
-                    })
+
+                            override fun onResponse(call: Call?, response: Response?) {
+                                try {
+                                    if (response != null) {
+                                        subscribe.onNext(response.body().string())
+                                        subscribe.onCompleted()
+                                    } else {
+                                        subscribe.onError(NullPointerException())
+                                    }
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }
+                        })
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 
     fun doGetRequestArray(url: String, paramsMap: Map<String, String>): Observable<JSONArray> {
         return Observable.create<JSONArray> { subscribe ->
-            okHttpClient.newCall(parserGetParams(url, paramsMap))
-                    .enqueue(object : Callback {
-                        override fun onFailure(call: Call?, e: IOException?) {
-                            subscribe.onError(e)
-                        }
-
-                        override fun onResponse(call: Call?, response: Response?) {
-                            if (response != null) {
-                                subscribe.onNext(JSONArray(response.body().string()))
-                                subscribe.onCompleted()
-                            } else {
-                                subscribe.onError(NullPointerException())
+            try {
+                okHttpClient.newCall(parserGetParams(url, paramsMap))
+                        .enqueue(object : Callback {
+                            override fun onFailure(call: Call?, e: IOException?) {
+                                subscribe.onError(e)
                             }
-                        }
-                    })
+
+                            override fun onResponse(call: Call?, response: Response?) {
+                                try {
+                                    if (response != null) {
+                                        subscribe.onNext(JSONArray(response.body().string()))
+                                        subscribe.onCompleted()
+                                    } else {
+                                        subscribe.onError(NullPointerException())
+                                    }
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }
+                        })
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 

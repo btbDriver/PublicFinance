@@ -59,7 +59,11 @@ class ContactUsFragment : BaseFragment() {
             }
         })
 
-        webView.loadUrl("http://www11.53kf.com/webCompany.php?arg=10147286&style=2%5D%5Bimg%5Dhttp%3A")
+        try {
+            webView.loadUrl("http://www11.53kf.com/webCompany.php?arg=10147286&style=2%5D%5Bimg%5Dhttp%3A")
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
 

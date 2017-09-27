@@ -50,19 +50,23 @@ class UpdateTreadFragment : BaseFragment() {
         }
 
         submitText.onClick {
-            val op = originPassEdit.text.toString()
-            val p = newPassEdit.text.toString()
-            val rp = confirmPassEdit.text.toString()
-            apiClient.sendUpdateTreadPass(op, p, rp)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ resultModel ->
-                        if (resultModel.success == 0) {
-                            Toast.makeText(activity, "更新密码成功", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(activity, resultModel.info, Toast.LENGTH_SHORT).show()
-                        }
-                    }, {})
+            try {
+                val op = originPassEdit.text.toString()
+                val p = newPassEdit.text.toString()
+                val rp = confirmPassEdit.text.toString()
+                apiClient.sendUpdateTreadPass(op, p, rp)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ resultModel ->
+                            if (resultModel.success == 0) {
+                                Toast.makeText(activity, "更新密码成功", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(activity, resultModel.info, Toast.LENGTH_SHORT).show()
+                            }
+                        }, {})
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 }

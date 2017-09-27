@@ -61,17 +61,21 @@ class RecommendFragment : BaseFragment() {
     }
 
     fun refresh() {
-        apiClient.requestTeamRecommendData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonArray ->
-                    recommendAdapter.recommendArray = jsonArray
-                    recommendAdapter.notifyDataSetChanged()
+        try {
+            apiClient.requestTeamRecommendData()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ jsonArray ->
+                        recommendAdapter.recommendArray = jsonArray
+                        recommendAdapter.notifyDataSetChanged()
 
-                    if (jsonArray == null || jsonArray.length() == 0) {
-                        containerLayout.showEmpty()
-                    }
-                }, {})
+                        if (jsonArray == null || jsonArray.length() == 0) {
+                            containerLayout.showEmpty()
+                        }
+                    }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
 

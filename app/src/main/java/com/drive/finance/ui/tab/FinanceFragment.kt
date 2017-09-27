@@ -59,13 +59,17 @@ class FinanceFragment : BaseFragment() {
             simpleTitleBar.visibility = View.GONE
         }
 
-        apiClient.requestCenterFinanceData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ financemodel ->
-                    financeAdapter.financeModel = financemodel
-                    financeAdapter.notifyDataSetChanged()
-                }, {})
+        try {
+            apiClient.requestCenterFinanceData()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ financemodel ->
+                        financeAdapter.financeModel = financemodel
+                        financeAdapter.notifyDataSetChanged()
+                    }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
 
@@ -174,19 +178,23 @@ class FinanceViewHolder2(itemView: View): RecyclerView.ViewHolder(itemView) {
                 dialog?.dismiss()
             }
             rootView.findViewById(R.id.submitDialog).onClick {
-                val money = (rootView.findViewById(R.id.moneyEdit) as EditText).text.toString()
-                if (TextUtils.isEmpty(money)) {
-                    Toast.makeText(partText.context, "请输入金额", Toast.LENGTH_SHORT).show()
-                    return@onClick
+                try {
+                    val money = (rootView.findViewById(R.id.moneyEdit) as EditText).text.toString()
+                    if (TextUtils.isEmpty(money)) {
+                        Toast.makeText(partText.context, "请输入金额", Toast.LENGTH_SHORT).show()
+                        return@onClick
+                    }
+                    apiClient.requestPayInfoData(finance.id, money)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe({ payModel ->
+                                dialog?.dismiss()
+                                payModel.goodsId = finance.id
+                                RxBus.get().post(CreatePayFragmentEvent(payModel))
+                            }, {})
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
-                apiClient.requestPayInfoData(finance.id, money)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ payModel ->
-                            dialog?.dismiss()
-                            payModel.goodsId = finance.id
-                            RxBus.get().post(CreatePayFragmentEvent(payModel))
-                        }, {})
             }
             builder.setView(rootView)
 

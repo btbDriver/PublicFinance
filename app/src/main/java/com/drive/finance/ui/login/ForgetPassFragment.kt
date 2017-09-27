@@ -46,14 +46,18 @@ class ForgetPassFragment : BaseFragment() {
             start(createConfirmFragment())
         }
 
-        apiClient.requestCode()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonObject ->
-                    Glide.with(context)
-                            .load(jsonObject.getString("url"))
-                            .into(codeImage)
-                }, {})
+        try {
+            apiClient.requestCode()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ jsonObject ->
+                        Glide.with(context)
+                                .load(jsonObject.getString("url"))
+                                .into(codeImage)
+                    }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
 

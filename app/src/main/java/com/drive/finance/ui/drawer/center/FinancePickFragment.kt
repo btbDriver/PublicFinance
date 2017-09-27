@@ -81,26 +81,30 @@ class FinancePickFragment : BaseFragment() {
         }
 
         pickNowLayout.onClick {
-            if (TextUtils.isEmpty(moneyEdit.text.toString())) {
-                Toast.makeText(context, "请输入提取金额", Toast.LENGTH_SHORT).show()
-                return@onClick
-            }
-            if (TextUtils.isEmpty(treadPassEdit.text.toString())) {
-                Toast.makeText(context, "请输入资金密码", Toast.LENGTH_SHORT).show()
-                return@onClick
-            }
+            try {
+                if (TextUtils.isEmpty(moneyEdit.text.toString())) {
+                    Toast.makeText(context, "请输入提取金额", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
+                if (TextUtils.isEmpty(treadPassEdit.text.toString())) {
+                    Toast.makeText(context, "请输入资金密码", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
 
-            apiClient.sendPickmoney(bankObject.getString("id"), treadPassEdit.text.toString(), moneyEdit.text.toString(), sender)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ resultModel ->
-                        if (resultModel.success == 0) {
-                            Toast.makeText(context, "提现成功", Toast.LENGTH_SHORT).show()
-                            pop()
-                        } else {
-                            Toast.makeText(context, resultModel.info, Toast.LENGTH_SHORT).show()
-                        }
-                    }, {})
+                apiClient.sendPickmoney(bankObject.getString("id"), treadPassEdit.text.toString(), moneyEdit.text.toString(), sender)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ resultModel ->
+                            if (resultModel.success == 0) {
+                                Toast.makeText(context, "提现成功", Toast.LENGTH_SHORT).show()
+                                pop()
+                            } else {
+                                Toast.makeText(context, resultModel.info, Toast.LENGTH_SHORT).show()
+                            }
+                        }, {})
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
 
         bankUserText.text = bankObject.getString("bankuser")

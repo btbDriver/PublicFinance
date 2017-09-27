@@ -1,7 +1,6 @@
 package com.drive.finance.ui.tab
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,18 +14,9 @@ import com.drive.finance.network.BaseUrl
 import com.drive.finance.network.model.PayModel
 import com.drive.finance.widget.SimpleTitleBar
 import org.jetbrains.anko.onClick
-import android.webkit.WebSettings
 import android.webkit.WebViewClient
-import com.drive.finance.R.id.webView
 import android.webkit.WebChromeClient
 import android.widget.ProgressBar
-import com.drive.finance.R.id.webView
-
-
-
-
-
-
 
 class PayFragment : BaseFragment() {
 
@@ -64,10 +54,29 @@ class PayFragment : BaseFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initView()
+
         simpleTitleBar.backLayout!!.onClick {
             pop()
         }
+        submitLayout.onClick {
+            try {
+                val sb = StringBuffer(BaseUrl.CENTER_PAY_API)
+                sb.append("&uid=").append(APIClient.uid)
+                sb.append("&goodsid=").append(payModel.goodsId)
+                sb.append("&order=").append(payModel.sn)
+                sb.append("&paymoney=").append(payModel.price.toString())
+                sb.append("&attach=大众财富")
+                webLayout.visibility = View.VISIBLE
+                webView.loadUrl(sb.toString())
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
 
+    fun initView() {
         snText.text = payModel.sn
         goodsName.text = payModel.goodsName
 
@@ -91,18 +100,6 @@ class PayFragment : BaseFragment() {
                 }
             }
         })
-
-        submitLayout.onClick {
-            val sb = StringBuffer(BaseUrl.CENTER_PAY_API)
-            sb.append("&uid=").append(APIClient.uid)
-            sb.append("&goodsid=").append(payModel.goodsId)
-            sb.append("&order=").append(payModel.sn)
-            sb.append("&paymoney=").append(payModel.price.toString())
-            sb.append("&attach=大众财富")
-            webLayout.visibility = View.VISIBLE
-            Log.i("##########pay:", sb.toString())
-            webView.loadUrl(sb.toString())
-        }
     }
 }
 

@@ -45,12 +45,16 @@ class ConsultFinanceFragment : BaseFragment() {
             pop()
         }
 
-        apiClient.requestConsultFinanceData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ consultModel ->
-                    updateUI(consultModel)
-                }, {})
+        try {
+            apiClient.requestConsultFinanceData()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ consultModel ->
+                        updateUI(consultModel)
+                    }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     fun updateUI(consultModel: ConsultModel) {

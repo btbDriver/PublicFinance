@@ -66,68 +66,75 @@ class FinanceBankFragment : BaseFragment() {
             pop()
         }
 
-        apiClient.requestSelectBankData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ jsonArray ->
-                    bankArray.clear()
-                    bankArray.add("请选择")
-                    for (i in 0..jsonArray.length() - 1) {
-                        val jsonObject = jsonArray.getJSONObject(i)
-                        bankArray.add(jsonObject.getString("bank"))
-                    }
-                    val adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, bankArray)
-                    backSpinner.adapter = adapter
-                }, {})
-
-        submitLayout.onClick {
-            val bankModel = BankModel()
-            if (bankArray[backSpinner.selectedItemPosition] == "请选择") {
-                Toast.makeText(context, "请选择开户行", Toast.LENGTH_SHORT).show()
-                return@onClick
-            }
-            if (TextUtils.isEmpty(bankUserEdit.text.toString())) {
-                Toast.makeText(context, "请填写开户人姓名", Toast.LENGTH_SHORT).show()
-                return@onClick
-            }
-            if (TextUtils.isEmpty(provEdit.text.toString())) {
-                Toast.makeText(context, "请填写银行卡省份", Toast.LENGTH_SHORT).show()
-                return@onClick
-            }
-            if (TextUtils.isEmpty(cityEdit.text.toString())) {
-                Toast.makeText(context, "请填写银行卡城市", Toast.LENGTH_SHORT).show()
-                return@onClick
-            }
-            if (bankCardEdit.text.toString() != bankCardConfirmEdit.text.toString()) {
-                Toast.makeText(context, "两次填写银行卡号不一致", Toast.LENGTH_SHORT).show()
-                return@onClick
-            }
-            if (TextUtils.isEmpty(bankCardEdit.text.toString())) {
-                Toast.makeText(context, "请填写银行卡号", Toast.LENGTH_SHORT).show()
-                return@onClick
-            }
-            if (bankArray[backSpinner.selectedItemPosition] != "请选择") {
-                bankModel.bank = bankArray[backSpinner.selectedItemPosition]
-            }
-            bankModel.bankuser = bankUserEdit.text.toString()
-            bankModel.prvo = provEdit.text.toString()
-            bankModel.city = cityEdit.text.toString()
-            bankModel.bankaddress = bankAddressEdit.text.toString()
-            bankModel.tel = telEdit.text.toString()
-            bankModel.bankcard = bankCardEdit.text.toString()
-
-            apiClient.sendAddBank(bankModel)
+        try {
+            apiClient.requestSelectBankData()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ resultModel ->
-                        if (resultModel.success == 0) {
-                            Toast.makeText(context, "添加银行卡信息成功", Toast.LENGTH_SHORT).show()
-                            pop()
-                        } else {
-                            Toast.makeText(context, resultModel.info, Toast.LENGTH_SHORT).show()
+                    .subscribe({ jsonArray ->
+                        bankArray.clear()
+                        bankArray.add("请选择")
+                        for (i in 0..jsonArray.length() - 1) {
+                            val jsonObject = jsonArray.getJSONObject(i)
+                            bankArray.add(jsonObject.getString("bank"))
                         }
+                        val adapter = ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, bankArray)
+                        backSpinner.adapter = adapter
                     }, {})
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
+        submitLayout.onClick {
+            try {
+                val bankModel = BankModel()
+                if (bankArray[backSpinner.selectedItemPosition] == "请选择") {
+                    Toast.makeText(context, "请选择开户行", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
+                if (TextUtils.isEmpty(bankUserEdit.text.toString())) {
+                    Toast.makeText(context, "请填写开户人姓名", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
+                if (TextUtils.isEmpty(provEdit.text.toString())) {
+                    Toast.makeText(context, "请填写银行卡省份", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
+                if (TextUtils.isEmpty(cityEdit.text.toString())) {
+                    Toast.makeText(context, "请填写银行卡城市", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
+                if (bankCardEdit.text.toString() != bankCardConfirmEdit.text.toString()) {
+                    Toast.makeText(context, "两次填写银行卡号不一致", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
+                if (TextUtils.isEmpty(bankCardEdit.text.toString())) {
+                    Toast.makeText(context, "请填写银行卡号", Toast.LENGTH_SHORT).show()
+                    return@onClick
+                }
+                if (bankArray[backSpinner.selectedItemPosition] != "请选择") {
+                    bankModel.bank = bankArray[backSpinner.selectedItemPosition]
+                }
+                bankModel.bankuser = bankUserEdit.text.toString()
+                bankModel.prvo = provEdit.text.toString()
+                bankModel.city = cityEdit.text.toString()
+                bankModel.bankaddress = bankAddressEdit.text.toString()
+                bankModel.tel = telEdit.text.toString()
+                bankModel.bankcard = bankCardEdit.text.toString()
+
+                apiClient.sendAddBank(bankModel)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ resultModel ->
+                            if (resultModel.success == 0) {
+                                Toast.makeText(context, "添加银行卡信息成功", Toast.LENGTH_SHORT).show()
+                                pop()
+                            } else {
+                                Toast.makeText(context, resultModel.info, Toast.LENGTH_SHORT).show()
+                            }
+                        }, {})
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 }
