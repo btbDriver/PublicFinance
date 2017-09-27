@@ -74,8 +74,11 @@ class BaseUrl {
         /**
          * 登录
          */
+        // 登录
         val LOGIN_API = BASE_URL + "Login/loginApp?action=AP"
         // 获取验证码
         val CODE_API = BASE_URL + "Login/verifyApp?action=API"
+        // 忘记密码
+        val FORGET_PASS_API = BASE_URL + "User/findPwd?action=API&uid=1&username=100000&mobile=18365777814"
     }
 }

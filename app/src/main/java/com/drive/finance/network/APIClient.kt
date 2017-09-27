@@ -310,7 +310,6 @@ class APIClient {
 
 
     // ########################################################
-
     /**
      * 登录
      */
@@ -327,5 +326,18 @@ class APIClient {
     fun requestCode() : Observable<JSONObject> {
         val paramsMap = HashMap<String, String>()
         return netClient.doGetRequest(BaseUrl.CODE_API, paramsMap)
+    }
+
+    /**
+     * 忘记密码
+     */
+    fun requestForgetPass(userName: String, mobile: String): Observable<ResultModel> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("username", userName)
+        paramsMap.put("mobile", mobile)
+        return netClient.doGetRequest(BaseUrl.FORGET_PASS_API, paramsMap)
+                .map { jsonObject ->
+                    Gson().fromJson(jsonObject.toString(), ResultModel::class.java)
+                }
     }
 }

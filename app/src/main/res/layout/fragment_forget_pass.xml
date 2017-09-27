@@ -26,12 +26,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="找回密码-验证用户名"
+            android:text="发送短信重置密码"
             android:textSize="18sp"
             android:textColor="#ff1900"
             android:layout_gravity="center_horizontal"
-            android:paddingTop="30dp"
-            android:paddingBottom="30dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
             android:background="@drawable/view_border_back_red"
@@ -49,6 +49,7 @@
                 />
 
             <EditText
+                android:id="@+id/userNumEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
@@ -73,42 +74,26 @@
                 android:src="@drawable/user_pass"
                 />
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/telEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <EditText
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:layout_marginLeft="12dp"
-                    android:hint="请输入验证码"
-                    android:textSize="13sp"
-                    android:textColor="@color/f3"
-                    android:padding="8dp"
-                    android:background="@drawable/edit_back_gray"
-                    android:layout_gravity="center_vertical"
-                    />
-
-                <ImageView
-                    android:id="@+id/codeImage"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    />
-            </LinearLayout>
+                android:layout_marginLeft="12dp"
+                android:hint="请输入手机号"
+                android:textSize="13sp"
+                android:textColor="@color/f3"
+                android:padding="8dp"
+                android:background="@drawable/edit_back_gray"
+                android:layout_gravity="center_vertical"
+                />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/nextPlaceText"
+            android:id="@+id/submitText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="下一步"
+            android:text="提交"
             android:textColor="@android:color/white"
             android:textSize="16dp"
             android:background="@drawable/view_back_blue"
