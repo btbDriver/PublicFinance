@@ -131,17 +131,21 @@ class RecommendViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     }
 
     fun setItems(recommendObject: JSONObject) {
-        userNumText.text = recommendObject.getString("username")
-        realNameText.text = recommendObject.getString("realname")
-        telText.text = recommendObject.getString("tel")
-        renumText.text = recommendObject.getString("renum")
-        registerTimeText.text = recommendObject.getString("regdate")
-        loginTimeText.text = recommendObject.getString("logindate")
-        yjText.text = recommendObject.getString("yeji") + "$"
-        if (recommendObject.getString("status") == "1") {
-            statusText.text = "是"
-        } else {
-            statusText.text = "否"
+        try {
+            userNumText.text = recommendObject.getString("username")
+            realNameText.text = recommendObject.getString("realname")
+            telText.text = recommendObject.getString("tel")
+            renumText.text = recommendObject.getString("renum")
+            registerTimeText.text = recommendObject.getString("regdate")
+            loginTimeText.text = recommendObject.getString("logindate")
+            yjText.text = recommendObject.getString("yeji") + "$"
+            if (recommendObject.getString("status") == "1") {
+                statusText.text = "是"
+            } else {
+                statusText.text = "否"
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }

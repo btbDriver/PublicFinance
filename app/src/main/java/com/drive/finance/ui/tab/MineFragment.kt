@@ -144,27 +144,40 @@ class MineListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     }
 
     fun setItems(financeObject: JSONObject) {
-        titleText.text = financeObject.getString("title")
-        if (financeObject.getString("type") == "1") {
-            typeText.text = "定期"
-            fbText.visibility = View.VISIBLE
-        } else {
-            typeText.text = "活期"
-            fbText.visibility = View.GONE
-        }
-        if (financeObject.getString("open") == "1") {
-            openText.text = "已支付"
-        } else {
-            openText.text = "未支付"
-        }
-        moneyText.text = financeObject.getString("money") + "$"
-        dayIncomeText.text = financeObject.getString("interest") + "$"
-        daysText.text = financeObject.getString("days")
-        incomeDaysText.text = financeObject.getString("doday")
-        totalIncomeText.text = financeObject.getString("total")
+        try {
+            titleText.text = financeObject.getString("title")
+            if (financeObject.getString("type") == "1") {
+                typeText.text = "定期"
+                fbText.visibility = View.VISIBLE
+                daysText.text = financeObject.getString("days")
 
-        submitText.onClick {
-            RxBus.get().post(CreatePickFragmentEvent("0"))
+                if (financeObject.getString("doday").toDouble() >= financeObject.getString("days").toDouble()) {
+                    submitText.setBackgroundResource(R.drawable.view_back_blue)
+                    submitText.isClickable = true
+                } else {
+                    submitText.setBackgroundResource(R.drawable.view_back_eable)
+                    submitText.isClickable = false
+                }
+            } else {
+                typeText.text = "活期"
+                fbText.visibility = View.GONE
+                daysText.text = "随取"
+            }
+            if (financeObject.getString("open") == "1") {
+                openText.text = "已支付"
+            } else {
+                openText.text = "未支付"
+            }
+            moneyText.text = financeObject.getString("number") + "$"
+            dayIncomeText.text = financeObject.getString("interest") + "$"
+            incomeDaysText.text = financeObject.getString("doday")
+            totalIncomeText.text = financeObject.getString("total")
+
+            submitText.onClick {
+                RxBus.get().post(CreatePickFragmentEvent("0"))
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }

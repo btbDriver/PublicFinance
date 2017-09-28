@@ -54,7 +54,7 @@
                 android:textColor="@color/f3"
                 android:background="@drawable/edit_back_gray"
                 android:padding="5dp"
-                android:inputType="numberPassword"
+                android:inputType="textPassword"
                 android:hint="请输入原始密码"
                 />
         </LinearLayout>
@@ -83,7 +83,7 @@
                 android:textColor="@color/f3"
                 android:background="@drawable/edit_back_gray"
                 android:padding="5dp"
-                android:inputType="numberPassword"
+                android:inputType="textPassword"
                 android:hint="请输入新密码"
                 />
         </LinearLayout>
@@ -112,7 +112,7 @@
                 android:textColor="@color/f3"
                 android:background="@drawable/edit_back_gray"
                 android:padding="5dp"
-                android:inputType="numberPassword"
+                android:inputType="textPassword"
                 android:hint="请输入新密码"
                 />
         </LinearLayout>

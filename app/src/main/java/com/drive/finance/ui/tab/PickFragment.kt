@@ -174,25 +174,29 @@ class BankViewHolder1(itemView: View): RecyclerView.ViewHolder(itemView) {
     }
 
     fun setItems(bankObject: JSONObject) {
-        bankText.text = bankObject.getString("bank")
-        bankUserText.text = bankObject.getString("bankuser")
-        bankCardText.text = bankObject.getString("bankcard")
+        try {
+            bankText.text = bankObject.getString("bank")
+            bankUserText.text = bankObject.getString("bankuser")
+            bankCardText.text = bankObject.getString("bankcard")
 
-        itemView.onClick {
-            RxBus.get().post(CreateFinancePickFragmentEvent(bankObject))
-        }
-
-        delImageView.onClick {
-            try {
-                apiClient.sendDelBank(bankObject.getString("id"))
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ resultModel ->
-                            RxBus.get().post(RefreshBankListEvent(""))
-                        }, {})
-            } catch (e: Exception) {
-                e.printStackTrace()
+            itemView.onClick {
+                RxBus.get().post(CreateFinancePickFragmentEvent(bankObject))
             }
+
+            delImageView.onClick {
+                try {
+                    apiClient.sendDelBank(bankObject.getString("id"))
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe({ resultModel ->
+                                RxBus.get().post(RefreshBankListEvent(""))
+                            }, {})
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }

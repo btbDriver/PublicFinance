@@ -107,13 +107,17 @@ class FinancePickFragment : BaseFragment() {
             }
         }
 
-        bankUserText.text = bankObject.getString("bankuser")
-        bankText.text = "【" + bankObject.getString("bank") + "】"
-        bankCardText.text = bankObject.getString("bankcard")
-        prvoText.text = bankObject.getString("prvo")
-        cityText.text = bankObject.getString("city")
-        telText.text = bankObject.getString("tel")
-        bankAddressText.text = bankObject.getString("bankaddress")
+        try {
+            bankUserText.text = bankObject.getString("bankuser")
+            bankText.text = "【" + bankObject.getString("bank") + "】"
+            bankCardText.text = bankObject.getString("bankcard")
+            prvoText.text = bankObject.getString("prvo")
+            cityText.text = bankObject.getString("city")
+            telText.text = bankObject.getString("tel")
+            bankAddressText.text = bankObject.getString("bankaddress")
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
 

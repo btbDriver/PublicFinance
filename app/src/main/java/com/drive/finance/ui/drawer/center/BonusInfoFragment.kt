@@ -106,18 +106,22 @@ class BonusViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     }
 
     fun setItems(bonusObject: JSONObject) {
-        if (bonusObject.getString("type") == "101") {
-            titleText.text = "客户佣金"
-        } else if (bonusObject.getString("type") == "102") {
-            titleText.text = "日收益"
-        } else if (bonusObject.getString("type") == "107") {
-            titleText.text = "经理佣金"
+        try {
+            if (bonusObject.getString("type") == "101") {
+                titleText.text = "客户佣金"
+            } else if (bonusObject.getString("type") == "102") {
+                titleText.text = "日收益"
+            } else if (bonusObject.getString("type") == "107") {
+                titleText.text = "经理佣金"
+            }
+            allinText.text = bonusObject.getString("allin")
+            gpText.text = bonusObject.getString("gp")
+            rebuyText.text = bonusObject.getString("rebuy")
+            infoText.text = bonusObject.getString("info")
+            dateText.text = bonusObject.getString("date")
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-        allinText.text = bonusObject.getString("allin")
-        gpText.text = bonusObject.getString("gp")
-        rebuyText.text = bonusObject.getString("rebuy")
-        infoText.text = bonusObject.getString("info")
-        dateText.text = bonusObject.getString("date")
     }
 }
 

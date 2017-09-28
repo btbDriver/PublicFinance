@@ -183,7 +183,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="以收益天数:"
+                android:text="已收益天数:"
                 android:textColor="@color/f2"
                 android:textSize="13sp"
                 android:gravity="center"

@@ -165,45 +165,48 @@ class FinanceViewHolder2(itemView: View): RecyclerView.ViewHolder(itemView) {
     }
 
     fun setItems(finance: Finance) {
-
-        titleText.text = finance.title
-        if (finance.status == "0") {
-            statusText.text = "OPEN"
-        } else {
-            statusText.text = "CLOSE"
-        }
-        dayIncomeText.text = finance.interest
-
-        partText.onClick {
-            val builder = AlertDialog.Builder(itemView.context)
-            val rootView = LayoutInflater.from(itemView.context).inflate(R.layout.finance_part_layout, null, false)
-            (rootView.findViewById(R.id.nameText) as TextView).text = finance.title
-            var dialog: AlertDialog ?= null
-            rootView.findViewById(R.id.closeDialog).onClick {
-                dialog?.dismiss()
+        try {
+            titleText.text = finance.title
+            if (finance.status == "0") {
+                statusText.text = "OPEN"
+            } else {
+                statusText.text = "CLOSE"
             }
-            rootView.findViewById(R.id.submitDialog).onClick {
-                try {
-                    val money = (rootView.findViewById(R.id.moneyEdit) as EditText).text.toString()
-                    if (TextUtils.isEmpty(money)) {
-                        Toast.makeText(partText.context, "请输入金额", Toast.LENGTH_SHORT).show()
-                        return@onClick
-                    }
-                    apiClient.requestPayInfoData(finance.id, money)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe({ payModel ->
-                                dialog?.dismiss()
-                                payModel.goodsId = finance.id
-                                RxBus.get().post(CreatePayFragmentEvent(payModel))
-                            }, {})
-                } catch (e: Exception) {
-                    e.printStackTrace()
+            dayIncomeText.text = finance.interest
+
+            partText.onClick {
+                val builder = AlertDialog.Builder(itemView.context)
+                val rootView = LayoutInflater.from(itemView.context).inflate(R.layout.finance_part_layout, null, false)
+                (rootView.findViewById(R.id.nameText) as TextView).text = finance.title
+                var dialog: AlertDialog ?= null
+                rootView.findViewById(R.id.closeDialog).onClick {
+                    dialog?.dismiss()
                 }
-            }
-            builder.setView(rootView)
+                rootView.findViewById(R.id.submitDialog).onClick {
+                    try {
+                        val money = (rootView.findViewById(R.id.moneyEdit) as EditText).text.toString()
+                        if (TextUtils.isEmpty(money)) {
+                            Toast.makeText(partText.context, "请输入金额", Toast.LENGTH_SHORT).show()
+                            return@onClick
+                        }
+                        apiClient.requestPayInfoData(finance.id, money)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe({ payModel ->
+                                    dialog?.dismiss()
+                                    payModel.goodsId = finance.id
+                                    RxBus.get().post(CreatePayFragmentEvent(payModel))
+                                }, {})
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+                builder.setView(rootView)
 
-            dialog = builder.show()
+                dialog = builder.show()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }

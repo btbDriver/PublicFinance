@@ -129,16 +129,20 @@ class BonusListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     }
 
     fun setItem(dataObject: JSONObject) {
-        bonusData.text = dataObject.getString("date")
-        userBonusText.text = dataObject.getDouble("101").toString() + "$"
-        dayIncomeText.text = dataObject.getDouble("102").toString() + "$"
-        managerBonusText.text = dataObject.getDouble("107").toString() + "$"
-        allinText.text = dataObject.getDouble("allin").toString() + "$"
-        gpText.text = dataObject.getDouble("gp").toString() + "$"
-        rebuyText.text = dataObject.getDouble("rebuy").toString()
+        try {
+            bonusData.text = dataObject.getString("date")
+            userBonusText.text = dataObject.getDouble("101").toString() + "$"
+            dayIncomeText.text = dataObject.getDouble("102").toString() + "$"
+            managerBonusText.text = dataObject.getDouble("107").toString() + "$"
+            allinText.text = dataObject.getDouble("allin").toString() + "$"
+            gpText.text = dataObject.getDouble("gp").toString() + "$"
+            rebuyText.text = dataObject.getDouble("rebuy").toString()
 
-        detailText.onClick {
-            RxBus.get().post(CreateBonusInfoFragmentEvent(dataObject.getString("date")))
+            detailText.onClick {
+                RxBus.get().post(CreateBonusInfoFragmentEvent(dataObject.getString("date")))
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }

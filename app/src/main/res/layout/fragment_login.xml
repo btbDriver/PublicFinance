@@ -92,7 +92,7 @@
                     android:textColor="@color/f3"
                     android:textSize="13sp"
                     android:padding="8dp"
-                    android:inputType="numberPassword"
+                    android:inputType="textPassword"
                     android:background="@drawable/edit_back_gray"
                     android:layout_gravity="center_vertical"
                     />
