@@ -7,10 +7,14 @@ import android.view.ViewGroup
 import com.drive.finance.R
 import com.drive.finance.base.BaseFragment
 import com.drive.finance.widget.SimpleTitleBar
+import com.drive.finance.widget.StatusLayout
 import org.jetbrains.anko.onClick
 
 class PublicCreditFragment : BaseFragment() {
 
+    val containerLayout by lazy {
+        view?.findViewById(R.id.containerLayout) as StatusLayout
+    }
     val simpleTitleBar by lazy {
         view?.findViewById(R.id.simpleTitleBar) as SimpleTitleBar
     }
@@ -27,6 +31,8 @@ class PublicCreditFragment : BaseFragment() {
         simpleTitleBar.backLayout!!.onClick {
             pop()
         }
+
+        containerLayout.showEmpty()
     }
 }
 

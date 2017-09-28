@@ -59,8 +59,12 @@ class CardFragment : BaseFragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ jsonObject ->
-                    pointText.text = "众卡积分" + jsonObject.getString("rebuy")
-                    kdText.text = jsonObject.getString("kd")
+                    try {
+                        pointText.text = "众卡积分" + jsonObject.getString("rebuy")
+                        kdText.text = jsonObject.getString("kd")
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
                 }, {})
     }
 }
