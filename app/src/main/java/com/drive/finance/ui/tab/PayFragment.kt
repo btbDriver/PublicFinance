@@ -1,6 +1,9 @@
 package com.drive.finance.ui.tab
 
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +20,8 @@ import org.jetbrains.anko.onClick
 import android.webkit.WebViewClient
 import android.webkit.WebChromeClient
 import android.widget.ProgressBar
+import com.drive.finance.ShowMineEvent
+import com.hwangjr.rxbus.RxBus
 
 class PayFragment : BaseFragment() {
 
@@ -87,6 +92,15 @@ class PayFragment : BaseFragment() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                 view.loadUrl(url)
                 return true
+            }
+
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                if (!TextUtils.isEmpty(url) && url!!.contains("http://www.dazhongcf.com/Home/financial/myfin.html")) {
+                    pop()
+                    RxBus.get().post(ShowMineEvent(""))
+                } else {
+                    super.onPageStarted(view, url, favicon)
+                }
             }
         })
 

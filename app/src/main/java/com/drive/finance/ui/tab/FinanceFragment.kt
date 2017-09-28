@@ -35,6 +35,7 @@ class FinanceFragment : BaseFragment() {
     val apiClient by lazy {
         APIClient()
     }
+    lateinit var financeAdapter: FinanceAdapter
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -46,7 +47,7 @@ class FinanceFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        val financeAdapter = FinanceAdapter()
+        financeAdapter = FinanceAdapter()
         recyclerView.adapter = financeAdapter
 
         if (arguments.getBoolean("isTitleBarVisible")) {
@@ -59,6 +60,10 @@ class FinanceFragment : BaseFragment() {
             simpleTitleBar.visibility = View.GONE
         }
 
+        refresh()
+    }
+
+    fun refresh() {
         try {
             apiClient.requestCenterFinanceData()
                     .subscribeOn(Schedulers.io())

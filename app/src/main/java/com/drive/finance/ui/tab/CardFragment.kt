@@ -55,6 +55,10 @@ class CardFragment : BaseFragment() {
             Toast.makeText(context, "您还未达到申请条件", Toast.LENGTH_SHORT).show()
         }
 
+        refresh()
+    }
+
+    fun refresh() {
         apiClient.reuqestFinanceCardData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

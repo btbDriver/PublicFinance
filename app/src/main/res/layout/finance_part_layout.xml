@@ -167,6 +167,7 @@
                 android:paddingBottom="6dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:inputType="number"
                 android:background="@drawable/view_back_blue"
                 />
         </LinearLayout>

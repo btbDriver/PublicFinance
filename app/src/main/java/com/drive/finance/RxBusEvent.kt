@@ -27,3 +27,5 @@ data class CreatePayFragmentEvent(val payModel: PayModel)
 data class RefreshBankListEvent(val sender: String)
 
 data class LoginSuccessEvent(val uid: String, val userNum: String)
+
+data class ShowMineEvent(val sender: String)

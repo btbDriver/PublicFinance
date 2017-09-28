@@ -110,6 +110,10 @@ class MainFragment : BaseFragment() {
             RxBus.get().post(CreateSuggestFragmentEvent(""))
         }
 
+        refresh()
+    }
+
+    fun refresh() {
         try {
             apiClient.requestHomeData()
                     .subscribeOn(Schedulers.io())

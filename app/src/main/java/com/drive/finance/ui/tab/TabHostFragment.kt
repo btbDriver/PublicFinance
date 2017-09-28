@@ -9,7 +9,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.drive.finance.R
+import com.drive.finance.ShowMineEvent
 import com.drive.finance.base.BaseFragment
+import com.hwangjr.rxbus.annotation.Subscribe
 import org.jetbrains.anko.*
 
 
@@ -92,21 +94,25 @@ class TabHostFragment : BaseFragment() {
         mainLayout.onClick {
             showHideFragment(mainFragment)
             showPosition(0)
+            mainFragment.refresh()
         }
 
         financeLayout.onClick {
             showHideFragment(financeFragment)
             showPosition(1)
+            financeFragment.refresh()
         }
 
         mineLayout.onClick {
             showHideFragment(mineFragment)
             showPosition(2)
+            mineFragment.refresh()
         }
 
         cardLayout.onClick {
             showHideFragment(cardFragment)
             showPosition(3)
+            cardFragment.refresh()
         }
     }
 
@@ -153,6 +159,14 @@ class TabHostFragment : BaseFragment() {
     fun showFinanceListFragmentEvent() {
         showHideFragment(financeFragment)
         showPosition(1)
+        financeFragment.refresh()
+    }
+
+    @Subscribe
+    fun onShowMineEvent(event: ShowMineEvent) {
+        showHideFragment(mineFragment)
+        showPosition(2)
+        mainFragment.refresh()
     }
 }
 
