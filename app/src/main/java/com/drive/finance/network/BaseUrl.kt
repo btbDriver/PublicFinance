@@ -70,6 +70,8 @@ class BaseUrl {
          */
         // 我的投资
         val FINANCE_MINE_API = BASE_URL + "Financial/myfinApp?action=API"
+        // 众卡贷
+        val FINANCE_CARD_API = BASE_URL + "User/agentlineApp?action=API&uid=1"
 
         /**
          * 登录

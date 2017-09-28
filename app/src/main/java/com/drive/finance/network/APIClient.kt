@@ -296,6 +296,15 @@ class APIClient {
         return netClient.doGetRequestArray(BaseUrl.FINANCE_MINE_API, paramsMap)
     }
 
+    /**
+     * 众卡贷
+     */
+    fun reuqestFinanceCardData(): Observable<JSONObject> {
+        val paramsMap = HashMap<String, String>()
+        paramsMap.put("uid", uid)
+        return netClient.doGetRequest(BaseUrl.FINANCE_CARD_API, paramsMap)
+    }
+
 
     // #######################################################
 
