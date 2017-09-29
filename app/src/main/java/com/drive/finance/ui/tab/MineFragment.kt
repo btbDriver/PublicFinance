@@ -162,6 +162,8 @@ class MineListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
                 typeText.text = "活期"
                 fbText.visibility = View.GONE
                 daysText.text = "随取"
+                submitText.setBackgroundResource(R.drawable.view_back_blue)
+                submitText.isClickable = true
             }
             if (financeObject.getString("open") == "1") {
                 openText.text = "已支付"
